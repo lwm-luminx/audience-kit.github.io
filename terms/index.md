@@ -9,11 +9,11 @@ These terms are an agreement between you and {{ site.legal_name }} ("we", "us").
 
 ## Who can use the apps
 
-You must be at least 18, or older if your local law sets a higher age, and able to make a binding agreement. You sign in with Facebook, so you must also follow Facebook's terms.
+You must be at least 18 years old, or older if your local law sets a higher age, and able to make a binding agreement. The apps are not for anyone under 18. You sign in with Apple (Sign in with Apple) or with Facebook, so you must also follow the terms of the one you use.
 
 ## Your account
 
-Keep your Facebook account secure; anything done with your account is your responsibility. Tell us at once at [{{ site.contact_email }}](mailto:{{ site.contact_email }}) if you think it has been misused.
+Keep your Apple ID or Facebook account secure; anything done with your account is your responsibility. Tell us at once at [{{ site.contact_email }}](mailto:{{ site.contact_email }}) if you think it has been misused.
 
 ## Using the apps
 
@@ -26,6 +26,14 @@ Be a good neighbour. Don't:
 - scrape, overload, reverse engineer or interfere with the apps, except as the law allows.
 
 We can remove content or suspend accounts that break these rules.
+
+## Zero tolerance for objectionable content and abusive users
+
+There is no tolerance for objectionable content or abusive users in the apps. This includes harassment, threats, hate speech, sexually explicit content, and spam.
+
+- You can report a message or a person from inside the app, and block anyone so you no longer see them.
+- We review every report within 24 hours. When content breaks these terms, we remove it and eject the person who posted it: we ban them from the audience, and from the apps if needed.
+- Some audiences also check chat messages automatically, including with AI moderation (see our [privacy policy]({{ '/privacy/' | relative_url }})), and can remove a message before anyone reports it.
 
 ## Venues, events and listings
 
