@@ -17,15 +17,21 @@ The apps use Facebook Login. When you sign in, Facebook shares the information y
 
 - your name, first and last name, profile picture and email address;
 - an app-scoped Facebook ID, an ID that is the same across our own Facebook apps (so you keep one account if you sign in through more than one of them), and a sign-in token, so we can keep you signed in;
-- in Hot Mess, which of your Facebook friends also use Hot Mess, so you can see friends at the same venue;
+- in Hot Mess, your Facebook friend list (your contacts there), which we use only to find which of your friends also use Hot Mess, so you can see friends at the same venue;
 - on AudienceKit, the list of Facebook Pages you manage, if you are a venue or organizer setting up an audience, so you can choose which Page to link.
 
 We never post to Facebook for you, and we never see your Facebook password.
 
+### When you sign in with Apple
+
+You can sign in with Apple instead. Apple shares a stable ID for you, and the name and email address you choose to share the first time you sign in; if you choose Hide My Email, we get an address that forwards to you. So that deleting your account also ends the app's access to your Apple ID, we keep a sign-in token from Apple, encrypted, and revoke it with Apple when you delete your account. We never see your Apple ID password. You can connect Facebook later to see your friends.
+
 ### When you use the apps
 
-- **Location.** If you allow it, the app sends your location while you use it, so we can show nearby venues and events and, when you choose to, check you in at a venue. Some venues use Bluetooth beacons for this. You can turn location off in your device settings at any time; the apps still work, but you'll have to pick a city yourself.
-- **Activity in the app.** Events you RSVP to, venues you check in at, messages you send to a venue, and safety pings you send.
+- **Location.** If you allow it, the app sends your location while you use it, so we can show nearby venues and events and, when you choose to, check you in at a venue. If you also allow location **Always** (in the background), Hot Mess uses it when the app isn't open too: the device tells the app when you arrive at or leave a venue's area (a geofence) or move a significant distance, so it can show you at the venue, to your friends and in its chat, without you opening the app. Some venues use Bluetooth beacons for this. You can change this to "While Using the App" or turn location off in your device settings at any time; the apps still work, but you'll have to pick a city yourself.
+- **Activity in the app.** Events you RSVP to, venues you check in at, messages you send in venue and city chats, reports and blocks you make, and safety pings you send.
+- **How you use the app.** Product interaction events, such as the venues, events and screens you view and the features you use, linked to your account, so we can improve the apps and find problems.
+- **Support requests.** When you use "Report a problem" or email us, what you write, your email address if you give it, and details about the app and your device (version, model, recent errors) so we can fix it.
 - **Device and connection.** Your device model and type, an app-specific device identifier, the app version, and the IP address of each session.
 
 ### Public information about venues, events and people
@@ -51,6 +57,7 @@ We don't sell your information, we don't use it for advertising, and we don't sh
 ## Who we share it with
 
 - **Other members of the same audience** see what you choose to make visible in the app, for example your name and picture when you RSVP or check in, and friends who also use the app may see that you're at the same venue.
+- **Anthropic (Claude), for AI moderation.** An audience can turn on automated moderation of its chats. Where it does, the chat messages you send in that audience's venue and city chats are sent, without your name or profile, to Anthropic's Claude AI models to check them against the community rules. A message that breaks them can be removed, or passed to the audience's moderators, and its sender removed from the chat. Anthropic processes them for us only to provide this service. Not every audience uses it.
 - **Service providers** that host and run the service for us, under contracts that limit their use of the data to providing that service: Heroku (hosting), Amazon Web Services (cloud infrastructure, including photo storage through Heroku, with our copy of your profile picture, and Kinesis, which streams app activity such as venue views and location updates), Stripe and Square (payments), Eventbrite and Ticketmaster (when an organizer connects their account, we store the OAuth tokens it grants so we can sync their events), Firebase Cloud Messaging and Apple Push Notification service (push notifications), New Relic (performance monitoring) and Twilio (text messages).
 - **Google Analytics**, on our websites (audiencekit.com, developer.audiencekit.com and hotmess.social) and in the admin console, to count visits and see which pages people use. It sets first-party cookies and receives your IP address and browser details. We don't link it to your account or use it for advertising. You can opt out with Google's [browser add-on](https://tools.google.com/dlpage/gaoptout).
 - **Meta (Facebook)**, when you sign in with Facebook or when we request public Page information, under Meta's own terms and privacy policy.
@@ -58,7 +65,7 @@ We don't sell your information, we don't use it for advertising, and we don't sh
 
 ## How long we keep it
 
-We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. When you delete your account, we delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, RSVPs and messages within 30 days, except where we must keep something to meet a legal obligation.
+We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. When you delete your account, we delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, RSVPs, messages and comments within 30 days, and revoke the app's access to your Apple ID if you signed in with Apple, except where we must keep something to meet a legal obligation. Reports other people made about your messages are kept for the audience's moderators, without the link to your account.
 
 ## Your choices and rights
 

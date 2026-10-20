@@ -8,7 +8,7 @@ baseurl: ""
 lang: en_US
 
 docs_url: https://developer.audiencekit.com
-github_url: https://github.com/audience-kit
+github_url: https://github.com/lwm-luminx
 contact_email: hello@audiencekit.com
 
 # Google Analytics 4 measurement id (AudienceKit property; the same stream covers the docs and console).
@@ -31,7 +31,7 @@ exclude:
 # Legal pages (privacy, terms, data deletion).
 legal_name: Love Wins Media Inc.
 governing_law: the State of Washington, USA
-legal_updated: 2026-10-08
+legal_updated: 2026-10-16
 
 # Parent brand: the "A Love Wins Media product" band (top of every page) and footer line.
 parent_name: Love Wins Media
