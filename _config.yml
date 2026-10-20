@@ -26,6 +26,7 @@ exclude:
   - Gemfile.lock
   - mise.toml
   - vendor
+  - scripts
 
 # Legal pages (privacy, terms, data deletion).
 legal_name: Love Wins Media Inc.

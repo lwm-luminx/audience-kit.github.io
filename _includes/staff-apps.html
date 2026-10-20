@@ -1,0 +1,6 @@
+<div class="product-grid">
+  {%- for app in site.data.staff_apps %}
+  {%- assign path = '/apps/' | append: app.slug | append: '/' | relative_url %}
+  <article class="product"><a class="product-art" href="{{ path }}"><img src="{{ app.image | relative_url }}" alt="{{ app.alt }}" width="1254" height="1254" loading="lazy"></a><div class="product-copy"><span class="eyebrow">{{ app.role }}</span><h3><a href="{{ path }}">{{ app.name }}</a></h3><p>{{ app.summary }} {{ app.blurb }}</p>{% include store-buttons.html app=app %}<a class="product-stable" href="{{ path }}">audiencekit.com/apps/{{ app.slug }}</a></div></article>
+  {%- endfor %}
+</div>
