@@ -1,0 +1,5 @@
+---
+import site from '../data/config.json';
+import apps from '../data/staff_apps.json';
+---
+<footer class="site-footer"><div class="wrap footer-inner"><div><a class="wordmark" href={'/'}>AudienceKit</a><p>Make a Scene.</p></div><nav aria-label="Footer">{apps.map((app) => (<><a href={`${'/apps/' + app.slug + '/'}`}>{app.name}</a></>))}<a href={site.docs_url}>Developer docs</a><a href={site.github_url}>GitHub</a><a href={`mailto:${site.contact_email}`}>{site.contact_email}</a><a href={'/privacy/'}>Privacy</a><a href={'/terms/'}>Terms</a><a href={'/data-deletion/'}>Delete your data</a></nav><p class="parent-line"><a href={site.parent_url} target="_blank" rel="noopener"><span class="parent-heart" aria-hidden="true">&hearts;</span> A {site.parent_name} product</a></p><p class="copyright">&copy; {new Date().getFullYear()} {site.legal_name}</p></div></footer>

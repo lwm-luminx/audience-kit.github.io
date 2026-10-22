@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Default.astro';
+import site from '../data/config.json';
+import StaffApps from '../components/StaffApps.astro';
+import AudiencePreview from '../components/AudiencePreview.astro';
+---
+<Layout title="Make a Scene" description="Bring the places, events and people of your subculture into focus. Give your scene its own app with AudienceKit." image="/assets/brand/focus.png">
+
+<section class="hero-scene" aria-labelledby="hero-title">
+  <img class="hero-background" src={'/assets/brand/scene-background-v2.png'} width="1672" height="941" alt="" fetchpriority="high">
+  <div class="hero wrap">
+  <div class="hero-copy">
+    <p class="eyebrow"><span></span> A home for your subculture</p>
+    <h1 id="hero-title">Make a<br><em>Scene.</em></h1>
+    <p class="hero-intro">Places. Events. People.<br>Everything that brings you together.</p>
+    <p class="hero-detail">AudienceKit connects the scattered pieces of a scene into an app that feels like yours.</p>
+    <div class="actions"><a class="button primary" href={`mailto:${site.contact_email}?subject=Make%20a%20Scene`}>Build your scene <span aria-hidden="true">↗</span></a><a class="text-link" href="#the-kit">Get the staff apps <span aria-hidden="true">↓</span></a></div>
+  </div>
+  <AudiencePreview />
+  </div>
+</section>
+<div class="scene-strip" aria-label="What makes a scene"><div class="wrap"><span>Places worth knowing</span><i aria-hidden="true">✦</i><span>Events worth finding</span><i aria-hidden="true">✦</i><span>Things worth following</span></div></div>
+<section class="section wrap scene" id="features" aria-labelledby="scene-title">
+  <div><p class="eyebrow">Bring it into focus</p><h2 id="scene-title">A scene is more<br>than a listing.</h2></div>
+  <div class="scene-copy"><p class="large-copy">It’s the connection between a place, an event, and the people who make it matter.</p><p>Those details live everywhere. AudienceKit brings venues, events, talent and photos together, so your community can see the whole picture.</p><p>Your own name, domain and look. A shared foundation underneath.</p></div>
+  <div class="feature-row"><article><span class="feature-number">01 / PLACES</span><h3>Know where to go.</h3><p>The venues, gathering spots and spaces that define your community, connected by city and neighborhood.</p></article><article><span class="feature-number">02 / EVENTS</span><h3>Find what’s happening.</h3><p>From exhibitions and meetups to festivals and performances, bring the moments that matter into view.</p></article><article><span class="feature-number">03 / PEOPLE</span><h3>Find your people.</h3><p>Connect with the artists, organizers, creators and familiar faces who make your community yours.</p></article></div>
+</section>
+<section class="section capabilities" id="what-you-get" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What you get</p>
+      <h2 class="capability-title" id="features-title">Everything a scene needs, on one platform</h2>
+      <p class="capability-intro">Each audience is its own place with its own people. The plumbing underneath is shared, so a new one is ready on day one.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2Z"/></svg></div>
+        <h3 >Your name, your domain, your look</h3>
+        <p>Every audience gets its own domain, accent colour and spectrum. Members see your community, not ours.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3 >The places that matter</h3>
+        <p>Map the venues, gathering spots and spaces where your people go, grouped by city and neighbourhood.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3 >Events and tickets</h3>
+        <p>Publish events, bring in listings from Facebook, Eventbrite and Ticketmaster, and let members RSVP.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 >The people who make the scene</h3>
+        <p>Give artists, DJs, performers and hosts a page, and let members follow them, find friends and get together.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3"/></svg></div>
+        <h3 >Photos from your events</h3>
+        <p>Photographers share their sets straight to the audiences they shoot for, so members can find themselves after the event.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div>
+        <h3 >An admin console of your own</h3>
+        <p>Organizers run their audience from its own console, skinned in its colours, with no admin experience needed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="capability-title" id="how-title">From idea to app in three steps</h2>
+    </div>
+    <div class="capability-grid steps">
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3 >Name your audience</h3>
+        <p>Pick a name, a domain and a tagline in your own voice.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3 >Make it yours</h3>
+        <p>Choose a preset, then set your accent and spectrum. We check every colour for contrast so it stays readable.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3 >Fill it with life</h3>
+        <p>Add venues, events and people. We help keep listings fresh by finding new events as they're announced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kit-section" id="the-kit" aria-labelledby="kit-title"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow">The AudienceKit apps · iPhone, iPad &amp; Android</p><h2 id="kit-title">For the whole scene.<br>And everyone behind it.</h2></div><p>One connected foundation.<br>A place for every role.<br><a class="text-link" href={'/apps/'}>Get the apps <span aria-hidden="true">→</span></a></p></div>
+  <StaffApps />
+</div></section>
+<section class="section wrap hot-mess" id="hot-mess" aria-labelledby="hot-mess-title"><div class="hot-mess-art"><div class="phone-launcher"><div class="launcher-neighbor launcher-top-left" aria-hidden="true"></div><div class="launcher-neighbor launcher-top" aria-hidden="true"></div><div class="launcher-neighbor launcher-top-right" aria-hidden="true"></div><div class="launcher-neighbor launcher-left" aria-hidden="true"></div><div class="launcher-neighbor launcher-right" aria-hidden="true"></div><div class="launcher-neighbor launcher-bottom-left" aria-hidden="true"></div><div class="launcher-neighbor launcher-bottom" aria-hidden="true"></div><div class="launcher-neighbor launcher-bottom-right" aria-hidden="true"></div><div class="hot-mess-lockup"><img src={'/assets/brand/hotmess.png'} width="1024" height="1024" alt="" loading="lazy"><span class="hot-mess-name">Hot Mess</span></div></div></div><div class="hot-mess-copy"><p class="eyebrow">A scene of its own</p><h2 id="hot-mess-title">Meet Hot Mess.</h2><p class="large-copy">Queer nights out,<br>all in one place.</p><p>Hot Mess brings local venues, events, performers and event photos together. It’s built on AudienceKit, with an identity and community all its own.</p><a class="text-link" href="https://hotmess.social">Step into Hot Mess <span aria-hidden="true">↗</span></a></div></section>
+<section class="developer-section" id="developers" aria-labelledby="developer-title"><div class="wrap developer-grid"><div><p class="eyebrow">Your scene. Your build.</p><h2 id="developer-title">Made to connect.</h2><p>Build your own experience on the same foundation. Explore the GraphQL API and SDKs in the developer docs.</p><a class="text-link" href={site.docs_url}>Explore the docs <span aria-hidden="true">↗</span></a></div><pre aria-label="Example GraphQL query"><code is:raw><span class="code-muted"># Bring the pieces together.</span>
+<span class="code-accent">query</span> {
+  name
+  locales {
+    name
+    events { name startAt }
+    venues { page { name } }
+  }
+}</code></pre></div></section>
+<section class="section wrap closing" aria-labelledby="closing-title"><p class="eyebrow">You bring the people.</p><h2 id="closing-title">Let’s make<br><em>your scene.</em></h2><p>Tell us about the community you’re building.<br>We’ll help you bring it into focus.</p><a class="button primary" href={`mailto:${site.contact_email}?subject=Make%20a%20Scene`}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>

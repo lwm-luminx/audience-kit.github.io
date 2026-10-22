@@ -1,23 +1,33 @@
 # AudienceKit website
 
-Jekyll source for [audiencekit.com](https://audiencekit.com/).
-
-The website presents AudienceKit and its Focus (Admin / Platform), Velvet
-(Venues), and Backstage (Performers / People) apps. Featured audience preview
-content lives in `_data/featured_audiences.yml`.
+Astro source for [audiencekit.com](https://audiencekit.com/), deployed to Cloudflare Workers with Wrangler static assets.
 
 ## Local development
 
-With Ruby 3.3 or newer:
+Use Node.js 24 (or `mise install`):
 
 ```sh
-bundle install
-bundle exec jekyll serve
+npm ci
+npm run dev
 ```
 
-Build with `JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter`.
-Pushing to `main` publishes through the existing GitHub Pages workflow.
+`npm run check` checks Astro and TypeScript. `npm run build` generates the static site in `dist/`. `npm run preview` serves the build; `npm run preview:cloudflare` builds and previews Cloudflare routing locally.
 
-## Staff app links
+## Deployment
 
-`/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are the stable links for QR codes and posters: phones go straight to TestFlight (iPhone/iPad) or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. The store URLs live in `_data/staff_apps.yml`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `assets/qr/*.svg` after adding an app.
+```sh
+npx wrangler login
+npm run deploy
+```
+
+Wrangler runs the Astro build before deploying the `dist/` assets to the `audience-kit-github-io` Worker. Unknown URLs serve the custom 404 page with a 404 status. The configured canonical site URL is `https://audiencekit.com`.
+
+The GitHub Actions workflow checks and builds pull requests, and deploys pushes to `main` or manual runs. Configure repository secrets `CLOUDFLARE_API_TOKEN` (Workers deployment access) and `CLOUDFLARE_ACCOUNT_ID` for automated deployments. Custom domains are managed in the Cloudflare Worker settings; deploying the Worker alone does not move an existing domain from GitHub Pages.
+
+## Content and staff app links
+
+Pages live in `src/pages/`, shared markup in `src/components/` and `src/layouts/`, and static assets in `public/assets/`. Site settings are in `src/data/config.json`; the featured audience preview is in `src/data/featured_audiences.json`.
+
+`/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are stable links for QR codes and posters: phones go straight to TestFlight (iPhone/iPad) or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. Store URLs live in `src/data/staff_apps.json`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `public/assets/qr/*.svg` after adding an app (requires `segno`).
+
+Legal copy is Markdown in `src/pages/privacy/`, `src/pages/terms/`, and `src/pages/data-deletion/`. Google Analytics runs only in production builds.

@@ -1,0 +1,10 @@
+---
+import apps from '../data/staff_apps.json';
+import StoreButtons from './StoreButtons.astro';
+---
+<div class="product-grid">
+  {apps.map((app) => (<>
+  
+  <article class="product"><a class="product-art" href={`${'/apps/' + app.slug + '/'}`}><img src={app.image} alt={app.alt} width="1254" height="1254" loading="lazy"></a><div class="product-copy"><span class="eyebrow">{app.role}</span><h3><a href={`${'/apps/' + app.slug + '/'}`}>{app.name}</a></h3><p>{app.summary} {app.blurb}</p><StoreButtons app={app} /><a class="product-stable" href={`${'/apps/' + app.slug + '/'}`}>audiencekit.com/apps/{app.slug}</a></div></article>
+  </>))}
+</div>

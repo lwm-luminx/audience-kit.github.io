@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Default.astro';
+import StoreButtons from '../../components/StoreButtons.astro';
+import apps from '../../data/staff_apps.json';
+import site from '../../data/config.json';
+export function getStaticPaths() { return apps.map(app => ({ params: { slug: app.slug }, props: { app } })); }
+const { app } = Astro.props;
+---
+<Layout title={app.name} description={`Get ${app.name}, the AudienceKit staff app, on iPhone, iPad and Android.`} image={app.image}>
+<script define:vars={{ iosUrl: app.ios_url, androidUrl: app.android_url }}>
+  // The stable link for QR codes: phones go straight to their store, desktops (and ?stay) see both.
+  (function () {
+    if (/[?&]stay\b/.test(location.search)) return;
+    var ua = navigator.userAgent, url = null;
+    if (/android/i.test(ua)) url = androidUrl;
+    else if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) url = iosUrl;
+    if (url) location.replace(url);
+  })();
+</script>
+<section class="app-page wrap" aria-labelledby="app-title">
+  <div class="app-page-art"><img src={app.image} alt={app.alt} width="1254" height="1254" fetchpriority="high"></div>
+  <div class="app-page-copy">
+    <p class="eyebrow">{app.role}</p>
+    <h1 id="app-title">{app.name}</h1>
+    <p class="large-copy">{app.summary}</p>
+    <p>{app.blurb}</p>
+    <StoreButtons app={app} />
+    <div class="app-share">
+      <img src={`${'/assets/qr/' + app.slug + '.svg'}`} width="132" height="132" alt={`QR code for audiencekit.com/apps/${app.slug}`}>
+      <p>Scan with your phone's camera, or share <strong>audiencekit.com/apps/{app.slug}</strong>. It opens TestFlight on iPhone and iPad and Google Play on Android.</p>
+    </div>
+    <p class="app-note">{app.name} is for teams on AudienceKit. Your audience's administrator gives you access. <a class="text-link" href={`mailto:${site.contact_email}?subject=Tell%20me%20about%20${app.name}`}>Ask about {app.name} <span aria-hidden="true">↗</span></a></p>
+  </div>
+</section>
+<nav class="app-siblings wrap" aria-label="Other staff apps"><a href={'/apps/'}>All AudienceKit apps</a>{apps.map((other) => (<>{other.slug !== app.slug && (<><a href={`${'/apps/' + other.slug + '/'}`}><img src={other.image} width="28" height="28" alt="" loading="lazy">{other.name}</a></>)}</>))}</nav>
+
+</Layout>

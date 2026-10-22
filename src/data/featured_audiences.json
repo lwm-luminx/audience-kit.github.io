@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Hot Mess",
+    "icon": "/assets/brand/hotmess.png",
+    "tagline": "Queer nights out, all in one place.",
+    "url": "https://hotmess.social",
+    "filters": [
+      "Tonight",
+      "This weekend",
+      "Capitol Hill"
+    ],
+    "events": [
+      {
+        "month": "OCT",
+        "day": 10,
+        "title": "Friday night at The Wildrose",
+        "detail": "9pm · The Wildrose · Capitol Hill"
+      },
+      {
+        "month": "OCT",
+        "day": 11,
+        "title": "Disco brunch",
+        "detail": "11am · Queer/Bar · Capitol Hill"
+      },
+      {
+        "month": "OCT",
+        "day": 12,
+        "title": "Sunday tea dance",
+        "detail": "4pm · Neighbours · Capitol Hill"
+      }
+    ]
+  }
+]

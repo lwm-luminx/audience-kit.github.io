@@ -1,8 +1,11 @@
 [tools]
-ruby = "3.3"
+node = "24"
 
 [tasks.serve]
-run = "bundle exec jekyll serve --livereload"
+run = "npm run dev"
 
 [tasks.build]
-run = "bundle exec jekyll build"
+run = "npm run build"
+
+[tasks.deploy]
+run = "npm run deploy"

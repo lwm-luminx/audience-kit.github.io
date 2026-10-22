@@ -1,0 +1,21 @@
+---
+import Layout from './Default.astro';
+import site from '../data/config.json';
+const { frontmatter } = Astro.props;
+const updated = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(site.legal_updated));
+---
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <article class="wrap legal">
+    <header class="legal__head">
+      <p class="caption">Legal</p>
+      <h1 class="title">{frontmatter.title}</h1>
+      <p class="body-sm muted">Last updated {updated}</p>
+    </header>
+    <div class="card prose"><slot /></div>
+    <nav class="legal__nav body-sm" aria-label="Legal">
+      <a href="/privacy/">Privacy policy</a>
+      <a href="/terms/">Terms of service</a>
+      <a href="/data-deletion/">Delete your data</a>
+    </nav>
+  </article>
+</Layout>

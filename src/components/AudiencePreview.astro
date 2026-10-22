@@ -1,0 +1,23 @@
+---
+import audiences from '../data/featured_audiences.json';
+const audience = audiences[0];
+---
+
+<aside class="audience-preview" aria-label={`${audience.name} example app preview`}>
+  <div class="audience-preview-stripe" aria-hidden="true"></div>
+  <div class="audience-preview-body">
+    <div class="audience-preview-heading">
+      <img class="audience-avatar" src={audience.icon} width="54" height="54" alt="">
+      <div><h2>{audience.name}</h2><p>{audience.tagline}</p></div>
+    </div>
+    <div class="audience-filters" aria-label="Example discovery filters">
+      {audience.filters.map((filter) => (<><span class={filter === audience.filters[0] ? "selected" : undefined}>{filter}</span></>))}
+    </div>
+    <ul class="audience-events">
+      {audience.events.map((event) => (<>
+      <li><span class="audience-event-date"><span>{event.month}</span><strong>{event.day}</strong></span><div><h3>{event.title}</h3><p>{event.detail}</p></div></li>
+      </>))}
+    </ul>
+    <div class="audience-preview-footer"><span>Example preview</span><a href={audience.url}>Explore {audience.name} <span aria-hidden="true">↗</span></a></div>
+  </div>
+</aside>
