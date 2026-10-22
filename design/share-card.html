@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>AudienceKit share card</title>
+<style>
+@font-face { font-family: Figtree; src: url('../public/assets/fonts/Figtree-Variable.woff2'); font-weight: 300 900; }
+@font-face { font-family: Figtree; src: url('../public/assets/fonts/Figtree-Italic-Variable.woff2'); font-weight: 300 900; font-style: italic; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #100d19; color: #f5efea; font-family: Figtree, sans-serif; }
+.card { position: relative; width: 100%; height: 100%; padding: 54px 64px; background: radial-gradient(ellipse at 90% 50%, #431447 0, transparent 60%); }
+.brand { font-size: 30px; font-weight: 750; letter-spacing: -.8px; }
+.brand span { color: #efc486; }
+h1 { position: relative; z-index: 1; margin: 55px 0 24px; font-size: 104px; font-weight: 650; line-height: .94; letter-spacing: -6px; }
+h1 em { color: #efc486; font-weight: 550; }
+p { position: relative; z-index: 1; margin: 0; font-size: 28px; line-height: 1.4; color: #d5cbdc; }
+.art { position: absolute; width: 570px; height: 570px; right: -5px; top: 12px; border-radius: 50%; mask-image: radial-gradient(circle, black 40%, transparent 71%); }
+.footer { position: absolute; bottom: 45px; left: 64px; right: 64px; display: flex; justify-content: space-between; border-top: 1px solid #ffffff26; padding-top: 22px; font-size: 19px; color: #b7afc4; }
+.footer strong { color: #efc486; font-weight: 550; }
+</style>
+<div class="card">
+  <div class="brand">Audience<span>Kit</span></div>
+  <img class="art" src="../public/assets/brand/focus.png" alt="">
+  <h1>Make a<br><em>Scene.</em></h1>
+  <p>Your community. Your own app.<br>Places, events and people, together.</p>
+  <div class="footer"><strong>A home for your subculture</strong><span>audiencekit.com</span></div>
+</div>
+</html>

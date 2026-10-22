@@ -31,3 +31,7 @@ Pages live in `src/pages/`, shared markup in `src/components/` and `src/layouts/
 `/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are stable links for QR codes and posters: phones go straight to TestFlight (iPhone/iPad) or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. Store URLs live in `src/data/staff_apps.json`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `public/assets/qr/*.svg` after adding an app (requires `segno`).
 
 Legal copy is Markdown in `src/pages/privacy/`, `src/pages/terms/`, and `src/pages/data-deletion/`. Google Analytics runs only in production builds.
+
+## Link preview
+
+The homepage share card is `public/assets/brand/audiencekit-social-v1.png` (1200 × 630). Its editable source is `design/share-card.html`, using local fonts and brand art. Render that HTML at 1200 × 630 with device scale factor 1 to regenerate the PNG. Increment the image filename and homepage reference when replacing a published card to refresh image caches.
