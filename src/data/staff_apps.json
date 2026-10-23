@@ -10,7 +10,7 @@
     "ios_url": "https://testflight.apple.com/join/y3q8ejnT",
     "ios_beta": true,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Focus",
-    "android_beta": true
+    "android_beta": false
   },
   {
     "slug": "velvet",
@@ -23,7 +23,7 @@
     "ios_url": "https://testflight.apple.com/join/9RkwsTZJ",
     "ios_beta": true,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Velvet",
-    "android_beta": true
+    "android_beta": false
   },
   {
     "slug": "backstage",
@@ -36,6 +36,6 @@
     "ios_url": "https://testflight.apple.com/join/6WrB4nFH",
     "ios_beta": true,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Backstage",
-    "android_beta": true
+    "android_beta": false
   }
 ]
