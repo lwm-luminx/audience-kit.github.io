@@ -7,8 +7,8 @@
     "alt": "Focus's overlapping illuminated lenses",
     "summary": "The admin app at the center of your scene.",
     "blurb": "Bring its venues, people and events into one cohesive view, and manage your audience from your phone or iPad.",
-    "ios_url": "https://testflight.apple.com/join/y3q8ejnT",
-    "ios_beta": true,
+    "ios_url": "https://apps.apple.com/us/app/focus-by-audiencekit/id6821187977",
+    "ios_beta": false,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Focus",
     "android_beta": false
   },

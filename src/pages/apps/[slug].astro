@@ -27,7 +27,7 @@ const { app } = Astro.props;
     <StoreButtons app={app} />
     <div class="app-share">
       <img src={`${'/assets/qr/' + app.slug + '.svg'}`} width="132" height="132" alt={`QR code for audiencekit.com/apps/${app.slug}`}>
-      <p>Scan with your phone's camera, or share <strong>audiencekit.com/apps/{app.slug}</strong>. It opens TestFlight on iPhone and iPad and Google Play on Android.</p>
+      <p>Scan with your phone's camera, or share <strong>audiencekit.com/apps/{app.slug}</strong>. It opens {app.ios_beta ? 'TestFlight' : 'the App Store'} on iPhone and iPad and Google Play on Android.</p>
     </div>
     <p class="app-note">{app.name} is for teams on AudienceKit. Your audience's administrator gives you access. <a class="text-link" href={`mailto:${site.contact_email}?subject=Tell%20me%20about%20${app.name}`}>Ask about {app.name} <span aria-hidden="true">↗</span></a></p>
   </div>
