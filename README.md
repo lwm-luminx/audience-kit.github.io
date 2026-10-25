@@ -28,7 +28,7 @@ The GitHub Actions workflow checks and builds pull requests, and deploys pushes 
 
 Pages live in `src/pages/`, shared markup in `src/components/` and `src/layouts/`, and static assets in `public/assets/`. Site settings are in `src/data/config.json`; the featured audience preview is in `src/data/featured_audiences.json`.
 
-`/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are stable links for QR codes and posters: phones go straight to TestFlight (iPhone/iPad) or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. Store URLs live in `src/data/staff_apps.json`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `public/assets/qr/*.svg` after adding an app (requires `segno`).
+`/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are stable links for QR codes and posters: phones go straight to the App Store, or TestFlight while an app is in beta (iPhone/iPad), or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. Store URLs live in `src/data/staff_apps.json`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `public/assets/qr/*.svg` after adding an app (requires `segno`).
 
 Legal copy is Markdown in `src/pages/privacy/`, `src/pages/terms/`, and `src/pages/data-deletion/`. Google Analytics runs only in production builds.
 
