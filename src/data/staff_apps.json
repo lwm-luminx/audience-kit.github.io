@@ -33,8 +33,8 @@
     "alt": "Backstage's violet access pass with an illuminated doorway",
     "summary": "For the people who make the scene.",
     "blurb": "The app for performers, hosts and the talent behind every gathering. Keep your profile and appearances current.",
-    "ios_url": "https://testflight.apple.com/join/6WrB4nFH",
-    "ios_beta": true,
+    "ios_url": "https://apps.apple.com/us/app/backstage-by-audiencekit/id6821187736",
+    "ios_beta": false,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Backstage",
     "android_beta": false
   }
