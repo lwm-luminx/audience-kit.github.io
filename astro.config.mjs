@@ -5,5 +5,5 @@ export default defineConfig({
   site: 'https://audiencekit.com',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') && !page.endsWith('/404.html') })],
+  integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') && !page.endsWith('/404.html') && !page.includes('/invite/') })],
 });

@@ -38,6 +38,7 @@ const imageUrl = new URL(image, site.url);
     <meta name="twitter:image" content={imageUrl} />
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <slot name="head" />
     {import.meta.env.PROD && <>
       <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.google_analytics}`}></script>
       <script define:vars={{ measurementId: site.google_analytics }}>
