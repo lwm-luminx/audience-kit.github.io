@@ -4,15 +4,18 @@ import StoreButtons from '../../components/StoreButtons.astro';
 import apps from '../../data/staff_apps.json';
 // Where an onboarding invite's link (audiencekit.com/v/<code> or /b/<code>, see public/_redirects) lands when neither
 // the App Clip nor the app opened it: an Android phone, a desktop, or an iPhone before the clip is live.
-const invites = [
-  { slug: 'velvet', prefix: 'v', clip: 'com.audiencekit.Velvet.Clip', what: 'join a venue’s team' },
-  { slug: 'backstage', prefix: 'b', clip: 'com.audiencekit.Backstage.Clip', what: 'manage a performer’s page' }
-];
 export function getStaticPaths() {
-  return ['velvet', 'backstage'].map(slug => ({ params: { slug }, props: { app: apps.find(app => app.slug === slug) } }));
+  const invites = [
+    { slug: 'velvet', prefix: 'v', clip: 'com.audiencekit.Velvet.Clip', what: 'join a venue’s team' },
+    { slug: 'backstage', prefix: 'b', clip: 'com.audiencekit.Backstage.Clip', what: 'manage a performer’s page' }
+  ];
+  return invites.map(invite => {
+    const app = apps.find(item => item.slug === invite.slug);
+    if (!app) throw new Error(`No staff app ${invite.slug}`);
+    return { params: { slug: invite.slug }, props: { app, invite } };
+  });
 }
-const { app } = Astro.props;
-const invite = invites.find(item => item.slug === app.slug);
+const { app, invite } = Astro.props;
 // The App Clip banner needs the app's App Store ID, so it shows only once the app is out of beta.
 const appStoreId = app.ios_beta ? null : app.ios_url.match(/id(\d+)/)?.[1];
 ---
