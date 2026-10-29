@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["DWVXMLB45Y.com.audiencekit.Velvet", "DWVXMLB45Y.com.audiencekit.Velvet.next"],
+        "components": [{ "/": "/v/*", "comment": "Velvet onboarding invites" }]
+      },
+      {
+        "appIDs": ["DWVXMLB45Y.com.audiencekit.Backstage", "DWVXMLB45Y.com.audiencekit.Backstage.next"],
+        "components": [{ "/": "/b/*", "comment": "Backstage onboarding invites" }]
+      }
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "DWVXMLB45Y.com.audiencekit.Velvet.Clip",
+      "DWVXMLB45Y.com.audiencekit.Velvet.next.Clip",
+      "DWVXMLB45Y.com.audiencekit.Backstage.Clip",
+      "DWVXMLB45Y.com.audiencekit.Backstage.next.Clip"
+    ]
+  }
+}

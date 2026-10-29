@@ -30,6 +30,8 @@ Pages live in `src/pages/`, shared markup in `src/components/` and `src/layouts/
 
 `/apps/focus/`, `/apps/velvet/` and `/apps/backstage/` are stable links for QR codes and posters: phones go straight to the App Store, or TestFlight while an app is in beta (iPhone/iPad), or Google Play (Android), desktops see both buttons, and `?stay` shows the page on a phone. Store URLs live in `src/data/staff_apps.json`; change them there when an app leaves beta and printed codes keep working. `python3 scripts/qr.py` regenerates `public/assets/qr/*.svg` after adding an app (requires `segno`).
 
+Onboarding invites: Focus shows QR codes for `audiencekit.com/v/<code>` (Velvet) and `/b/<code>` (Backstage). `public/.well-known/apple-app-site-association` lets the Velvet and Backstage App Clips and apps open them (served as JSON by `public/_headers`); anywhere else `public/_redirects` sends them to `/invite/velvet/` or `/invite/backstage/`, which say how to get the app. Keep the AASA's app IDs in step with the staff apps' bundle IDs (team `DWVXMLB45Y`).
+
 Legal copy is Markdown in `src/pages/privacy/`, `src/pages/terms/`, and `src/pages/data-deletion/`. Google Analytics runs only in production builds.
 
 ## Link preview

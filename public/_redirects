@@ -1,0 +1,4 @@
+# Onboarding invite QR codes (Focus makes them). The Velvet Clip, Backstage Clip or installed app opens these before
+# Safari would; anywhere else they land on a page that says how to get the app.
+/v/* /invite/velvet/?code=:splat 302
+/b/* /invite/backstage/?code=:splat 302

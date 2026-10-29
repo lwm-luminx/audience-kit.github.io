@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Default.astro';
+import StoreButtons from '../../components/StoreButtons.astro';
+import apps from '../../data/staff_apps.json';
+// Where an onboarding invite's link (audiencekit.com/v/<code> or /b/<code>, see public/_redirects) lands when neither
+// the App Clip nor the app opened it: an Android phone, a desktop, or an iPhone before the clip is live.
+const invites = [
+  { slug: 'velvet', prefix: 'v', clip: 'com.audiencekit.Velvet.Clip', what: 'join a venue’s team' },
+  { slug: 'backstage', prefix: 'b', clip: 'com.audiencekit.Backstage.Clip', what: 'manage a performer’s page' }
+];
+export function getStaticPaths() {
+  return ['velvet', 'backstage'].map(slug => ({ params: { slug }, props: { app: apps.find(app => app.slug === slug) } }));
+}
+const { app } = Astro.props;
+const invite = invites.find(item => item.slug === app.slug);
+// The App Clip banner needs the app's App Store ID, so it shows only once the app is out of beta.
+const appStoreId = app.ios_beta ? null : app.ios_url.match(/id(\d+)/)?.[1];
+---
+<Layout title={`Your ${app.name} invite`} description={`Open your invite to ${invite.what} in ${app.name}.`} image={app.image} noindex>
+  {appStoreId && <meta slot="head" name="apple-itunes-app" content={`app-id=${appStoreId}, app-clip-bundle-id=${invite.clip}, app-clip-display=card`} />}
+<section class="app-page wrap" aria-labelledby="invite-title">
+  <div class="app-page-art"><img src={app.image} alt={app.alt} width="1254" height="1254" fetchpriority="high"></div>
+  <div class="app-page-copy">
+    <p class="eyebrow">{app.name} invite</p>
+    <h1 id="invite-title">You’re invited</h1>
+    <p class="large-copy">Someone on AudienceKit invited you to {invite.what} in {app.name}.</p>
+    <p id="invite-code" hidden>Your invite code is <strong data-code></strong>.</p>
+    <ol class="invite-steps">
+      <li>Install {app.name}.</li>
+      <li>Open your invite link again on the same phone, and {app.name} takes you through it: <span class="invite-link" data-link>your invite link</span>.</li>
+    </ol>
+    <StoreButtons app={app} />
+    <p class="app-note">On an iPhone, scanning the invite’s QR code with the Camera app opens {app.name} without installing it first. Invites stop working after a few days; ask whoever invited you for a new one if it has ended.</p>
+  </div>
+</section>
+<script define:vars={{ prefix: invite.prefix }}>
+  // Shows the code and the original link (https://audiencekit.com/v/<code>) the redirect left in ?code.
+  (function () {
+    var code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^0-9A-Z]/g, '');
+    if (code.length !== 12) return;
+    var shown = code.match(/.{4}/g).join('-');
+    var link = 'https://audiencekit.com/' + prefix + '/' + code;
+    document.querySelector('[data-code]').textContent = shown;
+    document.getElementById('invite-code').hidden = false;
+    var target = document.querySelector('[data-link]');
+    var anchor = document.createElement('a');
+    anchor.href = link; anchor.className = 'text-link'; anchor.textContent = 'audiencekit.com/' + prefix + '/' + shown;
+    target.replaceWith(anchor);
+  })();
+</script>
+</Layout>
+
+<style>
+  .invite-steps { margin: 1rem 0 1.5rem; padding-left: 1.25rem; display: grid; gap: .5rem; }
+</style>
