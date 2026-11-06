@@ -2,3 +2,6 @@
 # Safari would; anywhere else they land on a page that says how to get the app.
 /v/* /invite/velvet/?code=:splat 302
 /b/* /invite/backstage/?code=:splat 302
+# /v?code=… and /b?code=…: the App Store Connect experience URLs; the query string carries over.
+/v /invite/velvet/ 302
+/b /invite/backstage/ 302
