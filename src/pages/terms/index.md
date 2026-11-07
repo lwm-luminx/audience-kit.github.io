@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/Legal.astro
 title: Terms of service
-description: The terms for using AudienceKit and the apps built on it, including Hot Mess.
+description: The terms for using AudienceKit and the apps built on it, including Hot Mess and Hack Different.
 ---
 
-These terms are an agreement between you and Love Wins Media Inc. ("we", "us"). They apply when you use AudienceKit and the community apps built on it, including **Hot Mess**, on any device or website ("the apps"). By using the apps you agree to these terms and to our [privacy policy](/privacy/).
+These terms are an agreement between you and Love Wins Media Inc. ("we", "us"). They apply when you use AudienceKit and the community apps built on it, including **Hot Mess** and **Hack Different**, on any device or website ("the apps"). By using the apps you agree to these terms and to our [privacy policy](/privacy/).
 
 ## Who can use the apps
 
