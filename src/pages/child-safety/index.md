@@ -17,7 +17,7 @@ You may not use the apps to create, upload, share, request or link to child sexu
 ## How we prevent and act on it
 
 - **In-app reporting:** every chat message has **Report** and **Block**. Reports go to the community's moderators and to us.
-- **Moderation:** chat rooms are moderated. Moderators and our staff can remove messages and ban accounts. Automated checks flag messages for review.
+- **Moderation:** chat rooms are moderated. Moderators and our staff can remove messages and ban accounts. Automated checks can flag messages for review.
 - **Action:** when we find or are told about CSAE, we remove the content, permanently ban the accounts involved, and keep the evidence the law requires.
 - **Reporting to authorities:** we report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline, and cooperate with law enforcement, as required by law.
 
