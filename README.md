@@ -44,3 +44,5 @@ All rights reserved, © Love Wins Media, Inc. No license of any kind is granted;
 this site need Love Wins Media's written permission, a GitHub fork of this repository and written notice (a "Derived
 work notice" issue). Misrepresenting the site or Love Wins Media's work is expressly prohibited. Copies published under
 the earlier MIT License stay MIT for those copies.
+
+**Copying is prohibited.** Copying this work beyond what [LICENSE](LICENSE) allows is copyright infringement, and willful copying can be a federal crime (17 U.S.C. §§ 501, 506). Removing, altering or faking copyright or attribution notices is unlawful under 17 U.S.C. § 1202, and a federal crime under § 1204 when done willfully for commercial advantage or private financial gain. See [NOTICE.md](NOTICE.md) for the details.
