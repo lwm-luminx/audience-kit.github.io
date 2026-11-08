@@ -44,6 +44,8 @@ Venue staff can ban you from a venue, an audience's moderators can ban you from 
 
 Child sexual abuse material (CSAM) and any sexual exploitation of children, including grooming and sexualized content involving minors, are never allowed. Neither is any other illegal content. We remove it, permanently ban the accounts involved, and report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline as US law requires (18 U.S.C. § 2258A). See our [Child Safety & CSAM Policy](/child-safety/).
 
+Every photo or image uploaded to the apps is checked automatically against lists of known CSAM (see our [privacy policy](/privacy/)). Content that matches, or that someone reports for child safety, is hidden from everyone at once while a child safety reviewer looks at it, and we keep a copy as the law requires.
+
 ## Illegal content, reports and complaints
 
 This section says how we deal with illegal content and with complaints, wherever you are, including for members in the United Kingdom and Australia.
