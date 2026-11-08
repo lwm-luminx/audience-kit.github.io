@@ -37,3 +37,10 @@ Legal copy is Markdown in `src/pages/privacy/`, `src/pages/terms/`, and `src/pag
 ## Link preview
 
 The homepage share card is `public/assets/brand/audiencekit-social-v1.png` (1200 × 630). Its editable source is `design/share-card.html`, using local fonts and brand art. Render that HTML at 1200 × 630 with device scale factor 1 to regenerate the PNG. Increment the image filename and homepage reference when replacing a published card to refresh image caches.
+
+## License
+
+All rights reserved, © Love Wins Media, Inc. No license of any kind is granted; see [LICENSE](LICENSE). Works based on
+this site need Love Wins Media's written permission, a GitHub fork of this repository and written notice (a "Derived
+work notice" issue). Misrepresenting the site or Love Wins Media's work is expressly prohibited. Copies published under
+the earlier MIT License stay MIT for those copies.

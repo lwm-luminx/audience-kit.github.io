@@ -1,21 +1,44 @@
-MIT License
+Copyright (c) 2022-2026 Love Wins Media, Inc. All rights reserved.
 
-Copyright (c) 2022 AudienceKit
+The source code, text, images, designs and other material in this repository
+(the "Material") are the work of Love Wins Media, Inc. (the "Licensor").
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. No license
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+   No license or right of any kind is granted in the Material, whether
+   expressly, by implication, by estoppel or otherwise, including any license
+   under copyright, patent or trademark. The Licensor reserves all rights. You
+   may view the Material, and fork this repository on GitHub, only as GitHub's
+   Terms of Service allow, and that gives You no right to use, copy, modify,
+   publish or distribute the Material.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Derived works
+
+   A work based on the Material may be made only with the Licensor's prior
+   written permission, and then only in a fork of this repository created with
+   GitHub's fork function, after You give the Licensor written notice that
+   names You, gives a way to contact You, and identifies the fork (for example,
+   by opening an issue titled "Derived work notice" in this repository).
+
+3. No misrepresentation
+
+   You must not misrepresent the Material or the Licensor's work: You must not
+   claim or imply that anyone other than the Licensor wrote, owns or originated
+   it; remove, alter or obscure any copyright, authorship or license notice;
+   present a work based on it as the Licensor's original or the Material as
+   Yours; or claim or imply that the Licensor sponsors, endorses or is
+   affiliated with You or anything You make. This prohibition is express. It
+   applies in addition to the Licensor's rights under laws on copyright,
+   copyright management information, false designation of origin, false
+   endorsement and unfair competition, none of which it waives.
+
+4. Earlier copies
+
+   Copies of the Material published under the MIT License before this notice
+   replaced it remain available to their recipients under the MIT License.
+   This notice applies to the Material from the first commit that carries it.
+
+5. Third-party material
+
+   Third-party libraries, fonts and other material used by the site remain
+   under their own licenses.
