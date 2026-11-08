@@ -16,10 +16,11 @@ You may not use the apps to create, upload, share, request or link to child sexu
 
 ## How we prevent and act on it
 
-- **In-app reporting:** every chat message has **Report** and **Block**. Reports go to the community's moderators and to us.
+- **In-app reporting:** every chat message, profile, photo and post has **Report**, with a **Child safety** reason, and **Block**. A child safety report goes straight to our child safety team as well as to the community's moderators.
+- **Image scanning:** every photo or image uploaded to the apps is checked against lists of hashes of known CSAM through Microsoft PhotoDNA. A match is hidden at once and goes to our child safety team. We don't use any system that guesses what a picture shows.
 - **Moderation:** chat rooms are moderated. Moderators and our staff can remove messages and ban accounts. Automated checks can flag messages for review.
-- **Action:** when we find or are told about CSAE, we remove the content, permanently ban the accounts involved, and keep the evidence the law requires.
-- **Reporting to authorities:** we report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline, and cooperate with law enforcement, as required by law.
+- **Action:** when we find or are told about CSAE, we hide the content at once, permanently ban the accounts involved, and preserve the evidence in restricted storage for at least a year after we report it, as US law requires. Only our designated child safety reviewers can open it, and every time they do is recorded.
+- **Reporting to authorities:** a child safety reviewer looks at every case and reports apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline, as 18 U.S.C. 2258A requires. We cooperate with law enforcement.
 
 ## Report a concern
 

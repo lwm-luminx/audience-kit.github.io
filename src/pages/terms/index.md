@@ -34,6 +34,14 @@ There is no tolerance for objectionable content or abusive users in the apps. Th
 - We review every report within 24 hours. When content breaks these terms, we remove it and eject the person who posted it: we ban them from the audience, and from the apps if needed.
 - Some audiences also check chat messages automatically, including with AI moderation (see our [privacy policy](/privacy/)), and can remove a message before anyone reports it.
 
+## Child safety
+
+Child sexual abuse material (CSAM) and the sexual exploitation of children are never allowed, and we report them. See our [child safety standards](/child-safety/).
+
+- Every photo or image uploaded to the apps is automatically checked against lists of known CSAM (see our [privacy policy](/privacy/)).
+- Content that matches, or that someone reports for child safety, is hidden from everyone at once while we review it, and we keep a copy as the law requires.
+- We report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC), together with information about the account that posted it, and we permanently ban that account.
+
 ## Venues, events and listings
 
 Listings for venues, events, performers and hosts come from public sources and from organizers. We work to keep them accurate but can't promise that every time, price or detail is right, or that an event will happen. Tickets bought through a link go through the ticket seller, under its terms. Check with the venue or organizer before you travel.
