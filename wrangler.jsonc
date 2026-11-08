@@ -12,5 +12,8 @@
   },
   "build": {
     "command": "npm run build"
-  }
+  },
+  // Branch builds run `wrangler preview`, and Worker Previews don't inherit top-level settings unless a `previews`
+  // block exists. This Worker only serves static assets, so an empty block is enough.
+  "previews": {}
 }
