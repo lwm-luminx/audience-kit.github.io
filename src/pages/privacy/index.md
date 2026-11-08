@@ -57,14 +57,18 @@ We don't sell your information, we don't use it for advertising, and we don't sh
 
 - **Other members of the same audience** see what you choose to make visible in the app, for example your name and picture when you RSVP or check in, and friends who also use the app may see that you're at the same venue.
 - **Anthropic (Claude), for AI moderation.** An audience can turn on automated moderation of its chats. Where it does, the chat messages you send in that audience's venue and city chats are sent, without your name or profile, to Anthropic's Claude AI models to check them against the community rules. A message that breaks them can be removed, or passed to the audience's moderators, and its sender removed from the chat. Anthropic processes them for us only to provide this service. Not every audience uses it.
+- **Microsoft (PhotoDNA), to keep child sexual abuse material off the apps.** Every photo or image uploaded to the apps is sent to Microsoft's PhotoDNA service, which compares it against a list of hashes (digital fingerprints) of known child sexual abuse material (CSAM) and tells us only whether it matches. Microsoft processes images for us only to provide this check. We don't use it, or anything else, to guess what is in your photos.
 - **Service providers** that host and run the service for us, under contracts that limit their use of the data to providing that service: Heroku (hosting), Amazon Web Services (cloud infrastructure, including photo storage through Heroku, with our copy of your profile picture, and Kinesis, which streams app activity such as venue views and location updates), Stripe and Square (payments), Eventbrite and Ticketmaster (when an organizer connects their account, we store the OAuth tokens it grants so we can sync their events), Firebase Cloud Messaging and Apple Push Notification service (push notifications), New Relic (performance monitoring) and Twilio (text messages).
 - **Google Analytics**, on our websites (audiencekit.com, developer.audiencekit.com and hotmess.social) and in the admin console, to count visits and see which pages people use. It sets first-party cookies and receives your IP address and browser details. We don't link it to your account or use it for advertising. You can opt out with Google's [browser add-on](https://tools.google.com/dlpage/gaoptout).
 - **Meta (Facebook)**, when you sign in with Facebook or when we request public Page information, under Meta's own terms and privacy policy.
+- **The National Center for Missing & Exploited Children (NCMEC) and law enforcement.** US law requires us to report apparent child sexual abuse material to NCMEC's CyberTipline, which can pass it to law enforcement. When we report, we send the material and what we know about the account that posted it: its name, email address, account ID, when it was created, and the IP addresses of its recent sessions.
 - **When the law requires it**, for example to respond to a valid legal request, or to protect someone's safety.
 
 ## How long we keep it
 
 We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. When you delete your account, we delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, RSVPs, messages and comments within 30 days, and revoke the app's access to your Apple ID if you signed in with Apple, except where we must keep something to meet a legal obligation. Reports other people made about your messages are kept for the audience's moderators, without the link to your account.
+
+If content is reported or flagged as possible child sexual abuse material, we withhold it at once and keep a copy, with the account details listed above, in restricted storage that only our child safety reviewers can open. If we report it to NCMEC, we keep that copy for at least one year after the report, as US law requires (18 U.S.C. 2258A), or longer if law enforcement asks us to preserve it. Deleting the content or your account doesn't delete that copy until then. If we decide it isn't reportable, we restore the content.
 
 ## Your choices and rights
 
@@ -80,7 +84,7 @@ The apps are for adults. Many listings are for bars and clubs, and you must be a
 
 ## Security
 
-We protect your information with encryption in transit, access controls and limited staff access. No system is perfectly secure, so please tell us at once if you think your account has been misused.
+We protect your information with encryption in transit, access controls and limited staff access. Every time a reviewer opens material kept for a child safety report, it is recorded. No system is perfectly secure, so please tell us at once if you think your account has been misused.
 
 ## Changes to this policy
 
