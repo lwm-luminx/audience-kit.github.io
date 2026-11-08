@@ -4,9 +4,9 @@ title: Privacy policy
 description: How AudienceKit and the apps built on it, including Hot Mess, collect, use and delete your information.
 ---
 
-This policy explains what information Love Wins Media Inc. ("we", "us") collects when you use AudienceKit and the community apps built on it, and what we do with it. It covers our websites, the AudienceKit admin console, and every audience app we run on the platform, including **Hot Mess** (hotmess.social) on iPhone, Android, the web and Alexa. In this policy, "the apps" means all of these.
+This policy explains what information Love Wins Media, Inc. ("we", "us") collects when you use AudienceKit and the community apps built on it, and what we do with it. It covers our websites, the AudienceKit admin console, and every audience app we run on the platform, including **Hot Mess** (hotmess.social) on iPhone, Android, the web and Alexa. In this policy, "the apps" means all of these.
 
-If you have a question, or want to see, correct or delete your information, email us at [hello@audiencekit.com](mailto:hello@audiencekit.com).
+If you have a question, or want to see, correct or delete your information, email us at [rick@lovewins.media](mailto:rick@lovewins.media).
 
 ## What we collect
 
@@ -70,7 +70,7 @@ We keep your account information for as long as your account exists. Location hi
 
 - **Change Facebook permissions** at any time in Facebook under Settings & privacy, then Apps and websites. Removing an app there stops it receiving new information from Facebook.
 - **Turn off location** in your device settings.
-- **See, correct or delete your information** by emailing [hello@audiencekit.com](mailto:hello@audiencekit.com). See [Delete your data](/data-deletion/) for the steps.
+- **See, correct or delete your information** by emailing [rick@lovewins.media](mailto:rick@lovewins.media). See [Delete your data](/data-deletion/) for the steps.
 
 Depending on where you live, you may have extra rights, such as the right to a copy of your data or to object to how we use it. Email us and we'll help, wherever you live.
 
@@ -88,5 +88,7 @@ If we change this policy in a way that matters, we'll update the date at the top
 
 ## Contact
 
-Love Wins Media Inc.<br>
-Email: [hello@audiencekit.com](mailto:hello@audiencekit.com)
+Love Wins Media, Inc.<br>
+9407 NE Vancouver Mall Dr, Ste 104 #5436<br>
+Vancouver, WA 98662, United States<br>
+Email: [rick@lovewins.media](mailto:rick@lovewins.media)

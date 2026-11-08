@@ -4,7 +4,7 @@ title: Terms of service
 description: The terms for using AudienceKit and the apps built on it, including Hot Mess and Hack Different.
 ---
 
-These terms are an agreement between you and Love Wins Media Inc. ("we", "us"). They apply when you use AudienceKit and the community apps built on it, including **Hot Mess** and **Hack Different**, on any device or website ("the apps"). By using the apps you agree to these terms and to our [privacy policy](/privacy/).
+These terms are an agreement between you and Love Wins Media, Inc. ("we", "us"). They apply when you use AudienceKit and the community apps built on it, including **Hot Mess** and **Hack Different**, on any device or website ("the apps"). By using the apps you agree to these terms and to our [privacy policy](/privacy/).
 
 ## Who can use the apps
 
@@ -12,7 +12,7 @@ You must be at least 18 years old, or older if your local law sets a higher age,
 
 ## Your account
 
-Keep your Apple ID or Facebook account secure; anything done with your account is your responsibility. Tell us at once at [hello@audiencekit.com](mailto:hello@audiencekit.com) if you think it has been misused.
+Keep your Apple ID or Facebook account secure; anything done with your account is your responsibility. Tell us at once at [rick@lovewins.media](mailto:rick@lovewins.media) if you think it has been misused.
 
 ## Using the apps
 
@@ -33,6 +33,10 @@ There is no tolerance for objectionable content or abusive users in the apps. Th
 - You can report a message or a person from inside the app, and block anyone so you no longer see them.
 - We review every report within 24 hours. When content breaks these terms, we remove it and eject the person who posted it: we ban them from the audience, and from the apps if needed.
 - Some audiences also check chat messages automatically, including with AI moderation (see our [privacy policy](/privacy/)), and can remove a message before anyone reports it.
+
+## Child safety and illegal content
+
+Child sexual abuse material (CSAM) and any sexual exploitation of children, including grooming and sexualized content involving minors, are never allowed. Neither is any other illegal content. We remove it, permanently ban the accounts involved, and report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline as US law requires (18 U.S.C. § 2258A). See our [Child Safety & CSAM Policy](/child-safety/).
 
 ## Venues, events and listings
 
@@ -70,5 +74,7 @@ These terms are governed by the laws of the State of Washington, USA, except whe
 
 ## Contact
 
-Love Wins Media Inc.<br>
-Email: [hello@audiencekit.com](mailto:hello@audiencekit.com)
+Love Wins Media, Inc.<br>
+9407 NE Vancouver Mall Dr, Ste 104 #5436<br>
+Vancouver, WA 98662, United States<br>
+Email: [rick@lovewins.media](mailto:rick@lovewins.media)

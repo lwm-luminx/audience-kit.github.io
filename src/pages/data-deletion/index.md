@@ -14,7 +14,7 @@ One AudienceKit account covers every app built on it. Deleting it from any app d
 
 ## Delete your account and data by email
 
-1. Email [hello@audiencekit.com](mailto:hello@audiencekit.com?subject=Delete%20my%20data) from the email address on your account, with the subject "Delete my data". Tell us which app you use, for example Hot Mess or Hack Different.
+1. Email [rick@lovewins.media](mailto:rick@lovewins.media?subject=Delete%20my%20data) from the email address on your account, with the subject "Delete my data". Tell us which app you use, for example Hot Mess or Hack Different.
 2. We'll reply to confirm the request came from you. If we can't match your email, we'll ask for the name on your profile.
 3. We delete your data within 30 days and email you when it's done.
 
