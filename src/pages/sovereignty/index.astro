@@ -124,6 +124,11 @@ import site from '../../data/config.json';
         <p>Local papers and magazines publishing into an audience keep the revenue from ads on their own editorial. They join the scene instead of being competed out of it.</p>
       </div>
     </div>
+    <article class="capability-card sov-sponsored">
+      <p class="feature-number">OR NO ADS AT ALL</p>
+      <h3>Sponsored by your organization, ad-free for your members</h3>
+      <p>Ads are one way to pay for an audience, not the only one. A membership organization, nonprofit, club or company can sponsor its audience and cover the cost for its members, and that audience carries no sponsored spots at all. Members get the whole app, with nothing paid for in their feed.</p>
+    </article>
   </div>
 </section>
 
@@ -132,7 +137,7 @@ import site from '../../data/config.json';
     <div><p class="eyebrow">Not a data collector</p><h2 id="position-title">Each audience<br>sets its own position.</h2></div>
     <div class="scene-copy">
       <p class="large-copy">A platform that collects everything has to choose one policy for everyone. We don’t, so you can.</p>
-      <p>Whether to carry sponsored spots at all, whether chats get automated moderation, what goes public on the web and what stays in the app: those are your audience’s calls, made for your community.</p>
+      <p>Whether to carry sponsored spots or be sponsored ad-free by your organization, whether chats get automated moderation, what goes public on the web and what stays in the app: those are your audience’s calls, made for your community.</p>
       <p>And because no single profile of everyone exists, the usual failures of big social media have nothing to grow from:</p>
       <ul class="sov-list">
         <li><strong>No surveillance advertising.</strong> Ads can’t target what we never gather.</li>
@@ -155,7 +160,9 @@ import site from '../../data/config.json';
   .sov-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
   .sov-compare ul, .sov-list { margin: 16px 0 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 10px; }
   .sov-compare li { font-size: 17px; color: var(--paper); }
-  .sov-never { background: #efc78108; }
+  .sov-never, .sov-sponsored { background: #efc78108; }
+  .sov-sponsored { margin-top: 24px; }
+  .sov-sponsored h3 { margin-top: 14px; }
   .sov-list strong { color: var(--paper); }
   .scene-copy p + p, .scene-copy ul + p, .scene-copy p + ul { margin-top: 18px; }
   @media (max-width: 760px) { .sov-compare { grid-template-columns: 1fr; } }
