@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Default.astro';
+import site from '../../data/config.json';
+---
+<Layout title="Your Audience, Your Data" description="Every AudienceKit audience is its own place: its own members, keys and rules. We host communities, we don't collect people. Ads stay contextual and separate, and their revenue goes toward the cost of running your audience.">
+
+<section class="section wrap scene sov-hero" aria-labelledby="sov-title">
+  <div>
+    <p class="eyebrow">Tenant separation &amp; data sovereignty</p>
+    <h1 id="sov-title">Your audience.<br><em>Your data.</em></h1>
+  </div>
+  <div class="scene-copy">
+    <p class="large-copy">We host communities. We don’t collect people.</p>
+    <p>Most social platforms are data collectors first: one giant profile of everyone, sold to whoever pays to reach it. AudienceKit is built the other way round. Each audience is its own place, with its own members, its own keys and its own rules, and the platform underneath is there to run it, not to mine it.</p>
+    <p>Because we aren’t the data collector, each audience and each app gets to decide its own position, and nobody inherits the problems that come with a platform whose business is knowing everything about you.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="separation" aria-labelledby="separation-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Tenant separation</p>
+      <h2 class="capability-title" id="separation-title">Every audience is its own place</h2>
+      <p class="capability-intro">The plumbing is shared so a new audience is ready on day one. What happens inside it belongs to that audience.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg></div>
+        <h3>Membership is per audience</h3>
+        <p>Joining one app doesn’t enrol you in another. Deleting your account in an app removes your membership and your data in that audience only, and no other app can wipe, or read, what you did somewhere else.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
+        <h3>Its own keys, encrypted</h3>
+        <p>Push notification keys and payment keys belong to the audience. They’re stored encrypted on the audience itself, with no platform-wide fallback, so one community’s keys never send another community’s messages or take its money.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <h3>Staff access stops at the edge</h3>
+        <p>A staff sign-in carries the audiences that person was granted, and nothing more. Tools are scoped to one audience at a time, so working on one community never fans out into another.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
+        <h3>Its own name and connections</h3>
+        <p>Your own domain and look, and your own connected apps: an audience brings its own Discord bot and its own GitHub sign-in, so members see your community’s name, not ours.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Its own choices about AI</h3>
+        <p>Automated chat moderation is something an audience turns on, not a default. An audience picks its own AI provider, and messages are checked without the sender’s name or profile.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Members show what they choose</h3>
+        <p>People who aren’t friends see each other as “First L.”, and friends see full names. What a member makes visible stays inside the audience they shared it with.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="ads" aria-labelledby="ads-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">A deliberate choice</p>
+      <h2 class="capability-title" id="ads-title">The ad side is kept separate, on purpose</h2>
+      <p class="capability-intro">Ads that pay per click reward a platform for knowing more about you. So we price ads in a way that removes that reward, and we keep advertising apart from the people in your audience. An ad is placed by where it appears, never by who is looking.</p>
+    </div>
+    <div class="sov-compare">
+      <article class="capability-card">
+        <p class="feature-number">WHAT AN AD CAN USE</p>
+        <ul>
+          <li>The city and the night</li>
+          <li>The venue, event or article it sits beside</li>
+          <li>The kind of night it is, from the venue’s own tags</li>
+        </ul>
+      </article>
+      <article class="capability-card sov-never">
+        <p class="feature-number">WHAT AN AD NEVER SEES</p>
+        <ul>
+          <li>Who you are, or who your friends are</li>
+          <li>Where you’ve been, or what you’ve tapped</li>
+          <li>Your messages, your tribes or your history in any app</li>
+        </ul>
+      </article>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>Flat prices from a public rate sheet</h3>
+        <p>A sponsored spot costs a posted weekly or nightly price, the same for everyone. Never per click, never per view, so there’s no reason to track anyone.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Labelled, and limited</h3>
+        <p>Every paid spot says so and links to how the money works. Only a couple ever share a screen, they rotate fairly, and members’ “don’t show me” choices still apply.</p>
+      </article>
+      <article class="capability-card">
+        <h3>One number for sponsors</h3>
+        <p>A sponsor sees how many distinct people saw their spot each week, and “fewer than 20” below that. No demographics, no hourly breakdowns, nothing about anyone.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="ad-revenue" aria-labelledby="revenue-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Where the ad money goes</p>
+      <h2 class="capability-title" id="revenue-title">Ad revenue pays for your audience</h2>
+      <p class="capability-intro">Advertising on AudienceKit isn’t a business built on your members. It’s a way to lower what it costs to run your community, and the money flows back toward that cost.</p>
+    </div>
+    <div class="capability-grid steps">
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>Toward your hosting</h3>
+        <p>Revenue from sponsored spots in your audience is put against the cost of hosting it, so your subscription costs less the more your scene supports itself.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>Or to the provider who set you up</h3>
+        <p>When a setup provider builds and runs an audience for a community, the ad revenue goes to them to cover that subscription, instead of the community paying it out of pocket.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>Publishers keep their own</h3>
+        <p>Local papers and magazines publishing into an audience keep the revenue from ads on their own editorial. They join the scene instead of being competed out of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="your-position" aria-labelledby="position-title">
+  <div class="wrap scene">
+    <div><p class="eyebrow">Not a data collector</p><h2 id="position-title">Each audience<br>sets its own position.</h2></div>
+    <div class="scene-copy">
+      <p class="large-copy">A platform that collects everything has to choose one policy for everyone. We don’t, so you can.</p>
+      <p>Whether to carry sponsored spots at all, whether chats get automated moderation, what goes public on the web and what stays in the app: those are your audience’s calls, made for your community.</p>
+      <p>And because no single profile of everyone exists, the usual failures of big social media have nothing to grow from:</p>
+      <ul class="sov-list">
+        <li><strong>No surveillance advertising.</strong> Ads can’t target what we never gather.</li>
+        <li><strong>No cross-app profile.</strong> Your night out in one community doesn’t follow you into another.</li>
+        <li><strong>No engagement farming.</strong> Flat prices mean more scrolling doesn’t earn anyone more.</li>
+        <li><strong>No one-size-fits-all rules.</strong> Each community sets and moderates its own.</li>
+        <li><strong>No single honeypot.</strong> Keys and data are separated by audience, so a problem in one stays in one.</li>
+      </ul>
+      <p>We don’t sell your information or share it with advertisers or data brokers. Read the <a href="/privacy/" style="text-decoration:underline;text-underline-offset:4px">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="sov-closing-title"><p class="eyebrow">Your community, your call.</p><h2 id="sov-closing-title">Build a scene<br><em>you own.</em></h2><p>Tell us about the community you’re building.<br>We’ll set it up as its own place.</p><a class="button primary" href={`mailto:${site.contact_email}?subject=Make%20a%20Scene`}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
+
+<style>
+  .sov-hero h1 { font-size: clamp(52px, 7vw, 88px); line-height: .98; }
+  .sov-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+  .sov-compare ul, .sov-list { margin: 16px 0 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 10px; }
+  .sov-compare li { font-size: 17px; color: var(--paper); }
+  .sov-never { background: #efc78108; }
+  .sov-list strong { color: var(--paper); }
+  .scene-copy p + p, .scene-copy ul + p, .scene-copy p + ul { margin-top: 18px; }
+  @media (max-width: 760px) { .sov-compare { grid-template-columns: 1fr; } }
+</style>
