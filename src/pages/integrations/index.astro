@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Default.astro';
+import site from '../../data/config.json';
+
+// The menu. status: 'live' = built into AudienceKit today, 'building' = in development,
+// and anything unbuilt belongs in `possible` below, never here.
+const menu = [
+  {
+    id: 'sign-in',
+    title: 'Signing in',
+    intro: 'Offer the accounts your people already have, and switch off the ones that don’t fit.',
+    items: [
+      { name: 'Sign in with Apple', status: 'live' },
+      { name: 'Sign in with Google', status: 'live' },
+      { name: 'Facebook Login', status: 'live' },
+      { name: 'Sign in with Discord, through your own Discord app', status: 'live' },
+      { name: 'Sign in with GitHub, through your own GitHub app', status: 'building' },
+    ],
+  },
+  {
+    id: 'chat',
+    title: 'Community chat',
+    intro: 'Run rooms in your own app, or keep the community where it already talks.',
+    items: [
+      { name: 'Venue and city rooms in your own app', status: 'live' },
+      { name: 'Your own Discord bot, with your name and avatar', status: 'live' },
+      { name: 'A read-only Discord mirror: read and report in the app, reply on Discord', status: 'live' },
+      { name: 'Connect Discord to an account that signed in another way', status: 'live' },
+    ],
+  },
+  {
+    id: 'events',
+    title: 'Events & tickets',
+    intro: 'Your calendar lives in one place and goes out to wherever people buy and plan.',
+    items: [
+      { name: 'Eventbrite, both ways: import and publish', status: 'live' },
+      { name: 'Ticketmaster listings imported', status: 'live' },
+      { name: 'Public Facebook Page events imported', status: 'live' },
+      { name: 'Calendar subscriptions for Apple Calendar, Google Calendar and Outlook', status: 'live' },
+    ],
+  },
+  {
+    id: 'money',
+    title: 'Money',
+    intro: 'Payments go to accounts you own. Some never touch us at all.',
+    items: [
+      { name: 'Stripe or Square on your own account, for cover and in-app tips', status: 'live' },
+      { name: 'Tip links for Cash App, Venmo and PayPal', status: 'live' },
+      { name: 'Subscriptions through Stripe, the App Store and Google Play', status: 'live' },
+    ],
+  },
+  {
+    id: 'night',
+    title: 'On the night',
+    intro: 'Plug into the gear and services a venue already runs.',
+    items: [
+      { name: 'KaraFun karaoke sessions linked to the night', status: 'live' },
+      { name: 'Karaoke and song requests run from the venue’s chat', status: 'live' },
+      { name: 'Google Places for venue details and opening hours', status: 'live' },
+    ],
+  },
+  {
+    id: 'socials',
+    title: 'Socials, music & podcasts',
+    intro: 'Bring in what people already post, instead of asking them to post twice.',
+    items: [
+      { name: 'Instagram profile pictures and banners, kept fresh', status: 'live' },
+      { name: 'Links to TikTok, Bluesky, Threads, X, YouTube and Linktree', status: 'live' },
+      { name: 'SoundCloud, Spotify and Apple Music on performer pages', status: 'live' },
+      { name: 'Podcast episodes from any RSS feed', status: 'live' },
+    ],
+  },
+  {
+    id: 'publishing',
+    title: 'Publishing',
+    intro: 'Local papers and writers publish straight into the community they cover.',
+    items: [
+      { name: 'Publications and articles inside your audience', status: 'live' },
+      { name: 'Op-eds from the apps', status: 'live' },
+      { name: 'City-targeted notifications when a trusted publication posts', status: 'live' },
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'AI, if you want it',
+    intro: 'Off until you turn it on, and on your own provider when you do.',
+    items: [
+      { name: 'Your own OpenAI, Anthropic, Google or OpenRouter account', status: 'live' },
+      { name: 'Opt-in chat moderation that never sees who sent a message', status: 'live' },
+      { name: 'A read-only MCP server, so your team can ask Claude about your rooms', status: 'live' },
+    ],
+  },
+  {
+    id: 'plumbing',
+    title: 'Under the hood',
+    intro: 'The parts that make it yours, with your keys stored on your audience.',
+    items: [
+      { name: 'Your own push notification keys for Apple and Android', status: 'live' },
+      { name: 'Your own domain and branding', status: 'live' },
+      { name: 'Service tokens for your own tools and scripts', status: 'live' },
+    ],
+  },
+];
+
+const possible = [
+  { name: 'Your own chat server', note: 'Rooms carried on an XMPP server you run, with the apps on top.' },
+  { name: 'More ticketing partners', note: 'Humanitix, DICE, Billetto and others, where a scene already sells.' },
+  { name: 'Other community bridges', note: 'Slack, Matrix or Telegram, mirrored the same careful way as Discord.' },
+  { name: 'The open social web', note: 'Posting events and articles out to Bluesky and the fediverse.' },
+  { name: 'Membership and donation platforms', note: 'Patreon, Open Collective or ActBlue, as a quiet link, never a push.' },
+  { name: 'Screens in the room', note: 'Tonight’s lineup and chat on the venue’s TVs.' },
+];
+
+const labels = { live: 'Available', building: 'In development' };
+---
+<Layout title="Integrations, à la carte" description="Every community already lives somewhere: Discord, Instagram, Eventbrite, a local paper. AudienceKit audiences pick the integrations that fit their culture, connect them with their own accounts, and leave the rest off.">
+
+<section class="section wrap scene alc-hero" aria-labelledby="alc-title">
+  <div>
+    <p class="eyebrow">Integrations, à la carte</p>
+    <h1 id="alc-title">Meet people<br><em>where they are.</em></h1>
+  </div>
+  <div class="scene-copy">
+    <p class="large-copy">No community starts from nothing. It already lives somewhere.</p>
+    <p>A hacker space runs on Discord and GitHub. A drag scene runs on Instagram and Cash App. A neighborhood runs on its local paper and its calendar. Asking any of them to move everything into one more app is how community tools die.</p>
+    <p>So AudienceKit works the other way round. Each audience orders from the menu: the sign-ins, chat, ticketing, payments and publishing that fit its culture, connected with its own accounts. Everything else stays off.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="capability-title" id="how-title">Pick what fits. Skip what doesn’t.</h2>
+      <p class="capability-intro">Integrations are chosen per audience, not per platform. Two communities on AudienceKit can look and feel nothing alike.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></svg></div>
+        <h3>Your accounts, your keys</h3>
+        <p>An audience connects its own Discord bot, its own Stripe or Square account, its own push keys and its own AI provider. Members see your community’s name, and the keys are stored encrypted on your audience alone.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="16" cy="12" r="3"/></svg></div>
+        <h3>Off means off</h3>
+        <p>Sign-in methods, chat providers, AI moderation and sponsored spots are each a switch. If Facebook Login doesn’t suit your people, your apps simply don’t offer it.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Gentle with the places you already are</h3>
+        <p>Where a community already has a home, we join it rather than replace it. The Discord bridge is a read-only mirror: members read and report in the app, and the conversation stays on Discord.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The menu</p>
+      <h2 class="capability-title" id="menu-title">What an audience can connect today</h2>
+      <p class="capability-intro">Everything marked available is part of AudienceKit now. Each audience turns on its own selection.</p>
+    </div>
+    <div class="capability-grid alc-menu">
+      {menu.map((course) => (
+        <article class="capability-card" id={course.id}>
+          <h3>{course.title}</h3>
+          <p>{course.intro}</p>
+          <ul class="alc-items">
+            {course.items.map((item) => (
+              <li>
+                <span>{item.name}</span>
+                {item.status !== 'live' && <span class={`alc-status alc-${item.status}`}>{labels[item.status]}</span>}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="cultures" aria-labelledby="cultures-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Same platform, different cultures</p>
+      <h2 class="capability-title" id="cultures-title">Three communities, three orders</h2>
+      <p class="capability-intro">Illustrations of how different scenes might put their audience together.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <p class="feature-number">A HACKER COMMUNITY</p>
+        <h3>Lives on Discord and GitHub</h3>
+        <p>Members sign in with Discord or GitHub through the community’s own apps. Its own bot mirrors the server into the app, so people can catch up on the go, and every reply still happens on Discord.</p>
+      </article>
+      <article class="capability-card">
+        <p class="feature-number">A NIGHTLIFE SCENE</p>
+        <h3>Lives on Instagram and the door list</h3>
+        <p>Venue and performer pictures come straight from Instagram. Shows sell on Eventbrite, cover is paid in the app through the venue’s own Stripe, performers get tipped through Cash App or Venmo, and karaoke runs on KaraFun.</p>
+      </article>
+      <article class="capability-card">
+        <p class="feature-number">A CIVIC GROUP</p>
+        <h3>Lives on its paper and its calendar</h3>
+        <p>Local publications post straight into the audience, and members subscribe to the event calendar. Notifications are for showing up and volunteering. Donations stay a quiet link, never a push.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="possible" aria-labelledby="possible-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Not built yet</p>
+      <h2 class="capability-title" id="possible-title">What could be on the menu next</h2>
+      <p class="capability-intro">These are possibilities, not promises. The next integrations get built because a community asks for them, so tell us where yours lives.</p>
+    </div>
+    <ul class="alc-possible">
+      {possible.map((p) => (
+        <li><strong>{p.name}</strong><span>{p.note}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="section capabilities" id="sovereignty" aria-labelledby="alc-sov-title">
+  <div class="wrap scene">
+    <div><p class="eyebrow">Connected, not collected</p><h2 id="alc-sov-title">Every connection<br>stays yours.</h2></div>
+    <div class="scene-copy">
+      <p class="large-copy">An integration links your audience to a service. It doesn’t hand your members to us.</p>
+      <p>Because each connection runs on the audience’s own account, a community can take its Discord bot, its payment account or its AI provider with it, and nothing one audience connects reaches another. Read how we keep audiences apart on <a href="/sovereignty/" style="text-decoration:underline;text-underline-offset:4px">your audience, your data</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="alc-closing-title"><p class="eyebrow">Where does your community live?</p><h2 id="alc-closing-title">Bring it<br><em>with you.</em></h2><p>Tell us the places your people already gather.<br>We’ll put together the audience that fits.</p><a class="button primary" href={`mailto:${site.contact_email}?subject=Integrations%20for%20our%20community`}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
+
+<style>
+  .alc-hero h1 { font-size: clamp(52px, 7vw, 88px); line-height: .98; }
+  .scene-copy p + p { margin-top: 18px; }
+  .alc-menu .capability-card h3 { margin-top: 0; }
+  .alc-items { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 0; }
+  .alc-items li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.4; color: var(--paper); }
+  .alc-status { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; white-space: nowrap; }
+  .alc-building { color: var(--gold); background: #efc78118; border: 1px solid #efc78140; }
+  .alc-possible { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
+  .alc-possible li { display: grid; gap: 6px; padding: 20px 0; border-top: 1px dashed #ffffff30; }
+  .alc-possible strong { font-size: 18px; }
+  .alc-possible span { color: var(--muted); font-size: 15px; }
+  @media (max-width: 1000px) { .alc-possible { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .alc-possible { grid-template-columns: 1fr; } }
+</style>

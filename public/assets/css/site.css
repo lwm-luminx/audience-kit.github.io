@@ -1308,3 +1308,13 @@ h1 em,.closing em {
     padding-bottom:64px;
   }
 }
+
+@media(max-width:400px) {
+  .site-header nav {
+    gap:8px;
+    font-size:11px;
+  }
+  .nav-contact {
+    padding:4px 8px;
+  }
+}
