@@ -124,11 +124,22 @@ import site from '../../data/config.json';
         <p>Local papers and magazines publishing into an audience keep the revenue from ads on their own editorial. They join the scene instead of being competed out of it.</p>
       </div>
     </div>
-    <article class="capability-card sov-sponsored">
-      <p class="feature-number">OR NO ADS AT ALL</p>
-      <h3>Sponsored by your organization, ad-free for your members</h3>
-      <p>Ads are one way to pay for an audience, not the only one. A membership organization, nonprofit, club or company can sponsor its audience and cover the cost for its members, and that audience carries no sponsored spots at all. Members get the whole app, with nothing paid for in their feed. A political party is a good example: a party like the DNC can sponsor its members’ app, so it brings them their local candidates, events and volunteer shifts with no ads, and fundraising stays a quiet choice members make for themselves.</p>
-    </article>
+    <div class="sov-adfree">
+      <p class="eyebrow">Or no ads at all</p>
+      <p class="sov-adfree-intro">Ads are one way to pay for an audience, not the only one. An audience can choose to carry no sponsored spots at all, and cover its hosting another way.</p>
+      <div class="sov-compare">
+        <article class="capability-card sov-sponsored">
+          <p class="feature-number">AD-FREE · SPONSORED BY AN ORGANIZATION</p>
+          <h3>Your organization covers it for its members</h3>
+          <p>A membership organization, nonprofit, club or company sponsors its audience and pays the hosting, so its members get the whole app with nothing paid for in their feed. A political party is a good example: a party like the DNC can sponsor its members’ app, bringing them their local candidates, events and volunteer shifts with no ads, while giving stays a quiet choice members make for themselves.</p>
+        </article>
+        <article class="capability-card sov-sponsored">
+          <p class="feature-number">AD-FREE · PAID BY MEMBERS</p>
+          <h3>Members subscribe and pay the hosting themselves</h3>
+          <p>A community can be its own sponsor. Members pay a subscription that covers the audience’s hosting, and in return the app carries no ads. The people who use it fund it directly, so the only ones it answers to are its members.</p>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -137,7 +148,7 @@ import site from '../../data/config.json';
     <div><p class="eyebrow">Not a data collector</p><h2 id="position-title">Each audience<br>sets its own position.</h2></div>
     <div class="scene-copy">
       <p class="large-copy">A platform that collects everything has to choose one policy for everyone. We don’t, so you can.</p>
-      <p>Whether to carry sponsored spots or be sponsored ad-free by your organization, whether chats get automated moderation, what goes public on the web and what stays in the app: those are your audience’s calls, made for your community.</p>
+      <p>Whether to carry sponsored spots or go ad-free, sponsored by your organization or paid for by your members, whether chats get automated moderation, what goes public on the web and what stays in the app: those are your audience’s calls, made for your community.</p>
       <p>And because no single profile of everyone exists, the usual failures of big social media have nothing to grow from:</p>
       <ul class="sov-list">
         <li><strong>No surveillance advertising.</strong> Ads can’t target what we never gather.</li>
@@ -161,7 +172,9 @@ import site from '../../data/config.json';
   .sov-compare ul, .sov-list { margin: 16px 0 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 10px; }
   .sov-compare li { font-size: 17px; color: var(--paper); }
   .sov-never, .sov-sponsored { background: #efc78108; }
-  .sov-sponsored { margin-top: 24px; }
+  .sov-adfree { margin-top: 56px; }
+  .sov-adfree-intro { color: var(--muted); font-size: 18px; max-width: 62ch; }
+  .sov-adfree .sov-compare { margin-top: 28px; }
   .sov-sponsored h3 { margin-top: 14px; }
   .sov-list strong { color: var(--paper); }
   .scene-copy p + p, .scene-copy ul + p, .scene-copy p + ul { margin-top: 18px; }
