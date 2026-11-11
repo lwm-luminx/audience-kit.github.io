@@ -8,11 +8,11 @@ These terms are an agreement between you and Love Wins Media, Inc. ("we", "us").
 
 ## Who can use the apps
 
-You must be at least 18 years old, or older if your local law sets a higher age, and able to make a binding agreement. The apps are not for anyone under 18. You sign in with the services each app offers, such as Sign in with Apple, Facebook (Hot Mess) or Discord (Hack Different), so you must also follow the terms of the one you use.
+You must be at least 18 years old, or older if your local law sets a higher age, and able to make a binding agreement. The apps are not for anyone under 18. You sign in with Apple (Sign in with Apple), or in Hot Mess also with Facebook, so you must also follow the terms of the one you use. If you connect Discord in Hack Different, Discord's terms apply to that too.
 
 ## Your account
 
-Keep the account you sign in with (Apple ID, Facebook or Discord) secure; anything done with your account is your responsibility. Tell us at once at [rick@lovewins.media](mailto:rick@lovewins.media) if you think it has been misused.
+Keep the account you sign in with (your Apple ID or Facebook account) secure; anything done with your account is your responsibility. Tell us at once at [rick@lovewins.media](mailto:rick@lovewins.media) if you think it has been misused.
 
 ## Using the apps
 
