@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/Legal.astro
 title: Privacy policy
-description: How AudienceKit and the apps built on it, including Hot Mess, collect, use and delete your information.
+description: How AudienceKit and the apps built on it, including Hot Mess and Hack Different, collect, use and delete your information.
 ---
 
-This policy explains what information Love Wins Media, Inc. ("we", "us") collects when you use AudienceKit and the community apps built on it, and what we do with it. It covers our websites, the AudienceKit admin console, and every audience app we run on the platform, including **Hot Mess** (hotmess.social) on iPhone, Android, the web and Alexa. In this policy, "the apps" means all of these.
+This policy explains what information Love Wins Media, Inc. ("we", "us") collects when you use AudienceKit and the community apps built on it, and what we do with it. It covers our websites, the AudienceKit admin console, and every audience app we run on the platform, including **Hot Mess** (hotmess.social) on iPhone, Android, the web and Alexa, and **Hack Different**, the community app for hackerspaces, security meetups and hacker conferences, on iPhone. In this policy, "the apps" means all of these.
 
 If you have a question, or want to see, correct or delete your information, email us at [rick@lovewins.media](mailto:rick@lovewins.media).
 
@@ -12,7 +12,7 @@ If you have a question, or want to see, correct or delete your information, emai
 
 ### When you sign in with Facebook
 
-The apps use Facebook Login. When you sign in, Facebook shares the information you agree to on its permission screen. Depending on what you allow, that can include:
+Hot Mess and AudienceKit offer Facebook Login. Hack Different doesn't: you sign in to it with Apple. When you sign in, Facebook shares the information you agree to on its permission screen. Depending on what you allow, that can include:
 
 - your name, first and last name, profile picture and email address;
 - an app-scoped Facebook ID, an ID that is the same across our own Facebook apps (so you keep one account if you sign in through more than one of them), and a sign-in token, so we can keep you signed in;
@@ -23,12 +23,20 @@ We never post to Facebook for you, and we never see your Facebook password.
 
 ### When you sign in with Apple
 
-You can sign in with Apple instead. Apple shares a stable ID for you, and the name and email address you choose to share the first time you sign in; if you choose Hide My Email, we get an address that forwards to you. So that deleting your account also ends the app's access to your Apple ID, we keep a sign-in token from Apple, encrypted, and revoke it with Apple when you delete your account. We never see your Apple ID password. You can connect Facebook later to see your friends.
+You can sign in with Apple instead; in Hack Different it is the only way to sign in. Apple shares a stable ID for you, and the name and email address you choose to share the first time you sign in; if you choose Hide My Email, we get an address that forwards to you. So that deleting your account also ends the app's access to your Apple ID, we keep a sign-in token from Apple, encrypted, and revoke it with Apple when you delete your account. We never see your Apple ID password. You can connect Facebook later to see your friends in Hot Mess.
+
+### When you connect Discord
+
+Hack Different lets you connect your Discord account, if you choose to. Discord then shares your Discord user ID, username, display name and email address (and whether Discord has verified it). We use them to link your Discord name to your account and to find an account you already have. We never see your Discord password, we don't read your Discord messages, servers or friends through this connection, and we never post to Discord for you.
+
+### Discord channels shown in Hack Different
+
+Each hackerspace's community talks on its own Discord server. Where a server's admins add our bot to a channel, Hack Different shows that channel read-only, so members can follow along without Discord. For that we receive and store the messages posted in that channel, with each sender's Discord display name, avatar and the time they posted. Replies happen on Discord, under Discord's own terms and privacy policy. If you posted in a mirrored channel and want a message removed from the app, delete it on Discord or email us.
 
 ### When you use the apps
 
-- **Location.** If you allow it, the app sends your location while you use it, so we can show nearby venues and events and, when you choose to, check you in at a venue. If you also allow location **Always** (in the background), Hot Mess uses it when the app isn't open too: the device tells the app when you arrive at or leave a venue's area (a geofence) or move a significant distance, so it can show you at the venue, to your friends and in its chat, without you opening the app. Some venues use Bluetooth beacons for this. You can change this to "While Using the App" or turn location off in your device settings at any time; the apps still work, but you'll have to pick a city yourself.
-- **Activity in the app.** Events you RSVP to, venues you check in at, messages you send in venue and city chats, reports and blocks you make, and safety pings you send.
+- **Location.** If you allow it, the app sends your location while you use it, so we can show nearby venues and events and, when you choose to, check you in at a venue. If you also allow location **Always** (in the background), Hot Mess uses it when the app isn't open too: the device tells the app when you arrive at or leave a venue's area (a geofence) or move a significant distance, so it can show you at the venue, to your friends and in its chat, without you opening the app. Some venues use Bluetooth beacons for this. You can change this to "While Using the App" or turn location off in your device settings at any time; the apps still work, but you'll have to pick a city yourself. Hack Different asks only for location while you use it, and uses it only to sort events and spaces by distance; it never uses location in the background.
+- **Activity in the app.** Events you RSVP to, venues you check in at, messages you send in venue and city chats, reports and blocks you make, safety pings you send, and calendar feeds you subscribe to.
 - **How you use the app.** Product interaction events, such as the venues, events and screens you view and the features you use, linked to your account, so we can improve the apps and find problems.
 - **Support requests.** When you use "Report a problem" or email us, what you write, your email address if you give it, and details about the app and your device (version, model, recent errors) so we can fix it.
 - **Device and connection.** Your device model and type, an app-specific device identifier, the app version, and the IP address of each session.
@@ -60,15 +68,17 @@ We don't sell your information, we don't use it for advertising, and we don't sh
 - **Service providers** that host and run the service for us, under contracts that limit their use of the data to providing that service: Heroku (hosting), Amazon Web Services (cloud infrastructure, including photo storage through Heroku, with our copy of your profile picture, and Kinesis, which streams app activity such as venue views and location updates), Stripe and Square (payments), Eventbrite and Ticketmaster (when an organizer connects their account, we store the OAuth tokens it grants so we can sync their events), Firebase Cloud Messaging and Apple Push Notification service (push notifications), New Relic (performance monitoring) and Twilio (text messages).
 - **Google Analytics**, on our websites (audiencekit.com, developer.audiencekit.com and hotmess.social) and in the admin console, to count visits and see which pages people use. It sets first-party cookies and receives your IP address and browser details. We don't link it to your account or use it for advertising. You can opt out with Google's [browser add-on](https://tools.google.com/dlpage/gaoptout).
 - **Meta (Facebook)**, when you sign in with Facebook or when we request public Page information, under Meta's own terms and privacy policy.
+- **Discord**, when you connect your Discord account or when a community's Discord channel is shown in Hack Different, under Discord's own terms and privacy policy.
 - **When the law requires it**, for example to respond to a valid legal request, or to protect someone's safety.
 
 ## How long we keep it
 
-We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. When you delete your account, we delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, RSVPs, messages and comments within 30 days, and revoke the app's access to your Apple ID if you signed in with Apple, except where we must keep something to meet a legal obligation. Reports other people made about your messages are kept for the audience's moderators, without the link to your account.
+We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. When you delete your account, we delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, Discord connection, RSVPs, messages and comments within 30 days, and revoke the app's access to your Apple ID if you signed in with Apple, except where we must keep something to meet a legal obligation. Reports other people made about your messages are kept for the audience's moderators, without the link to your account.
 
 ## Your choices and rights
 
 - **Change Facebook permissions** at any time in Facebook under Settings & privacy, then Apps and websites. Removing an app there stops it receiving new information from Facebook.
+- **Disconnect Discord** at any time in Discord under User Settings, then Authorized Apps.
 - **Turn off location** in your device settings.
 - **See, correct or delete your information** by emailing [rick@lovewins.media](mailto:rick@lovewins.media). See [Delete your data](/data-deletion/) for the steps.
 
