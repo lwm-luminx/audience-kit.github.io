@@ -10,7 +10,9 @@
     "ios_url": "https://apps.apple.com/us/app/focus-by-audiencekit/id6821187977",
     "ios_beta": false,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Focus",
-    "android_beta": false
+    "android_beta": false,
+    "record_url": "/record/focus-app-review.pdf",
+    "record_label": "Curating a scene with Focus, step by step (PDF)"
   },
   {
     "slug": "velvet",
@@ -38,6 +40,8 @@
     "ios_url": "https://apps.apple.com/us/app/backstage-by-audiencekit/id6821187736",
     "ios_beta": false,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Backstage",
-    "android_beta": false
+    "android_beta": false,
+    "record_url": "/record/backstage-app-review.pdf",
+    "record_label": "A performer's gig in Backstage, step by step (PDF)"
   }
 ]
