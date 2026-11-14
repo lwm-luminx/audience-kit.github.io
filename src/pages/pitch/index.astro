@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Default.astro';
+import site from '../../data/config.json';
+---
+<Layout title="The Future of Community Marketing" description="Why community marketing is moving into places communities own, and how AudienceKit's contextual, flat-priced advertising pays for the community instead of mining it. Download the pitch deck and document.">
+
+<section class="section wrap scene sov-hero" aria-labelledby="pitch-title">
+  <div>
+    <p class="eyebrow">AudienceKit · The pitch</p>
+    <h1 id="pitch-title">The future of<br>community <em>marketing.</em></h1>
+  </div>
+  <div class="scene-copy">
+    <p class="large-copy">We host communities. We don’t collect people.</p>
+    <p>Community marketing is moving off rented platforms and into places communities own. Each community gets its own app, its members stay its own, and businesses reach it through placements priced flat on a public rate card and matched to the city, the night and the event, never to a profile of the person looking. The revenue goes back toward the cost of running the community.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="downloads" aria-labelledby="downloads-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Downloads</p>
+      <h2 class="capability-title" id="downloads-title">Read it your way</h2>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>Pitch deck</h3>
+        <p>Eleven slides: what broke on the big platforms, the AudienceKit model, our six advertising rules, where brands meet the community, safety and proof.</p>
+        <p><a class="text-link" href="/pitch/future-of-community-marketing-deck.pdf">Download the deck (PDF, 0.4 MB) <span aria-hidden="true">↓</span></a></p>
+      </article>
+      <article class="capability-card">
+        <h3>Pitch document</h3>
+        <p>The full argument in six pages, with the rules every placement follows, the marketing surfaces in the apps, and who AudienceKit is for.</p>
+        <p><a class="text-link" href="/pitch/future-of-community-marketing.pdf">Download the document (PDF, 0.3 MB) <span aria-hidden="true">↓</span></a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="pitch-closing-title"><p class="eyebrow">You bring the people.</p><h2 id="pitch-closing-title">Let’s make<br><em>your scene.</em></h2><p>Tell us about the community you’re building.<br>We’ll help you bring it into focus.</p><a class="button primary" href={`mailto:${site.contact_email}?subject=Make%20a%20Scene`}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
