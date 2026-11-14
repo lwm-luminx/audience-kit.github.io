@@ -54,6 +54,10 @@ Each hackerspace's community talks on its own Discord server, Matrix room or IRC
 
 To keep listings accurate, we get events, and the performers and hosts who appear at them, from the organizers who list them, from our ticketing partners Eventbrite and Ticketmaster, and from our own records. This includes names, photos, event times and ticket links. For venues, we read only public details from their Facebook Pages: name, address, opening hours, website and photos. We don't collect posts, comments, reactions or information about the people who follow those Pages.
 
+### ID checks at a venue's door
+
+Some venues check ID at the door with our staff app, Velvet, and some states require them to. The venue's staff scan the barcode on the back of your driver's licence or ID card, or type in an ID that won't scan. This happens whether or not you use our apps. We keep a log for the venue with your name, birth date, age, gender, the ID's expiry date and the time of the check, and the ID number only when it was typed in by hand. The name and ID number are stored encrypted, and we never keep the barcode itself. Each entry is deleted from the log after seven days; our database backups can hold a copy a little longer before they expire. The log isn't linked to any account, and it is used only to check age: never for marketing. The venue can give it to law enforcement when the law requires.
+
 ### Event photos
 
 Photographers can share photos from events with the audiences they shoot for. If you appear in a photo and want it taken down, email us and we'll remove it.
