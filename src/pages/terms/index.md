@@ -42,6 +42,16 @@ Venue staff can ban you from a venue, an audience's moderators can ban you from 
 
 Child sexual abuse material (CSAM) and any sexual exploitation of children, including grooming and sexualized content involving minors, are never allowed. Neither is any other illegal content. We remove it, permanently ban the accounts involved, and report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline as US law requires (18 U.S.C. § 2258A). See our [Child Safety & CSAM Policy](/child-safety/).
 
+## Illegal content, reports and complaints
+
+This section says how we deal with illegal content and with complaints, wherever you are, including for members in the United Kingdom and Australia.
+
+- **What isn't allowed.** Anything illegal where you are or where we are, including: child sexual abuse material; threats, harassment and stalking; hatred against people for who they are; intimate images shared without consent; content that encourages suicide or self-harm; fraud; selling drugs or weapons; and content that supports terrorism.
+- **How to report.** Use Report on any message, photo, post, person, venue or ping in the app, or email [rick@lovewins.media](mailto:rick@lovewins.media). You don't need an account to email us. Reports alert our moderators at once.
+- **What we do.** We aim to review every report within 24 hours. We remove what breaks these terms or the law, and we can remove the person who posted it from a chat, a venue, an audience or all of the apps. We remove an intimate image shared without consent within 48 hours of a valid request. Apparent child sexual abuse material goes to our child safety reviewers and is reported to NCMEC.
+- **Automated checks.** A word filter on our servers refuses some messages before they are posted. Audiences can turn on AI moderation of their chats, described in our [privacy policy](/privacy/).
+- **Complaints.** You can complain, by email with the subject "Complaint", if you think: we left up something illegal; we were wrong to remove your content or restrict your account; a report you made wasn't handled properly; or we aren't doing what these terms say. A person reads every complaint, and we aim to answer within 14 days and tell you what we decided and why.
+
 ## Venues, events and listings
 
 Listings for venues, events, performers and hosts come from public sources and from organizers. We work to keep them accurate but can't promise that every time, price or detail is right, or that an event will happen. Tickets bought through a link go through the ticket seller, under its terms. Check with the venue or organizer before you travel.
@@ -106,6 +116,12 @@ The apps, their design and the AudienceKit name are ours or our licensors'. We m
 
 The apps are provided "as is". To the extent the law allows, we disclaim all warranties, and we aren't liable for indirect or consequential losses, or for anything that happens at a venue or event. Our total liability to you is limited to US$100. Nothing in these terms limits liability that can't be limited by law.
 
+Where you live can change this:
+
+- **United Kingdom.** Nothing in these terms limits our liability for death or personal injury caused by our negligence, for fraud, or for anything else that can't be limited under UK law, and you keep your rights under the Consumer Rights Act 2015.
+- **Australia.** Nothing in these terms excludes, restricts or changes any consumer guarantee, right or remedy you have under the Australian Consumer Law that can't lawfully be excluded.
+- **Canada and Mexico.** You keep the protection of the consumer laws of your province, territory or country that can't be waived by agreement. In Quebec, a limit in this section doesn't apply where the Consumer Protection Act forbids it.
+
 ## Ending your use
 
 You can stop using the apps and [delete your data](/data-deletion/) at any time. We may suspend or end your access if you break these terms.
@@ -116,7 +132,7 @@ We may update these terms. If a change matters, we'll update the date at the top
 
 ## Law
 
-These terms are governed by the laws of the State of Washington, USA, except where your local law gives you rights that can't be waived.
+These terms are governed by the laws of the State of Washington, USA, except where your local law gives you rights that can't be waived. If you use the apps as a consumer outside the United States, you also keep the protection of the mandatory laws of the country where you live, and you can bring a claim in the courts there.
 
 ## Contact
 

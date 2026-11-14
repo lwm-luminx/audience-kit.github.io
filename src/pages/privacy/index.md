@@ -113,6 +113,38 @@ Depending on where you live, you may have extra rights, such as the right to a c
 - **Remove a tribe** at any time on your profile.
 - **Turn off finding friends from your contacts** in the app's settings, which deletes your number and contact codes.
 
+## If you live outside the United States
+
+Love Wins Media, Inc., at the address under Contact, decides how your information is used (it is the "controller" or "responsible party"). We are in the United States, and your information is stored and processed there, where data protection laws differ from yours. The service providers listed above work for us under contracts that limit what they may do with it.
+
+### Why we're allowed to use your information
+
+Some laws, including those of the United Kingdom and the European Union, require a legal reason for each use. Ours are:
+
+- **To provide the apps you signed up for** (our agreement with you): your account, sign-in, what you post, RSVPs, check-ins, payments you make, and showing you venues and events.
+- **Your consent**, which you can withdraw at any time: location (in your device settings), notifications, finding friends from your contacts, connecting Facebook friends or Discord, and the tribes you choose. Tribes can reveal sexual orientation, gender identity or health, so we use them only because you chose to add them, and removing one withdraws that consent.
+- **Our legitimate interests**, where your own interests don't outweigh them: keeping the apps and their members safe, moderation, preventing abuse and fraud, fixing problems, and understanding which features are used.
+- **Legal duties**: reporting child sexual abuse material, keeping records the law requires, and answering valid legal requests.
+
+Moderation can be automated, as described under "Who we share it with". You can always ask for a person to review an automated decision about you; see our [terms](/terms/).
+
+### Your rights
+
+Depending on where you live, you can ask us to:
+
+- tell you what information we hold about you and give you a copy, including in a form you can take elsewhere;
+- correct it, or delete it;
+- stop or limit a particular use, or object to one based on our legitimate interests;
+- withdraw a consent you gave.
+
+Email [rick@lovewins.media](mailto:rick@lovewins.media?subject=Privacy%20request) with the subject "Privacy request". It's free, we may need to check it's you, and we answer within one month (30 days in Canada and Australia, 20 working days in Mexico). You can also complain to your regulator at any time:
+
+- **United Kingdom:** the Information Commissioner's Office, [ico.org.uk](https://ico.org.uk).
+- **European Union:** the data protection authority of the country where you live.
+- **Canada:** the Office of the Privacy Commissioner of Canada, [priv.gc.ca](https://www.priv.gc.ca), or your province's commissioner; in Quebec, the Commission d'accès à l'information. The person responsible for the protection of personal information at Love Wins Media is its chief executive, at the email address above.
+- **Australia:** the Office of the Australian Information Commissioner, [oaic.gov.au](https://www.oaic.gov.au). Tell us first so we can try to put it right.
+- **Mexico:** you have the rights of access, rectification, cancellation and opposition (ARCO), which you exercise by the email above, and you can turn to the Secretaría Anticorrupción y Buen Gobierno.
+
 ## Children
 
 The apps are for adults. Many listings are for bars and clubs, and you must be at least 18 to use them, or older if your local law sets a higher age. We don't knowingly collect information from anyone younger. If you think a child has given us information, email us and we'll delete it.
