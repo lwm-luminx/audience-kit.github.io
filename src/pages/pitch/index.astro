@@ -17,6 +17,50 @@ const guides = apps.filter((app) => app.record_url);
   </div>
 </section>
 
+<section class="section capabilities" id="live" aria-labelledby="live-title" hidden data-stats-url="https://api.audiencekit.com/v1/public/audiences/hotmess/stats">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Live from Hot Mess</p>
+      <h2 class="capability-title" id="live-title"><span data-stat="venues"></span> venues in <span data-stat="places"></span> places</h2>
+      <p class="capability-intro">Counted from the platform as you read this, not typed into a slide. Hot Mess is in the App Store and Google Play in the US; its listings reach further. <span data-stat="as_of"></span></p>
+    </div>
+    <div class="capability-grid" data-stat="countries"></div>
+  </div>
+</section>
+
+<script is:inline>
+(() => {
+  const section = document.getElementById('live');
+  if (!section) return;
+  const fmt = new Intl.NumberFormat('en-US');
+  fetch(section.dataset.statsUrl, { headers: { Accept: 'application/json' } })
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((stats) => {
+      if (!stats || !stats.venues || !Array.isArray(stats.countries)) return;
+      const set = (key, text) => section.querySelectorAll(`[data-stat="${key}"]`).forEach((el) => { el.textContent = text; });
+      set('venues', fmt.format(stats.venues));
+      set('places', fmt.format(stats.places));
+      if (stats.as_of) {
+        const when = new Date(stats.as_of);
+        if (!Number.isNaN(when.getTime())) set('as_of', `Updated ${when.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}.`);
+      }
+      const grid = section.querySelector('[data-stat="countries"]');
+      stats.countries.slice().sort((a, b) => b.venues - a.venues).forEach((c) => {
+        const card = document.createElement('article');
+        card.className = 'capability-card';
+        const h = document.createElement('h3');
+        h.textContent = c.name || c.code;
+        const p = document.createElement('p');
+        p.textContent = `${fmt.format(c.venues)} venues in ${fmt.format(c.places)} ${c.places === 1 ? 'place' : 'places'}`;
+        card.append(h, p);
+        grid.append(card);
+      });
+      section.hidden = false;
+    })
+    .catch(() => {});
+})();
+</script>
+
 <section class="section capabilities" id="downloads" aria-labelledby="downloads-title">
   <div class="wrap">
     <div class="section__head">
