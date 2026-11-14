@@ -10,7 +10,11 @@ You can ask us to delete your account and everything we hold about you at any ti
 
 In **Hot Mess** or **Hack Different**, open your profile and choose **Delete Account**, then confirm. Your account and data in that app are deleted right away, and you're signed out of it on every device.
 
-Deleting your account in one app removes your membership and what you did in that app only. Your accounts in other apps built on AudienceKit stay until you delete them there too. When you delete the last one, your whole AudienceKit account goes. To delete everything at once, email us as below.
+Deleting your account in one app removes your membership and what you did in that app only. Your accounts in other apps built on AudienceKit stay until you delete them there too. When you delete the last one, your whole AudienceKit account goes. To delete everything at once, use the page below or email us.
+
+## Delete your account everywhere
+
+Go to [admin.audiencekit.com/delete-account](https://admin.audiencekit.com/delete-account) and sign in with Facebook, Google or Apple, the way you sign in to the apps. You'll see the apps your account is in, and one button deletes it from all of them. If you're an admin of an app or a venue, give that role to someone else first. If you sign in with Discord only, email us instead.
 
 ## Delete your account and data by email
 
