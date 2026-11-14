@@ -82,14 +82,20 @@ We don't sell your information, we don't use it to choose which sponsored listin
 - **Venue staff**, when you pay at their door, send them a message, or send a safety alert there. They see what you sent and the name the app shows for you.
 - **Publishers**, when you send them an op-ed.
 - **Service providers** that host and run the service for us, under contracts that limit their use of the data to providing that service: Heroku (hosting), Amazon Web Services (cloud infrastructure, including photo storage through Heroku, with our copy of your profile picture), Stripe and Square (payments), Eventbrite and Ticketmaster (when an organizer connects their account, we store the OAuth tokens it grants so we can sync their events), Firebase Cloud Messaging and Apple Push Notification service (push notifications), New Relic (performance monitoring), Twilio (the text message with your code, if you turn on finding friends from your contacts), Cloudflare (our websites), Fly.io (the chat server) and Google (Places, for venue details; nothing about you is sent).
-- **Google Analytics**, on our websites (audiencekit.com, developer.audiencekit.com and hotmess.social) and in the admin console, to count visits and see which pages people use. It sets first-party cookies and receives your IP address and browser details. We don't link it to your account or use it for advertising. You can opt out with Google's [browser add-on](https://tools.google.com/dlpage/gaoptout).
+- **Google Analytics**, on audiencekit.com and developer.audiencekit.com and in the admin console, to count visits and see which pages people use. hotmess.social doesn't use it: there we count visits ourselves, recording only the kind of page and the site you came from, with no cookie, IP address or identifier. It sets first-party cookies and receives your IP address and browser details. We don't link it to your account or use it for advertising. You can opt out with Google's [browser add-on](https://tools.google.com/dlpage/gaoptout).
 - **Meta (Facebook)**, when you sign in with Facebook or when we request public Page information, under Meta's own terms and privacy policy.
 - **Discord**, when you connect your Discord account or when a community's Discord channel is shown in Hack Different, under Discord's own terms and privacy policy.
 - **When the law requires it**, for example to respond to a valid legal request, or to protect someone's safety.
 
 ## How long we keep it
 
-We keep your account information for as long as your account exists. Location history is kept only as long as it is useful for check-ins and nearby suggestions. Members see the last 24 hours of a venue or city chat.
+We keep your account information for as long as your account exists. Some things are deleted on a schedule while your account stays open:
+
+- positions your phone reports inside a venue, after 24 hours;
+- messages in venue and city chats, 30 days after you send them (members only ever see the last 24 hours). A pinned announcement stays while it is pinned, and a report keeps its own copy of the message it is about;
+- the log of account activity we keep to find problems and abuse (sign-ins, arriving at a venue, that you chatted but not what you wrote), after 30 days;
+- an AI moderator's notes on a message, after 30 days;
+- a door ID check, after seven days.
 
 When you delete your account in an app, we delete what that app holds about you right away: your membership, the tribes you picked there, RSVPs, safety pings, messages and comments. When you delete your last one, or use [Delete your account everywhere](/data-deletion/), we also delete your profile, profile picture, sign-in tokens, sessions, locations, friend connections, safety alerts, phone number and contact codes, and Discord connection, and revoke the app's access to your Apple ID if you signed in with Apple. If you ask by email instead, we do it within 30 days.
 
