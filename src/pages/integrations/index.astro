@@ -25,6 +25,7 @@ const menu = [
       { name: 'Venue and city rooms in your own app', status: 'live' },
       { name: 'Your own Discord bot, with your name and avatar', status: 'live' },
       { name: 'A read-only Discord mirror: read and report in the app, reply on Discord', status: 'live' },
+      { name: 'Read-only Matrix and IRC bridges for a venue’s or event’s own channel', status: 'live' },
       { name: 'Connect Discord to an account that signed in another way', status: 'live' },
     ],
   },
@@ -55,6 +56,7 @@ const menu = [
     intro: 'Plug into the gear and services a venue already runs.',
     items: [
       { name: 'KaraFun karaoke sessions linked to the night', status: 'live' },
+      { name: 'Tonight’s lineup and chat on the venue’s TV, from Velvet over a cable, AirPlay or Chromecast', status: 'live' },
       { name: 'Karaoke and song requests run from the venue’s chat', status: 'live' },
       { name: 'Google Places for venue details and opening hours', status: 'live' },
     ],
@@ -117,10 +119,9 @@ const menu = [
 const possible = [
   { name: 'Your own chat server', note: 'Rooms carried on an XMPP server you run, with the apps on top.' },
   { name: 'More ticketing partners', note: 'Humanitix, DICE, Billetto and others, where a scene already sells.' },
-  { name: 'Other community bridges', note: 'Slack, Matrix or Telegram, mirrored the same careful way as Discord.' },
+  { name: 'Other community bridges', note: 'Slack or Telegram, mirrored the same careful way as Discord.' },
   { name: 'The open social web', note: 'Posting events and articles out to Bluesky and the fediverse.' },
   { name: 'Membership and donation platforms', note: 'Patreon, Open Collective or ActBlue, as a quiet link, never a push.' },
-  { name: 'Screens in the room', note: 'Tonight’s lineup and chat on the venue’s TVs.' },
 ];
 
 const labels: Record<string, string> = { live: 'Available', building: 'In development' };
