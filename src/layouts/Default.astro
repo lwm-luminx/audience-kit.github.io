@@ -3,6 +3,7 @@ import site from '../data/config.json';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ParentBrand from '../components/ParentBrand.astro';
+import NewRelic from '../components/NewRelic.astro';
 interface Props { title: string; description?: string; image?: string; imageWidth?: number; imageHeight?: number; imageAlt?: string; noindex?: boolean }
 const { title, description = site.description, image = '/assets/brand/focus.png', imageWidth, imageHeight, imageAlt, noindex = false } = Astro.props;
 const pageTitle = `${title} | ${site.title}`;
@@ -39,15 +40,7 @@ const imageUrl = new URL(image, site.url);
     {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <slot name="head" />
-    {import.meta.env.PROD && <>
-      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.google_analytics}`}></script>
-      <script define:vars={{ measurementId: site.google_analytics }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', measurementId);
-      </script>
-    </>}
+    <NewRelic />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
