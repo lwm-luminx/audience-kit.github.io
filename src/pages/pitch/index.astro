@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Default.astro';
 import site from '../../data/config.json';
+import apps from '../../data/staff_apps.json';
+const guides = apps.filter((app) => app.record_url);
 ---
 <Layout title="The Future of Community Marketing" description="Why community marketing is moving into places communities own, and how AudienceKit's contextual, flat-priced advertising pays for the community instead of mining it. Download the pitch deck and document.">
 
@@ -32,6 +34,27 @@ import site from '../../data/config.json';
         <p>The full argument in eight pages, with the rules every placement follows, the nine sample cards in AudienceKit Demo, the marketing surfaces in the apps, and who AudienceKit is for.</p>
         <p><a class="text-link" href="/pitch/future-of-community-marketing.pdf">Download the document (PDF, 0.6 MB) <span aria-hidden="true">↓</span></a></p>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="walkthroughs" aria-labelledby="walkthroughs-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The apps, step by step</p>
+      <h2 class="capability-title" id="walkthroughs-title">Walk through the apps</h2>
+      <p class="capability-intro">Screen-by-screen guides to the AudienceKit apps that organizers, venues and performers use every night.</p>
+    </div>
+    <div class="capability-grid">
+      {guides.map((app) => (
+        <article class="capability-card">
+          <p class="eyebrow">{app.role}</p>
+          <h3>{app.name}</h3>
+          <p>{app.summary}</p>
+          <p><a class="text-link" href={app.record_url}>{app.record_label} <span aria-hidden="true">↓</span></a></p>
+          <p><a class="text-link" href={`/apps/${app.slug}/`}>Get {app.name} <span aria-hidden="true">↗</span></a></p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
