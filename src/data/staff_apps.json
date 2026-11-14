@@ -23,7 +23,9 @@
     "ios_url": "https://testflight.apple.com/join/9RkwsTZJ",
     "ios_beta": true,
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Velvet",
-    "android_beta": false
+    "android_beta": false,
+    "record_url": "/record/velvet-app-review.pdf",
+    "record_label": "One night with Velvet, step by step (PDF)"
   },
   {
     "slug": "backstage",
