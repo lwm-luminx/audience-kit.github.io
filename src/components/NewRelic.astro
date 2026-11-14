@@ -1,0 +1,28 @@
+---
+// New Relic browser monitoring, the only measurement on this site (Google Analytics was removed 2026-11-14). It
+// loads in production builds once `new_relic_application_id` in data/config.json names this site's browser app in
+// the Hot Mess Productions account; while that is empty the site measures nothing.
+//
+// new-relic-browser.html is New Relic's copy/paste snippet (Pro + SPA) with the application ID left as a
+// placeholder. Its licenseKey is the account's browser key, which every page using it ships, so it isn't a secret.
+// What the agent may send is set in NREUM.init at the top of that file:
+// - no cookie or stored session (privacy.cookies_enabled false), so the site needs no consent banner and visits
+//   can't be joined into a person;
+// - no session replay, session trace, click capture or console log forwarding;
+// - no request or response bodies;
+// - obfuscate rules rewrite every string before it leaves: record IDs become :id, sign-in and search query values
+//   ?redacted, email addresses :email, and URL fragments are dropped.
+// New Relic still sees the visitor's IP address when the browser connects, as any server does.
+//
+// To update the agent, paste a fresh snippet over the file, put the NREUM.init line back as it was and replace the
+// application ID with __NR_APPLICATION_ID__ again.
+import site from '../data/config.json';
+import snippet from './new-relic-browser.html?raw';
+
+const applicationId = site.new_relic_application_id.trim();
+if (!snippet.includes('cookies_enabled:false') || !snippet.includes('obfuscate:[')) {
+  throw new Error('new-relic-browser.html lost its filtering: restore the NREUM.init line (see NewRelic.astro)');
+}
+const html = snippet.replaceAll('__NR_APPLICATION_ID__', applicationId);
+---
+{import.meta.env.PROD && /^\d+$/.test(applicationId) && <Fragment set:html={html} />}
