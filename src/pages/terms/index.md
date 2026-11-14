@@ -97,7 +97,7 @@ If you send an op-ed to a publisher through an app, you also give that publisher
 
 ## Copyright complaints
 
-We respect other people's copyright and expect you to do the same. If you believe something in the apps or on our websites copies your work without permission, email [rick@lovewins.media](mailto:rick@lovewins.media?subject=Copyright%20complaint) with the subject "Copyright complaint", or write to the address under Contact, and include:
+We respect other people's copyright and expect you to do the same. If you believe something in the apps or on our websites copies your work without permission, send a notice to our copyright agent: email [copyright@lovewins.media](mailto:copyright@lovewins.media?subject=Copyright%20complaint) with the subject "Copyright complaint", or write to Copyright Agent, Love Wins Media, Inc., at the address under Contact. Include:
 
 1. your name, and your signature (typing your full name is enough);
 2. the work you say was copied, or a link to it;
@@ -108,7 +108,7 @@ We respect other people's copyright and expect you to do the same. If you believ
 
 We remove or disable what a valid notice identifies and tell the person who posted it. If that was you and you believe it was a mistake, reply with a counter-notice that says so, with your name, address, phone number, a statement under penalty of perjury that the removal was a mistake, and your agreement to the jurisdiction of the federal court where you live (or in Washington, if you live outside the United States). We end the accounts of people who infringe repeatedly.
 
-The same address works if a listing, photo or page about you or your business is wrong, or you want it changed or removed.
+You can also write to [rick@lovewins.media](mailto:rick@lovewins.media) if a listing, photo or page about you or your business is wrong, or you want it changed or removed.
 
 ## Our service
 
