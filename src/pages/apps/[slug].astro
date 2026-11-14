@@ -25,6 +25,7 @@ const { app } = Astro.props;
     <p class="large-copy">{app.summary}</p>
     <p>{app.blurb}</p>
     <StoreButtons app={app} />
+    {app.record_url && <p><a class="text-link" href={app.record_url}>{app.record_label} <span aria-hidden="true">↗</span></a></p>}
     <div class="app-share">
       <img src={`${'/assets/qr/' + app.slug + '.svg'}`} width="132" height="132" alt={`QR code for audiencekit.com/apps/${app.slug}`}>
       <p>Scan with your phone's camera, or share <strong>audiencekit.com/apps/{app.slug}</strong>. It opens {app.ios_beta ? 'TestFlight' : 'the App Store'} on iPhone and iPad and Google Play on Android.</p>
