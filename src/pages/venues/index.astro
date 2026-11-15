@@ -53,7 +53,7 @@ const team = [
   ['ban', 'Revoke in one tap', 'Access lasts 90 days. Lose a phone or a staffer and it stops working at once.'],
   ['users', 'Performers run their own pages', 'Acts keep their profile and gigs current in Backstage, so your lineup stays right.'],
 ];
-const svg = (name) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon[name]}</svg>`;
+const svg = (name: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon[name as keyof typeof icon]}</svg>`;
 ---
 <Layout title="AudienceKit for Venues" description="Get found on Hot Mess, run your door, lineup, screens and chat from Velvet, and keep your guests and your money your own. AudienceKit for bars, clubs and venues.">
 
