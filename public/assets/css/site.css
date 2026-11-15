@@ -1376,7 +1376,7 @@ h1 em,.closing em {
   text-align:center;
   perspective:4em;
   box-shadow:inset 0 0 0 1px #ffffff12,0 .04em .1em #00000080;
-  vertical-align:-.16em;
+  vertical-align:-.2em;
 }
 
 /* The hinge line across the middle. */
@@ -1417,6 +1417,7 @@ h1 em,.closing em {
   right:0;
   top:0;
   height:1.18em;
+  transform:translateY(var(--flap-shift,0));
 }
 
 .flap__bottom .flap__ch {
@@ -1451,6 +1452,20 @@ h1 em,.closing em {
 
 .live-stats__headline .flap {
   font-size:.92em;
+  vertical-align:var(--flap-va,-.2em);
+}
+
+.live-stats__more {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.1em .6em;
+  margin-top:.25em;
+  font-size:.62em;
+  color:var(--muted);
+}
+
+.live-stats__more[hidden],[data-more-part][hidden] {
+  display:none;
 }
 
 .board {
@@ -1470,7 +1485,7 @@ h1 em,.closing em {
   font-size:clamp(14px,3.4vw,26px);
 }
 
-[data-board-rows],.board__row {
+[data-board-rows],[data-board-extras],.board__row {
   display:contents;
 }
 
@@ -1504,7 +1519,7 @@ h1 em,.closing em {
   border-bottom:1px dashed var(--line);
 }
 
-[data-board-events] > * {
+.board__row--extra:first-child > * {
   padding-top:.56em;
   border-bottom:0;
   border-top:1px dashed var(--line);
@@ -1518,4 +1533,19 @@ h1 em,.closing em {
   .live-dot {
     animation:none;
   }
+}
+
+/* In the headline the tiles sit in the text's own line (a flex row would ignore vertical-align), centered on the
+   words' cap height by --flap-va. */
+.live-stats__headline .flaps {
+  display:inline;
+  white-space:nowrap;
+}
+
+.live-stats__headline .flap + .flap {
+  margin-left:.08em;
+}
+
+.board__row--extra .flap {
+  --flap-ink:var(--paper);
 }

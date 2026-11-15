@@ -90,17 +90,43 @@
     return runs[key].run;
   };
 
+  // Line the glyphs up from the font's own metrics, measured in this browser (Safari and Chrome place Figtree's
+  // digits differently in a line box): --flap-shift moves each glyph so the digits' ink is centered on the hinge,
+  // and --flap-va sits the headline tiles centered on the cap height of the words around them.
+  function tune() {
+    const flap = section.querySelector('.live-stats__headline .flap');
+    const headline = section.querySelector('.live-stats__headline');
+    if (!flap || !headline) return;
+    const ctx = document.createElement('canvas').getContext('2d');
+    if (!ctx) return;
+    const fs = getComputedStyle(flap);
+    ctx.font = `${fs.fontWeight} 100px ${fs.fontFamily}`;
+    const digits = ctx.measureText('0123456789');
+    if (!Number.isFinite(digits.fontBoundingBoxAscent)) return;
+    const below = ((digits.fontBoundingBoxAscent - digits.fontBoundingBoxDescent)
+      - (digits.actualBoundingBoxAscent - digits.actualBoundingBoxDescent)) / 2 / 100;
+    section.style.setProperty('--flap-shift', `${(-below).toFixed(3)}em`);
+    const hs = getComputedStyle(headline);
+    ctx.font = `${hs.fontWeight} 100px ${hs.fontFamily}`;
+    const cap = ctx.measureText('H').actualBoundingBoxAscent / 100;
+    const ratio = parseFloat(fs.fontSize) / parseFloat(hs.fontSize);
+    if (cap > 0 && ratio > 0) section.style.setProperty('--flap-va', `${(cap / 2 / ratio - 0.59).toFixed(3)}em`);
+  }
+
   let latest = null;
   let visible = false;
 
   function render(stats) {
     const venues = fmt.format(stats.venues);
     const places = fmt.format(stats.places);
-    const hasEvents = Number.isFinite(stats.events) && stats.events > 0;
-    const events = hasEvents ? fmt.format(stats.events) : '';
+    // Newer stats fields: each shows once the API sends it.
+    const extras = [
+      { key: 'events', label: 'Events ahead', words: 'events ahead' },
+      { key: 'people', label: 'People listed', words: 'people' },
+    ].filter((x) => Number.isFinite(stats[x.key]) && stats[x.key] > 0)
+      .map((x) => ({ ...x, value: fmt.format(stats[x.key]) }));
 
-    text('headline', `${venues} venues in ${places} places`);
-    text('events', hasEvents ? `${events} events coming up.` : '');
+    text('headline', [`${venues} venues in ${places} places`, ...extras.map((x) => `${x.value} ${x.words}`)].join(', '));
     if (stats.as_of) {
       const when = new Date(stats.as_of);
       if (!Number.isNaN(when.getTime())) text('as_of', `Updated ${when.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}.`);
@@ -141,13 +167,29 @@
       show(run(venuesEl, `row${i}v`, venueW, DIGITS, true), fmt.format(r.venues), delay + 300);
     });
 
-    const eventsRow = section.querySelector('[data-board-events]');
-    eventsRow.hidden = !hasEvents;
-    if (hasEvents) {
-      const delay = 250 + rows.length * 140;
-      show(run(eventsRow.querySelector('[data-flaps="events_label"]'), 'evl', NAME_WIDTH, DRUM, false), 'Events ahead', delay);
-      show(run(eventsRow.querySelector('[data-flaps="events"]'), 'ev', Math.max(venueW, events.length), DIGITS, true), events, delay + 300);
+    const more = section.querySelector('[data-more]');
+    more.hidden = extras.length === 0;
+    section.querySelectorAll('[data-more-part]').forEach((part) => {
+      const x = extras.find((e) => e.key === part.dataset.morePart);
+      part.hidden = !x;
+      if (x) show(run(part.querySelector('.flaps'), `${x.key}_head`, numWidth(x.value), DIGITS, true), x.value, 240);
+    });
+
+    const extrasEl = section.querySelector('[data-board-extras]');
+    if (extrasEl.children.length !== extras.length) {
+      extrasEl.replaceChildren(...extras.map(() => {
+        const row = span('board__row board__row--extra');
+        row.append(span('flaps'), span(''), span('flaps'));
+        return row;
+      }));
+      Object.keys(runs).filter((k) => k.startsWith('extra')).forEach((k) => delete runs[k]);
     }
+    extras.forEach((x, i) => {
+      const [labelEl, , valueEl] = extrasEl.children[i].children;
+      const delay = 250 + (rows.length + i) * 140;
+      show(run(labelEl, `extra${i}l`, NAME_WIDTH, DRUM, false), x.label, delay);
+      show(run(valueEl, `extra${i}v`, Math.max(venueW, x.value.length), DIGITS, true), x.value, delay + 300);
+    });
   }
 
   function load() {
@@ -158,6 +200,7 @@
         latest = stats;
         section.hidden = false;
         render(stats);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(tune); else tune();
       })
       .catch(() => {});
   }
