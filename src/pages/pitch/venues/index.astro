@@ -5,22 +5,27 @@ import site from '../../../data/config.json';
 import apps from '../../../data/staff_apps.json';
 // The venue story of /pitch/: the same live board, the venue deck, and the walkthroughs a venue and its acts use.
 const guides = apps.filter((app) => app.record_url && (app.slug === 'velvet' || app.slug === 'backstage'));
-// The StaffKit apps and where each one stands. The three venue-side store apps read staff_apps.json; Arbiter is on the
-// App Store (iPhone, iPad and Mac) but not Google Play, and Soapbox is in TestFlight. Update the statuses when an app
-// ships (checked 2026-11-15).
+// The StaffKit apps and where each one stands, all read from staff_apps.json (one row per app): App Store or TestFlight
+// from ios_beta, Mac from `mac`, Google Play from android_url, else "In testing" when the app has an android_note.
 type Status = { label: string; tone: 'live' | 'beta' | 'dev' } | null;
-const storeApps = apps.filter((app) => ['focus', 'velvet', 'backstage'].includes(app.slug)).map((app) => ({
-  name: app.name, image: app.image, href: `/apps/${app.slug}/`,
-  job: { focus: 'Run the scene: venues, people and events for an audience.', velvet: 'Run the venue: door, lineup, screens, chat and safety alerts.', backstage: 'Performers keep their profile and gigs current.' }[app.slug] ?? app.summary,
-  ios: (app.ios_beta ? { label: 'TestFlight beta', tone: 'beta' } : { label: 'App Store', tone: 'live' }) as Status,
-  mac: null as Status,
-  android: (app.android_beta ? { label: 'Play beta', tone: 'beta' } : { label: 'Google Play', tone: 'live' }) as Status,
-}));
-const staffApps = [
-  ...storeApps,
-  { name: 'Arbiter', image: '/assets/brand/arbiter.png', href: '/apps/arbiter/', job: 'The AI host and chat moderation, run on your own Mac.', ios: { label: 'App Store', tone: 'live' } as Status, mac: { label: 'App Store', tone: 'live' } as Status, android: { label: 'In testing', tone: 'beta' } as Status },
-  { name: 'Soapbox', image: '', href: 'https://testflight.apple.com/join/MCa8pJ6d', job: 'Local publishers post their stories to the scene.', ios: { label: 'TestFlight beta', tone: 'beta' } as Status, mac: null as Status, android: null as Status },
-];
+const jobs: Record<string, string> = {
+  focus: 'Run the scene: venues, people and events for an audience.',
+  velvet: 'Run the venue: door, lineup, screens, chat and safety alerts.',
+  backstage: 'Performers keep their profile and gigs current.',
+  arbiter: 'The AI host and chat moderation, run on your own Mac.',
+  soapbox: 'Local publishers post their stories to the scene.',
+};
+type App = (typeof apps)[number] & { mac?: boolean; android_note?: string };
+const staffApps = (apps as App[]).map((app) => {
+  const ios: Status = !app.ios_url ? null : app.ios_beta ? { label: 'TestFlight beta', tone: 'beta' } : { label: 'App Store', tone: 'live' };
+  return {
+    name: app.name, image: app.image, href: `/apps/${app.slug}/`,
+    job: jobs[app.slug] ?? app.summary,
+    ios,
+    mac: (app.mac ? ios : null) as Status,
+    android: (app.android_url ? (app.android_beta ? { label: 'Play beta', tone: 'beta' } : { label: 'Google Play', tone: 'live' }) : app.android_note ? { label: 'In testing', tone: 'beta' } : null) as Status,
+  };
+});
 const mail = `mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`;
 const pillars = [
   ['Get found', 'Hot Mess', 'Your venue page, tonight’s events and who is on stage, in the app your crowd opens to decide where to go. No outside brand ads and no ad tracking around it.'],
