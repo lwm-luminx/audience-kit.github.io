@@ -588,6 +588,14 @@ h1 em,.closing em {
 }
 
 .product .text-link {
+  display:flex;
+  width:fit-content;
+  font-size:13px;
+}
+
+.product-copy p.store-note {
+  min-height:0;
+  margin:10px 0 0;
   font-size:13px;
 }
 
