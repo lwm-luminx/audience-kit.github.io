@@ -43,5 +43,22 @@
     "android_beta": false,
     "record_url": "/record/backstage-app-review.pdf",
     "record_label": "A performer's gig in Backstage, step by step (PDF)"
+  },
+  {
+    "slug": "arbiter",
+    "name": "Arbiter",
+    "role": "Safety / Moderation",
+    "image": "/assets/brand/arbiter.png",
+    "alt": "Arbiter's gold balance scale with glowing glass pans",
+    "summary": "For the calls the AI shouldn't make alone.",
+    "blurb": "Review what your audience's AI wasn't sure of, check what it decided, and on a Mac run the AI host for your venue chats on local models.",
+    "ios_url": "https://apps.apple.com/us/app/arbiter-by-audiencekit/id6829078716",
+    "ios_beta": false,
+    "mac": true,
+    "android_url": null,
+    "android_beta": false,
+    "android_note": "Android is in testing, not on Google Play yet.",
+    "more_url": "/safety/#arbiter",
+    "more_label": "What Arbiter does, and the rules it follows"
   }
 ]
