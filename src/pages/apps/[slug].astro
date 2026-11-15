@@ -6,7 +6,7 @@ import site from '../../data/config.json';
 export function getStaticPaths() { return apps.map(app => ({ params: { slug: app.slug }, props: { app } })); }
 const { app } = Astro.props;
 ---
-<Layout title={app.name} description={`Get ${app.name}, the AudienceKit staff app, on ${app.mac ? 'iPhone, iPad and Mac' : 'iPhone, iPad and Android'}.`} image={app.image}>
+<Layout title={app.name} description={`Get ${app.name}, the AudienceKit staff app, on iPhone, iPad${app.mac ? ' and Mac' : ''}${app.android_url ? ' and Android' : ''}.`} image={app.image}>
 <script define:vars={{ iosUrl: app.ios_url, androidUrl: app.android_url }}>
   // The stable link for QR codes: phones go straight to their store, desktops (and ?stay) see both.
   (function () {

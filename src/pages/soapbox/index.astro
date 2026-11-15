@@ -1,0 +1,188 @@
+---
+import Layout from '../../layouts/Default.astro';
+import site from '../../data/config.json';
+import apps from '../../data/staff_apps.json';
+import StoreButtons from '../../components/StoreButtons.astro';
+const soapbox = apps.find((app) => app.slug === 'soapbox')!;
+const hotMess = {
+  ios: 'https://apps.apple.com/us/app/hot-mess-gay-nightlife/id1195758383',
+  android: 'https://play.google.com/store/apps/details?id=social.hotmess.android.app',
+};
+const mail = (subject: string) => `mailto:${site.contact_email}?subject=${encodeURIComponent(subject)}`;
+const icon = {
+  news: '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/>',
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+  out: '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+  rss: '<path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/>',
+  pen: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  tag: '<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4Z"/><circle cx="7.5" cy="7.5" r=".5"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  inbox: '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1Z"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+  heart: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
+  eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',
+  label: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
+};
+const svg = (name: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon[name as keyof typeof icon]}</svg>`;
+const readers = [
+  ['news', 'City news', 'A city’s news in Hot Mess carries stories about it and the places in it, from the publications that cover it.'],
+  ['pin', 'In the news, where it happened', 'A story about a venue, an event or a performer shows on that page too, so readers find it where they already are.'],
+  ['link', 'Your publication’s own page', 'Your masthead, what you cover and your latest stories, on the listing your readers already know.'],
+  ['shield', 'A clean reader', 'Stories you publish in Soapbox read in the app, with your byline, your photo and any disclosure you add up top.'],
+];
+const linkOut = [
+  ['rss', 'We read your feed', 'Give us your RSS or Atom feed. New stories show up within the hour.'],
+  ['out', 'Readers land on your site', 'Each story is a headline, your blurb and your picture. A tap opens it on your website, where your ads and your traffic are.'],
+  ['eye', 'Nothing copied', 'We don’t host the story or keep a copy of it. Take a story out of your feed and we won’t bring it back.'],
+];
+const publish = [
+  ['pen', 'Write and edit', 'A simple editor for headline, summary, photo, byline and the story itself.'],
+  ['tag', 'Say what it’s about', 'Tag the venues, events, people and cities it covers, so it shows on each of their pages.'],
+  ['clock', 'Publish or schedule', 'Publish now or pick a time. Pin the story that matters most this week.'],
+  ['inbox', 'An op-ed inbox', 'Readers can send you op-eds from Hot Mess. Accept one to edit it as a draft, or decline it with a note.'],
+];
+const money = [
+  ['heart', 'Your ads are yours', 'The ads you sell on your own journalism are your business and your revenue. We take no cut, just as performers keep all of their tips.', ''],
+  ['label', 'Labelled, never targeted', 'Anything sponsored around your stories says so. Placement follows the city and the story, never who is reading.', ''],
+  ['news', 'Readers know the deal', 'Before a reader opens their first publisher story, Hot Mess explains that publishers run their own ads to keep paying their writers.', 'Rolling out'],
+  ['heart', 'A tip to read without ads', 'Readers in the US can tip you to read your stories ad-free for a month. All of the tip is yours.', 'Coming soon'],
+];
+const trust = [
+  ['shield', 'New publications are reviewed', 'A new publication’s stories go to the community’s admins first. Once trusted, you publish directly.'],
+  ['bell', 'Pushes that ask people to show up', 'A trusted publication can alert a city when a story is about an event or a chance to volunteer. Never to ask for money.'],
+  ['eye', 'Disclose your ties', 'Writing up your own gala or a sponsor’s party? Say so, and readers see it above the story.'],
+];
+---
+<Layout title="Soapbox for Publishers" description="Soapbox puts community newspapers, magazines and newsletters in front of the people they cover, inside the apps their city already uses. Your stories, your ads, your readers." image="/assets/brand/soapbox.png">
+
+<section class="section wrap scene soapbox-hero" aria-labelledby="soapbox-title">
+  <div class="soapbox-art"><img src="/assets/brand/soapbox.png" width="768" height="768" alt="Soapbox’s violet and gold megaphone" fetchpriority="high"></div>
+  <div class="scene-copy">
+    <p class="eyebrow">Soapbox · AudienceKit for publishers</p>
+    <h1 id="soapbox-title">Your paper,<br><em>on the scene.</em></h1>
+    <p class="large-copy">Community press, inside the apps your city already opens.</p>
+    <p>Local papers, magazines and newsletters cover the venues, events and people that make a scene. Soapbox puts those stories on the city, venue and performer pages of <a href="https://hotmess.social">Hot Mess</a> and the other apps built on AudienceKit, so readers find your work at the moment they care about it.</p>
+    <p>You keep your byline, your ads and your readers. We don’t compete with you for them.</p>
+    <p class="soapbox-cta"><a class="button primary" href={mail('Soapbox for my publication')}>Bring your publication <span aria-hidden="true">↗</span></a><a class="text-link" href="#start">How to start <span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<section class="section capabilities" id="readers" aria-labelledby="readers-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Where readers find you</p>
+      <h2 class="capability-title" id="readers-title">Your stories, next to what they’re about</h2>
+      <p class="capability-intro">Hot Mess is the app for queer nights out, on iPhone, Android and the web. Your stories sit beside the venues, events and performers they cover, with no outside brand ads and no ad tracking around them.</p>
+    </div>
+    <div class="capability-grid soapbox-grid-4">
+      {readers.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="link-out" aria-labelledby="link-out-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Start today · No new tools</p>
+      <h2 class="capability-title" id="link-out-title">Start with headlines that send readers to you</h2>
+      <p class="capability-intro">You don’t have to change how you publish. Until you’re ready to post in Soapbox, we carry your headlines and send every tap to your own website.</p>
+    </div>
+    <div class="capability-grid steps">
+      {linkOut.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="app" aria-labelledby="app-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The Soapbox app · iPhone and iPad</p>
+      <h2 class="capability-title" id="app-title">A newsroom in your pocket</h2>
+      <p class="capability-intro">When you want to publish straight into the apps, Soapbox is your newsroom: every publication you run, your drafts, what’s in review, what’s scheduled and what’s live. It’s in public beta on TestFlight for iPhone and iPad. Sign in, and once your publication is set up it’s waiting for you.</p>
+      <div class="soapbox-store"><StoreButtons app={soapbox} /><a class="text-link" href={'/apps/soapbox/'}>audiencekit.com/apps/soapbox</a></div>
+    </div>
+    <div class="capability-grid soapbox-grid-4">
+      {publish.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="money" aria-labelledby="money-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Money</p>
+      <h2 class="capability-title" id="money-title">Your journalism pays you, not us</h2>
+      <p class="capability-intro">Publisher ads are kept apart from the app’s own sponsorships on purpose. Your ad relationships are what keep your writers paid, so they stay yours.</p>
+    </div>
+    <div class="capability-grid soapbox-grid-4">
+      {money.map(([i, h, p, tag]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} />{tag && <p class="feature-number soapbox-tag">{tag}</p>}<h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="trust" aria-labelledby="trust-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="capability-title" id="trust-title">Built for the press, not for spam</h2>
+      <p class="capability-intro">Each community’s admins decide which publications it trusts, and can take any story down. Publishers can’t block readers, and readers can mute a publication’s alerts and still see its news.</p>
+    </div>
+    <div class="capability-grid steps">
+      {trust.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="status" aria-labelledby="status-title">
+  <div class="wrap scene">
+    <div><p class="eyebrow">Where it stands</p><h2 id="status-title">What’s ready,<br>what’s next.</h2></div>
+    <div class="scene-copy">
+      <ul class="soapbox-list">
+        <li><strong>Ready now.</strong> Publications on your listing, headlines from your feed that link to your site, and review by the community’s admins.</li>
+        <li><strong>Rolling out in Hot Mess 2.7.</strong> City news, “In the news” on venue, event and performer pages, the story reader and op-eds.</li>
+        <li><strong>Public beta.</strong> The Soapbox app for iPhone and iPad, <a href={soapbox.ios_url}>on TestFlight</a>.</li>
+        <li><strong>Coming.</strong> Tips to read without ads (US), a public rate sheet for publisher sponsored spots, Soapbox for Android, and stories on the public web.</li>
+      </ul>
+      <p>Want the bigger picture? The <a href="/pitch/future-of-community-marketing.pdf">community marketing pitch (PDF)</a> covers how Soapbox brings publishers in without cutting out curators, and how publisher ads stay separate. Read how AudienceKit keeps <a href={'/sovereignty/'}>your readers’ data out of the ad business</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Get started</p>
+      <h2 class="capability-title" id="start-title">Get on the soapbox</h2>
+    </div>
+    <div class="capability-grid steps soapbox-grid-4">
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Tell us about you</h3><p><a href={mail('Soapbox for my publication')}>Email us</a> your publication, the cities you cover and your feed’s address.</p></div>
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>We connect your listing</h3><p>Your publication sits on your listing in the app, managed by the people who already manage it.</p></div>
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Your headlines go live</h3><p>Stories from your feed appear in your cities’ news and send readers to your site.</p></div>
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Publish in Soapbox</h3><p>When you’re ready, get <a href={'/apps/soapbox/'}>the Soapbox app</a> and write straight into the scene.</p></div>
+    </div>
+    <p class="soapbox-readers">See it as a reader: get Hot Mess on the <a href={hotMess.ios}>App Store</a> or <a href={hotMess.android}>Google Play</a>, or visit <a href="https://hotmess.social">hotmess.social</a>.</p>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="soapbox-closing-title"><p class="eyebrow">You cover the scene.</p><h2 id="soapbox-closing-title">Let the scene<br><em>read you.</em></h2><p>Tell us about your publication and your city.<br>We’ll get your headlines in front of your readers.</p><a class="button primary" href={mail('Soapbox for my publication')}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
+
+<style>
+  .soapbox-hero { align-items: center; }
+  .soapbox-hero h1 { font-size: clamp(48px, 6.5vw, 84px); line-height: .98; margin-top: 8px; }
+  .soapbox-art img { width: 100%; max-width: 440px; height: auto; border-radius: 28px; display: block; }
+  .scene-copy p + p { margin-top: 18px; }
+  .scene-copy a:not(.button):not(.text-link), .capability-intro a, .soapbox-readers a, .capability-card a { text-decoration: underline; text-underline-offset: 4px; }
+  .soapbox-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 28px !important; }
+  .soapbox-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .soapbox-tag { margin: 12px 0 0; color: var(--gold, #efc486); }
+  .soapbox-list { margin: 18px 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 12px; }
+  .soapbox-list strong { color: var(--paper); }
+  .soapbox-store { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 24px; }
+  .soapbox-readers { margin-top: 28px; color: var(--muted); }
+  @media (max-width: 1000px) { .soapbox-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .soapbox-grid-4 { grid-template-columns: 1fr; } .soapbox-art img { max-width: 280px; } }
+</style>

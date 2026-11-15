@@ -12,7 +12,9 @@
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Focus",
     "android_beta": false,
     "record_url": "/record/focus-app-review.pdf",
-    "record_label": "Curating a scene with Focus, step by step (PDF)"
+    "record_label": "Curating a scene with Focus, step by step (PDF)",
+    "more_url": "",
+    "more_label": ""
   },
   {
     "slug": "velvet",
@@ -27,7 +29,9 @@
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Velvet",
     "android_beta": false,
     "record_url": "/record/velvet-app-review.pdf",
-    "record_label": "One night with Velvet, step by step (PDF)"
+    "record_label": "One night with Velvet, step by step (PDF)",
+    "more_url": "",
+    "more_label": ""
   },
   {
     "slug": "backstage",
@@ -42,7 +46,26 @@
     "android_url": "https://play.google.com/store/apps/details?id=com.audiencekit.Backstage",
     "android_beta": false,
     "record_url": "/record/backstage-app-review.pdf",
-    "record_label": "A performer's gig in Backstage, step by step (PDF)"
+    "record_label": "A performer's gig in Backstage, step by step (PDF)",
+    "more_url": "",
+    "more_label": ""
+  },
+  {
+    "slug": "soapbox",
+    "name": "Soapbox",
+    "role": "Publishers",
+    "image": "/assets/brand/soapbox.png",
+    "alt": "Soapbox's violet and gold megaphone",
+    "summary": "For the press that covers your scene.",
+    "blurb": "Write, schedule and publish stories into the apps your city already uses, and read the op-eds your readers send.",
+    "ios_url": "https://testflight.apple.com/join/MCa8pJ6d",
+    "ios_beta": true,
+    "android_url": "",
+    "android_beta": false,
+    "record_url": "",
+    "record_label": "",
+    "more_url": "/soapbox/",
+    "more_label": "Soapbox for publishers"
   },
   {
     "slug": "arbiter",
@@ -55,9 +78,11 @@
     "ios_url": "https://apps.apple.com/us/app/arbiter-by-audiencekit/id6829078716",
     "ios_beta": false,
     "mac": true,
-    "android_url": null,
+    "android_url": "",
     "android_beta": false,
     "android_note": "Android is in testing, not on Google Play yet.",
+    "record_url": "",
+    "record_label": "",
     "more_url": "/safety/#arbiter",
     "more_label": "What Arbiter does, and the rules it follows"
   }
