@@ -2,7 +2,7 @@
 // Hot Mess's live headline numbers (GET /v1/public/audiences/hotmess/stats), shown as a split-flap departures
 // board: the numbers flip into place when the board scrolls into view and flip again when they change. Screen readers
 // get the plain sentence (the flaps are aria-hidden), and with reduced motion the numbers just appear.
-// Events and people (newer fields in the stats) show only once the API sends them.
+// The board's Events and Talent columns (newer fields in the stats) show only once the API sends them.
 // The section stays hidden unless the numbers load, so the page never shows a stale or empty count.
 interface Props {
   eyebrow: string;
@@ -16,16 +16,15 @@ const { eyebrow, intro } = Astro.props;
       <p class="eyebrow live-stats__eyebrow"><span class="live-dot" aria-hidden="true"></span>{eyebrow}</p>
       <h2 class="capability-title" id="live-title">
         <span class="sr-only" data-live-text="headline"></span>
-        <span class="live-stats__headline" aria-hidden="true"><span class="flaps" data-flaps="venues"></span> venues in <span class="flaps" data-flaps="places"></span> places<span class="live-stats__more" data-more hidden><span data-more-part="events"><span class="flaps" data-flaps="events_head"></span> events ahead</span><span data-more-part="people"><span class="flaps" data-flaps="people_head"></span> people</span></span></span>
+        <span class="live-stats__headline" aria-hidden="true"><span data-headline-events hidden><span class="flaps" data-flaps="events"></span> events at </span><span class="flaps" data-flaps="venues"></span> venues in <span class="flaps" data-flaps="places"></span> cities</span>
       </h2>
       <p class="capability-intro">{intro} <span data-live-text="as_of"></span></p>
     </div>
     <div class="board" data-board>
       <ul class="sr-only" data-live-text="countries"></ul>
       <div class="board__frame" aria-hidden="true">
-        <div class="board__row board__row--head"><span>Where</span><span>Places</span><span>Venues</span></div>
+        <div class="board__row board__row--head"><span>Where</span><span>Cities</span><span>Venues</span></div>
         <div data-board-rows></div>
-        <div data-board-extras></div>
       </div>
     </div>
   </div>
