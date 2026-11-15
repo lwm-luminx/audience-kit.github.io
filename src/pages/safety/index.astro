@@ -106,29 +106,119 @@ const arbiter = apps.find((app) => app.slug === 'arbiter');
   </div>
 </section>
 
-<section class="section capabilities" id="more" aria-labelledby="more-title">
+<section class="section capabilities" id="members" aria-labelledby="members-title">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Beyond the chat</p>
-      <h2 class="capability-title" id="more-title">Safety on the floor and in every upload</h2>
+      <p class="eyebrow">For members</p>
+      <h2 class="capability-title" id="members-title">Every member can act</h2>
+      <p class="capability-intro">Safety starts with the people in the room, so the tools they need are one tap away in apps like Hot Mess.</p>
     </div>
     <div class="capability-grid">
       <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></div>
+        <h3>Report anything</h3>
+        <p>Report a message, a person, a venue, a ping or a photo. Each report keeps a copy of what was said, goes to the audience’s team in the admin console and to their phones in <a href={'/apps/focus/'}>Focus</a>, and reaches us too.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></div>
+        <h3>Block, both ways</h3>
+        <p>A block hides two people from each other everywhere: in chat, in who’s here, in friends and in pings. Neither can reach the other, and the block is reported so the team can see patterns.</p>
+      </article>
+      <article class="capability-card">
         <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Help on the floor</h3>
-        <p>A guest who feels unsafe at a venue taps once, and the staff on shift hear it on their devices straight away in <a href={'/apps/velvet/'}>Velvet</a>. One of them picks it up, the guest is told who is coming, and alerts nobody answers go up to the managers.</p>
-      </article>
-      <article class="capability-card">
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Child safety</h3>
-        <p>Images are checked only against lists of known child sexual abuse material, never guessed at by a classifier. A match or a member’s report withholds the content at once and opens a case for a trained reviewer, and a person files every report to NCMEC’s CyberTipline. Read the <a href={'/child-safety/'}>Child Safety &amp; CSAM Policy</a>.</p>
-      </article>
-      <article class="capability-card">
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Your rules, your dials</h3>
-        <p>Automated moderation is something an audience turns on, not a default. Each audience sets its own guidelines and chooses how bold the host may be. What’s banter in one scene is a problem in another, so the community sets the line.</p>
+        <h3>“I feel unsafe”</h3>
+        <p>At a venue, a guest taps once and the staff on shift hear it straight away. The guest is told who is coming and can message them privately. Anything the app shows on the lock screen never says “safety” or “unsafe”.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="floor" aria-labelledby="floor-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">For venues</p>
+      <h2 class="capability-title" id="floor-title">Help on the floor</h2>
+      <p class="capability-intro">Safety alerts reach the people who can walk over, through <a href={'/apps/velvet/'} style="text-decoration:underline;text-underline-offset:4px">Velvet</a> at the door and behind the bar.</p>
+    </div>
+    <div class="capability-grid steps">
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>Staff on shift hear it</h3>
+        <p>A venue’s Velvet devices with moderation access are on shift by default. Staff can choose to hear alerts only while they’re at the venue, so phones go on shift when they walk in and off when they leave.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>One person picks it up</h3>
+        <p>The first to tap “I’m on it” takes it, and the guest sees their name. Staff can message the guest, share support lines, and close the alert with a note.</p>
+      </div>
+      <div class="capability-card step">
+        <div class="step__num" aria-hidden="true"></div>
+        <h3>Nobody answers? It goes up</h3>
+        <p>After two minutes without a response the staff hear it again, the venue’s managers hear it too, and the guest is shown other ways to get help.</p>
+      </div>
+    </div>
+    <p class="large-copy" style="margin-top:44px;max-width:62ch">Teams can send practice alerts to rehearse the whole flow without anyone needing help. Alerts that look wrong go to the audience’s team for review, and only a person decides whether anyone is banned.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="arbiter-everywhere" aria-labelledby="everywhere-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Arbiter on every device</p>
+      <h2 class="capability-title" id="everywhere-title">Review anywhere. Host on a Mac.</h2>
+      <p class="capability-intro">One app, one sign-in, the same queue live on every device your team uses.</p>
+    </div>
+    <div class="safety-table" role="table" aria-label="Arbiter by platform">
+      <div class="safety-row safety-head" role="row"><span role="columnheader">Device</span><span role="columnheader">What it does</span><span role="columnheader">Where to get it</span></div>
+      <div class="safety-row" role="row"><span role="cell"><strong>iPhone &amp; iPad</strong></span><span role="cell">The three lists, deciding, the whole queue and every call the AI host made.</span><span role="cell"><a href={arbiter?.ios_url}>App Store</a></span></div>
+      <div class="safety-row" role="row"><span role="cell"><strong>Mac</strong></span><span role="cell">Everything on iPad, plus the decision worker and the AI host on local models. It can keep working in the background from the menu bar.</span><span role="cell"><a href={arbiter?.ios_url}>App Store</a> (same purchase)</span></div>
+      <div class="safety-row" role="row"><span role="cell"><strong>Android</strong></span><span role="cell">Reviewing and deciding, like iPhone and iPad.</span><span role="cell">In testing, not on Google Play yet</span></div>
+      <div class="safety-row" role="row"><span role="cell"><strong>Web</strong></span><span role="cell">The admin console: the reports queue, safety alert review, and the Moderation settings Arbiter follows.</span><span role="cell">Your audience’s admin console</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="child-safety" aria-labelledby="child-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Child safety</p>
+      <h2 class="capability-title" id="child-title">Zero tolerance, handled for everyone</h2>
+      <p class="capability-intro">Every app on AudienceKit is for adults. Child safety is handled by the platform, so no community has to build it alone.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Known material only</h3>
+        <p>Images are checked only against lists of known child sexual abuse material, never guessed at by a classifier. Members can report it from anywhere, with a reason of its own.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Withheld and preserved</h3>
+        <p>A match or a report withholds the content from everyone at once and keeps a copy in restricted storage that only designated reviewers can open, with every look recorded.</p>
+      </article>
+      <article class="capability-card">
+        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
+        <h3>A person files every report</h3>
+        <p>A trained reviewer looks at every case and reports apparent abuse material to NCMEC’s CyberTipline, as US law requires. Read the <a href={'/child-safety/'}>Child Safety &amp; CSAM Policy</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="rules" aria-labelledby="rules-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Your rules, your dials</p>
+      <h2 class="capability-title" id="rules-title">The community sets the line</h2>
+      <p class="capability-intro">What’s banter in one scene is a problem in another. Automated moderation is something an audience turns on, not a default, and each audience sets it up in the admin console under Moderation:</p>
+    </div>
+    <ul class="sov-list rules-list">
+      <li><strong>Guidelines</strong> the host can post in a room when they’re needed.</li>
+      <li><strong>The host’s mode:</strong> shadow, approve every call, or live.</li>
+      <li><strong>Which rules run</strong> and how sure the checks must be before they act.</li>
+      <li><strong>Which kinds of decisions</strong> the AI may take on, and which always wait for a person.</li>
+      <li><strong>Any extra tools</strong>, like letting the host open a safety alert for a guest, are off until an administrator grants them.</li>
+    </ul>
     <p class="large-copy" style="margin-top:44px;max-width:62ch">See every safety tool on the <a href={'/integrations/#safety'} style="text-decoration:underline;text-underline-offset:4px">integrations menu</a>. To report a problem, use <strong>Report</strong> in the app, or write to <a href={`mailto:${site.contact_email}?subject=Safety%20report`} style="text-decoration:underline;text-underline-offset:4px">{site.contact_email}</a>.</p>
   </div>
 </section>
@@ -148,8 +238,17 @@ const arbiter = apps.find((app) => app.slug === 'arbiter');
   .sov-list { padding-left: 1.2em; color: var(--muted); display: grid; gap: 10px; }
   .sov-list strong { color: var(--paper); }
   .arbiter-note { color: var(--muted); font-size: 15px; }
+  .rules-list { max-width: 62ch; font-size: 17px; }
+  .safety-table { margin-top: 36px; border: 1px solid #ffffff1f; border-radius: 18px; overflow: hidden; }
+  .safety-row { display: grid; grid-template-columns: 1.1fr 3fr 1.4fr; gap: 20px; padding: 16px 22px; border-top: 1px solid #ffffff14; color: var(--muted); }
+  .safety-row:first-child { border-top: 0; }
+  .safety-row strong { color: var(--paper); }
+  .safety-row a { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; }
+  .safety-head { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); background: #ffffff08; }
   @media (max-width: 760px) {
     .arbiter { grid-template-columns: 1fr; gap: 28px; }
     .arbiter-art { max-width: 220px; }
+    .safety-row { grid-template-columns: 1fr; gap: 6px; }
+    .safety-head { display: none; }
   }
 </style>
