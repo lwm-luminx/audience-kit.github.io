@@ -5,6 +5,21 @@ import site from '../../../data/config.json';
 import apps from '../../../data/staff_apps.json';
 // The venue story of /pitch/: the same live board, the venue deck, and the walkthroughs a venue and its acts use.
 const guides = apps.filter((app) => app.record_url && (app.slug === 'velvet' || app.slug === 'backstage'));
+// The StaffKit apps and where each one stands. The three store apps read staff_apps.json; Arbiter and Soapbox are not in
+// the stores yet. Update the statuses when an app ships (checked 2026-11-15).
+type Status = { label: string; tone: 'live' | 'beta' | 'dev' } | null;
+const storeApps = apps.map((app) => ({
+  name: app.name, image: app.image, href: `/apps/${app.slug}/`,
+  job: { focus: 'Run the scene: venues, people and events for an audience.', velvet: 'Run the venue: door, lineup, screens, chat and safety alerts.', backstage: 'Performers keep their profile and gigs current.' }[app.slug] ?? app.summary,
+  ios: (app.ios_beta ? { label: 'TestFlight beta', tone: 'beta' } : { label: 'App Store', tone: 'live' }) as Status,
+  mac: null as Status,
+  android: (app.android_beta ? { label: 'Play beta', tone: 'beta' } : { label: 'Google Play', tone: 'live' }) as Status,
+}));
+const staffApps = [
+  ...storeApps,
+  { name: 'Arbiter', image: '', href: '', job: 'The AI host and chat moderation, run on your own Mac.', ios: { label: 'In testing', tone: 'beta' } as Status, mac: { label: 'In testing', tone: 'beta' } as Status, android: { label: 'In development', tone: 'dev' } as Status },
+  { name: 'Soapbox', image: '', href: 'https://testflight.apple.com/join/MCa8pJ6d', job: 'Local publishers post their stories to the scene.', ios: { label: 'TestFlight beta', tone: 'beta' } as Status, mac: null as Status, android: null as Status },
+];
 const mail = `mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`;
 const pillars = [
   ['Get found', 'Hot Mess', 'Your venue page, tonight’s events and who is on stage, in the app your crowd opens to decide where to go. No outside brand ads and no ad tracking around it.'],
@@ -50,7 +65,7 @@ const pillars = [
     <div class="capability-grid">
       <article class="capability-card">
         <h3>Venue pitch deck</h3>
-        <p>Thirteen slides: the six-tool problem, getting found on Hot Mess, the live numbers, the door, the lineup and the bar TV, one-tap safety alerts, device codes for your staff, fair and labelled promotion, how your guests and your money stay yours, what it costs and how to start.</p>
+        <p>Fourteen slides: the six-tool problem, getting found on Hot Mess, the live numbers, the door, the lineup and the bar TV, one-tap safety alerts, device codes for your staff, every StaffKit app and where it stands, fair and labelled promotion, how your guests and your money stay yours, what it costs and how to start.</p>
         <p><a class="text-link" href="/pitch/audiencekit-for-venues-deck.pdf">Download the deck (PDF, 0.6 MB) <span aria-hidden="true">↓</span></a></p>
       </article>
       <article class="capability-card">
@@ -59,6 +74,31 @@ const pillars = [
         <p><a class="text-link" href={mail}>Ask about your venue <span aria-hidden="true">↗</span></a></p>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="apps" aria-labelledby="apps-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The StaffKit apps</p>
+      <h2 class="capability-title" id="apps-title">One app for each job, and where each one stands</h2>
+      <p class="capability-intro">Your guests use Hot Mess, on the App Store and Google Play. Your team uses these.</p>
+    </div>
+    <div class="app-status" role="table" aria-label="StaffKit apps and their status">
+      <div class="app-status__row app-status__head" role="row"><span role="columnheader">App</span><span role="columnheader">iPhone &amp; iPad</span><span role="columnheader">Mac</span><span role="columnheader">Android</span></div>
+      {staffApps.map((app) => (
+        <div class="app-status__row" role="row">
+          <span class="app-status__app" role="cell">
+            {app.image ? <img src={app.image} alt="" width="44" height="44" loading="lazy" /> : <span class="app-status__blank" aria-hidden="true">{app.name[0]}</span>}
+            <span><strong>{app.href ? <a href={app.href}>{app.name}</a> : app.name}</strong><small>{app.job}</small></span>
+          </span>
+          {[['iPhone & iPad', app.ios], ['Mac', app.mac], ['Android', app.android]].map(([where, st]) => (
+            <span role="cell" data-where={where as string}>{st ? <span class={`chip chip--${(st as NonNullable<Status>).tone}`}>{(st as NonNullable<Status>).label}</span> : <span class="chip-none"><span aria-hidden="true">—</span><span class="sr-only">Not available</span></span>}</span>
+          ))}
+        </div>
+      ))}
+    </div>
+    <p class="app-status__as-of">Status on 15 November 2026.</p>
   </div>
 </section>
 
@@ -91,6 +131,27 @@ const pillars = [
   .sov-hero h1 { font-size: clamp(52px, 7vw, 88px); line-height: .98; }
   .scene-copy p + p { margin-top: 18px; }
   .capability-intro a { text-decoration: underline; text-underline-offset: 4px; }
+  .app-status { margin-top: 28px; border: 1px solid var(--line, #3a3152); border-radius: 18px; overflow: hidden; }
+  .app-status__row { display: grid; grid-template-columns: minmax(0, 2.4fr) repeat(3, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 16px 22px; border-top: 1px solid var(--line, #3a3152); }
+  .app-status__head { border-top: 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-block: 12px; }
+  .app-status__app { display: flex; gap: 14px; align-items: center; }
+  .app-status__app img, .app-status__blank { width: 44px; height: 44px; border-radius: 11px; flex: none; }
+  .app-status__blank { display: grid; place-items: center; background: #2c2442; color: var(--gold, #efc486); font-weight: 700; }
+  .app-status__app strong { display: block; color: var(--paper); font-size: 18px; }
+  .app-status__app strong a { color: inherit; }
+  .app-status__app small { display: block; color: var(--muted); font-size: 14px; line-height: 1.4; }
+  .chip { display: inline-block; padding: 4px 12px; border-radius: 999px; border: 1px solid; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  .chip--live { color: #6fd3b8; }
+  .chip--beta { color: var(--gold, #efc486); }
+  .chip--dev { color: var(--muted); }
+  .chip-none { color: var(--muted); opacity: .6; }
+  .app-status__as-of { margin-top: 12px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 760px) {
+    .app-status__head { display: none; }
+    .app-status__row { grid-template-columns: 1fr; gap: 8px; }
+    .app-status__row > [data-where]::before { content: attr(data-where) ": "; color: var(--muted); font-size: 13px; margin-right: 6px; }
+    .app-status__row > [data-where]:has(.chip-none) { display: none; }
+  }
   .pitch-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   @media (max-width: 900px) { .pitch-grid-3 { grid-template-columns: 1fr; } }
 </style>
