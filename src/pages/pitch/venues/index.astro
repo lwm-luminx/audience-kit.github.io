@@ -17,7 +17,7 @@ const storeApps = apps.map((app) => ({
 }));
 const staffApps = [
   ...storeApps,
-  { name: 'Arbiter', image: '', href: '', job: 'The AI host and chat moderation, run on your own Mac.', ios: { label: 'In testing', tone: 'beta' } as Status, mac: { label: 'In testing', tone: 'beta' } as Status, android: { label: 'In development', tone: 'dev' } as Status },
+  { name: 'Arbiter', image: '', href: 'https://apps.apple.com/us/app/arbiter-by-audiencekit/id6829078716', job: 'The AI host and chat moderation, run on your own Mac.', ios: { label: 'App Store', tone: 'live' } as Status, mac: { label: 'App Store', tone: 'live' } as Status, android: { label: 'In development', tone: 'dev' } as Status },
   { name: 'Soapbox', image: '', href: 'https://testflight.apple.com/join/MCa8pJ6d', job: 'Local publishers post their stories to the scene.', ios: { label: 'TestFlight beta', tone: 'beta' } as Status, mac: null as Status, android: null as Status },
 ];
 const mail = `mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`;
