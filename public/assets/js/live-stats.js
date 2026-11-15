@@ -13,6 +13,9 @@
   const NAME_WIDTH = 14;
   // Board names for countries whose time zone database name doesn't read well (TZInfo calls the UK "Britain (UK)").
   const NAMES = { GB: 'United Kingdom' };
+  // Three-letter codes for the narrow board.
+  const CODES = { US: 'USA', MX: 'MEX', GB: 'UK', CA: 'CAN', AU: 'AUS', NZ: 'NZL', IE: 'IRL', DE: 'DEU', FR: 'FRA', ES: 'ESP' };
+  const narrow = window.matchMedia('(max-width: 640px)');
   const REFRESH_MS = 5 * 60 * 1000;
   const fmt = new Intl.NumberFormat('en-US');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -119,14 +122,17 @@
   function render(stats) {
     const venues = fmt.format(stats.venues);
     const places = fmt.format(stats.places);
-    // Newer stats fields: each shows once the API sends it.
-    const extras = [
-      { key: 'events', label: 'Events ahead', words: 'events ahead' },
-      { key: 'people', label: 'People listed', words: 'people' },
-    ].filter((x) => Number.isFinite(stats[x.key]) && stats[x.key] > 0)
-      .map((x) => ({ ...x, value: fmt.format(stats[x.key]) }));
+    // Board columns. Events and people are newer stats fields: each column shows once the API sends it.
+    const has = (key) => Number.isFinite(stats[key]) && stats[key] > 0;
+    const columns = [
+      { key: 'places', title: 'Places', words: 'places' },
+      { key: 'venues', title: 'Venues', words: 'venues' },
+      { key: 'events', title: 'Events', words: 'events ahead' },
+      { key: 'people', title: 'People', words: 'people' },
+    ].filter((c) => has(c.key));
 
-    text('headline', [`${venues} venues in ${places} places`, ...extras.map((x) => `${x.value} ${x.words}`)].join(', '));
+    const totals = columns.filter((c) => c.key === 'events' || c.key === 'people').map((c) => `${fmt.format(stats[c.key])} ${c.words}`);
+    text('headline', [`${venues} venues in ${places} places`, ...totals].join(', '));
     if (stats.as_of) {
       const when = new Date(stats.as_of);
       if (!Number.isNaN(when.getTime())) text('as_of', `Updated ${when.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}.`);
@@ -136,7 +142,7 @@
     const list = section.querySelector('[data-live-text="countries"]');
     list.replaceChildren(...countries.map((c) => {
       const li = document.createElement('li');
-      li.textContent = `${c.label}: ${fmt.format(c.venues)} venues in ${fmt.format(c.places)} ${c.places === 1 ? 'place' : 'places'}`;
+      li.textContent = `${c.label}: ${columns.map((col) => `${fmt.format(c[col.key] || 0)} ${col.words}`).join(', ')}`;
       return li;
     }));
 
@@ -146,49 +152,37 @@
     show(run(section.querySelector('[data-flaps="venues"]'), 'venues', numWidth(venues), DIGITS, true), venues);
     show(run(section.querySelector('[data-flaps="places"]'), 'places', numWidth(places), DIGITS, true), places, 120);
 
+    // On a narrow screen the board shows country codes, like an airport board's three-letter codes.
+    const short = narrow.matches;
+    const rows = [
+      { label: short ? 'All' : 'All countries', ...stats },
+      ...countries.map((c) => ({ ...c, label: short ? (CODES[c.code] || c.code) : c.label })),
+    ];
+    const nameW = short ? 3 : NAME_WIDTH;
+    const widths = columns.map((c) => Math.max(3, ...rows.map((r) => fmt.format(r[c.key] || 0).length)));
+    const frame = section.querySelector('.board__frame');
+    frame.style.gridTemplateColumns = `1fr repeat(${columns.length}, auto)`;
+    const head = section.querySelector('.board__row--head');
+    head.replaceChildren(span('', 'Where'), ...columns.map((c) => span('', c.title)));
+
     const rowsEl = section.querySelector('[data-board-rows]');
-    const rows = [{ label: 'All countries', places: stats.places, venues: stats.venues }, ...countries];
-    const placeW = Math.max(3, ...rows.map((r) => fmt.format(r.places).length));
-    const venueW = Math.max(5, ...rows.map((r) => fmt.format(r.venues).length));
-    if (rowsEl.children.length !== rows.length || rowsEl.dataset.w !== `${placeW}/${venueW}`) {
+    const shape = `${rows.length}/${nameW}/${widths.join(',')}`;
+    if (rowsEl.dataset.shape !== shape) {
       rowsEl.replaceChildren(...rows.map((_, i) => {
         const row = span(`board__row${i === 0 ? ' board__row--total' : ''}`);
-        row.append(span('flaps'), span('flaps'), span('flaps'));
+        row.append(span('flaps'), ...columns.map(() => span('flaps')));
         return row;
       }));
-      rowsEl.dataset.w = `${placeW}/${venueW}`;
+      rowsEl.dataset.shape = shape;
       Object.keys(runs).filter((k) => k.startsWith('row')).forEach((k) => delete runs[k]);
     }
     rows.forEach((r, i) => {
-      const [nameEl, placesEl, venuesEl] = rowsEl.children[i].children;
+      const [nameEl, ...cells] = rowsEl.children[i].children;
       const delay = 250 + i * 140;
-      show(run(nameEl, `row${i}n`, NAME_WIDTH, DRUM, false), r.label, delay);
-      show(run(placesEl, `row${i}p`, placeW, DIGITS, true), fmt.format(r.places), delay + 200);
-      show(run(venuesEl, `row${i}v`, venueW, DIGITS, true), fmt.format(r.venues), delay + 300);
-    });
-
-    const more = section.querySelector('[data-more]');
-    more.hidden = extras.length === 0;
-    section.querySelectorAll('[data-more-part]').forEach((part) => {
-      const x = extras.find((e) => e.key === part.dataset.morePart);
-      part.hidden = !x;
-      if (x) show(run(part.querySelector('.flaps'), `${x.key}_head`, numWidth(x.value), DIGITS, true), x.value, 240);
-    });
-
-    const extrasEl = section.querySelector('[data-board-extras]');
-    if (extrasEl.children.length !== extras.length) {
-      extrasEl.replaceChildren(...extras.map(() => {
-        const row = span('board__row board__row--extra');
-        row.append(span('flaps'), span(''), span('flaps'));
-        return row;
-      }));
-      Object.keys(runs).filter((k) => k.startsWith('extra')).forEach((k) => delete runs[k]);
-    }
-    extras.forEach((x, i) => {
-      const [labelEl, , valueEl] = extrasEl.children[i].children;
-      const delay = 250 + (rows.length + i) * 140;
-      show(run(labelEl, `extra${i}l`, NAME_WIDTH, DRUM, false), x.label, delay);
-      show(run(valueEl, `extra${i}v`, Math.max(venueW, x.value.length), DIGITS, true), x.value, delay + 300);
+      show(run(nameEl, `row${i}n`, nameW, DRUM, false), r.label, delay);
+      columns.forEach((c, j) => {
+        show(run(cells[j], `row${i}c${j}`, widths[j], DIGITS, true), fmt.format(r[c.key] || 0), delay + 200 + j * 100);
+      });
     });
   }
 
@@ -217,5 +211,6 @@
       start();
     }
     setInterval(() => { if (!document.hidden) load(); }, REFRESH_MS);
+    narrow.addEventListener('change', () => render(latest));
   });
 })();
