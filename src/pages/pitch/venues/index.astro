@@ -5,20 +5,19 @@ import site from '../../../data/config.json';
 import apps from '../../../data/staff_apps.json';
 // The venue story of /pitch/: the same live board, the venue deck, and the walkthroughs a venue and its acts use.
 const guides = apps.filter((app) => app.record_url && (app.slug === 'velvet' || app.slug === 'backstage'));
-// The StaffKit apps and where each one stands. The three store apps read staff_apps.json; Arbiter and Soapbox are not in
-// the stores yet. Update the statuses when an app ships (checked 2026-11-15).
+// The StaffKit apps and where each one stands. Apps in staff_apps.json are read from it; Arbiter is added by hand until
+// it joins that list. Update the statuses when an app ships (checked 2026-11-15).
 type Status = { label: string; tone: 'live' | 'beta' | 'dev' } | null;
 const storeApps = apps.map((app) => ({
   name: app.name, image: app.image, href: `/apps/${app.slug}/`,
-  job: { focus: 'Run the scene: venues, people and events for an audience.', velvet: 'Run the venue: door, lineup, screens, chat and safety alerts.', backstage: 'Performers keep their profile and gigs current.' }[app.slug] ?? app.summary,
-  ios: (app.ios_beta ? { label: 'TestFlight beta', tone: 'beta' } : { label: 'App Store', tone: 'live' }) as Status,
+  job: { focus: 'Run the scene: venues, people and events for an audience.', velvet: 'Run the venue: door, lineup, screens, chat and safety alerts.', backstage: 'Performers keep their profile and gigs current.', soapbox: 'Local publishers post their stories to the scene.' }[app.slug] ?? app.summary,
+  ios: (!app.ios_url ? null : app.ios_beta ? { label: 'TestFlight beta', tone: 'beta' } : { label: 'App Store', tone: 'live' }) as Status,
   mac: null as Status,
-  android: (app.android_beta ? { label: 'Play beta', tone: 'beta' } : { label: 'Google Play', tone: 'live' }) as Status,
+  android: (!app.android_url ? null : app.android_beta ? { label: 'Play beta', tone: 'beta' } : { label: 'Google Play', tone: 'live' }) as Status,
 }));
 const staffApps = [
   ...storeApps,
   { name: 'Arbiter', image: '', href: 'https://apps.apple.com/us/app/arbiter-by-audiencekit/id6829078716', job: 'The AI host and chat moderation, run on your own Mac.', ios: { label: 'App Store', tone: 'live' } as Status, mac: { label: 'App Store', tone: 'live' } as Status, android: { label: 'In development', tone: 'dev' } as Status },
-  { name: 'Soapbox', image: '', href: 'https://testflight.apple.com/join/MCa8pJ6d', job: 'Local publishers post their stories to the scene.', ios: { label: 'TestFlight beta', tone: 'beta' } as Status, mac: null as Status, android: null as Status },
 ];
 const mail = `mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`;
 const pillars = [
