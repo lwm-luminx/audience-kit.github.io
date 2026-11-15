@@ -122,17 +122,19 @@
   function render(stats) {
     const venues = fmt.format(stats.venues);
     const places = fmt.format(stats.places);
-    // Board columns. Events and people are newer stats fields: each column shows once the API sends it.
+    // Board columns. Events and talent are newer stats fields: each column shows once the API sends it.
     const has = (key) => Number.isFinite(stats[key]) && stats[key] > 0;
     const columns = [
-      { key: 'places', title: 'Places', words: 'places' },
+      { key: 'places', title: 'Cities', words: 'cities' },
       { key: 'venues', title: 'Venues', words: 'venues' },
       { key: 'events', title: 'Events', words: 'events ahead' },
-      { key: 'people', title: 'People', words: 'people' },
+      { key: 'talent', title: 'Talent', words: 'talent' },
     ].filter((c) => has(c.key));
 
-    const totals = columns.filter((c) => c.key === 'events' || c.key === 'people').map((c) => `${fmt.format(stats[c.key])} ${c.words}`);
-    text('headline', [`${venues} venues in ${places} places`, ...totals].join(', '));
+    // Events are the best measure of a live scene, so the headline leads with them once the API sends them.
+    const events = has('events') ? fmt.format(stats.events) : '';
+    const talent = has('talent') ? `, with ${fmt.format(stats.talent)} talent` : '';
+    text('headline', `${events ? `${events} events at ` : ''}${venues} venues in ${places} cities${talent}`);
     if (stats.as_of) {
       const when = new Date(stats.as_of);
       if (!Number.isNaN(when.getTime())) text('as_of', `Updated ${when.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}.`);
@@ -151,6 +153,9 @@
     const numWidth = (n) => Math.max(n.length, 3);
     show(run(section.querySelector('[data-flaps="venues"]'), 'venues', numWidth(venues), DIGITS, true), venues);
     show(run(section.querySelector('[data-flaps="places"]'), 'places', numWidth(places), DIGITS, true), places, 120);
+    const headEvents = section.querySelector('[data-headline-events]');
+    headEvents.hidden = !events;
+    if (events) show(run(headEvents.querySelector('.flaps'), 'events_head', numWidth(events), DIGITS, true), events, 60);
 
     // On a narrow screen the board shows country codes, like an airport board's three-letter codes.
     const short = narrow.matches;
