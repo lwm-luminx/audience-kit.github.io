@@ -13,8 +13,8 @@
     "android_beta": false,
     "record_url": "/record/focus-app-review.pdf",
     "record_label": "Curating a scene with Focus, step by step (PDF)",
-    "more_url": "",
-    "more_label": ""
+    "more_url": "/curators/",
+    "more_label": "Focus for curators"
   },
   {
     "slug": "velvet",
@@ -30,8 +30,8 @@
     "android_beta": false,
     "record_url": "/record/velvet-app-review.pdf",
     "record_label": "One night with Velvet, step by step (PDF)",
-    "more_url": "",
-    "more_label": ""
+    "more_url": "/venues/",
+    "more_label": "Velvet for venues"
   },
   {
     "slug": "backstage",
@@ -47,8 +47,8 @@
     "android_beta": false,
     "record_url": "/record/backstage-app-review.pdf",
     "record_label": "A performer's gig in Backstage, step by step (PDF)",
-    "more_url": "",
-    "more_label": ""
+    "more_url": "/talent/",
+    "more_label": "Backstage for talent"
   },
   {
     "slug": "soapbox",

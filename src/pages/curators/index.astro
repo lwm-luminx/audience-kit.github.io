@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Default.astro';
+import site from '../../data/config.json';
+import apps from '../../data/staff_apps.json';
+import StoreButtons from '../../components/StoreButtons.astro';
+const focus = apps.find((app) => app.slug === 'focus')!;
+const mail = (subject: string) => `mailto:${site.contact_email}?subject=${encodeURIComponent(subject)}`;
+const icon = {
+  grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  star: '<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/>',
+  store: '<path d="m2 7 4.4-4.4A2 2 0 0 1 7.8 2h8.4a2 2 0 0 1 1.4.6L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M2 7h20v3a2 2 0 0 1-4 0 2 2 0 0 1-4 0 2 2 0 0 1-4 0 2 2 0 0 1-4 0 2 2 0 0 1-4 0Z"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+  qr: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/>',
+  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
+  scale: '<path d="M12 3v18M7 21h10M5 7h14M3 13l2-6 2 6a2 2 0 0 1-4 0ZM17 13l2-6 2 6a2 2 0 0 1-4 0Z"/>',
+  monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+};
+const svg = (name: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon[name as keyof typeof icon]}</svg>`;
+const curate = [
+  ['grid', 'Your scene at a glance', 'People, venues, cities, upcoming events, and what still needs curating, with open reports on the same screen.'],
+  ['star', 'People and performers', 'Add and edit performer pages, their socials and tip links, and feature them in one city or every city you cover.'],
+  ['store', 'Venues', 'Add venues, keep their name, description, website and city right, and hide one that has closed.'],
+  ['calendar', 'Events', 'Create events at your venues, feature the ones that matter, and cancel or restore a night with a confirmation first.'],
+];
+const moderate = [
+  ['chat', 'Every room, live', 'Read the whole transcript of every city and venue chat room. Post as Staff, or as the venue in its own room, and pin announcements.'],
+  ['flag', 'The report queue', 'See what members reported and whom they blocked. Remove the message, photo or ping, ban the person responsible, or dismiss it.'],
+  ['bell', 'Told the moment it happens', 'On iPhone and iPad, Focus sends a push for each new report in your audience. Tap it to open the report.'],
+];
+const grow = [
+  ['qr', 'Invite with a QR code', 'From Focus, invite someone to add their venue or performer page, or hand a performer the keys to their own page in Backstage.'],
+  ['key', 'You approve who owns a page', 'When someone asks to own a page, it waits for you to approve or decline.'],
+  ['monitor', 'The web console for the rest', 'Audience settings, payments and platform work stay in the AudienceKit web console, and Focus links straight to it.'],
+];
+const family = [
+  ['velvet', 'Venues run their nights', 'Velvet', '/venues/'],
+  ['backstage', 'Talent keep their pages', 'Backstage', '/talent/'],
+  ['soapbox', 'Publishers cover the scene', 'Soapbox', '/soapbox/'],
+  ['arbiter', 'Humans make the hard calls', 'Arbiter', '/safety/#arbiter'],
+];
+---
+<Layout title="AudienceKit for Curators" description="Focus is the AudienceKit app for the people who run a city’s or a brand’s scene: curate people, venues and events, moderate every room, and bring new venues and performers in." image="/assets/brand/focus.png">
+
+<section class="section wrap scene curators-hero" aria-labelledby="curators-title">
+  <div class="curators-art"><img src="/assets/brand/focus.png" width="768" height="768" alt={focus.alt} fetchpriority="high"></div>
+  <div class="scene-copy">
+    <p class="eyebrow">Focus · AudienceKit for curators</p>
+    <h1 id="curators-title">Bring your scene<br><em>into focus.</em></h1>
+    <p class="large-copy">For the people who run a city’s or a brand’s scene.</p>
+    <p>Every scene has someone who knows which bars matter, who’s performing where and what’s happening on Saturday. On AudienceKit that person is a curator: they run an audience, the venues, performers, events and conversations that make up a scene in <a href="https://hotmess.social">Hot Mess</a> and the other apps built on AudienceKit.</p>
+    <p>Focus is the console for that job, on your phone or iPad.</p>
+    <p class="curators-cta"><a class="button primary" href={'/apps/focus/'}>Get Focus</a><a class="text-link" href="#start">How to start <span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<section class="section capabilities" id="curate" aria-labelledby="curate-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Curate</p>
+      <h2 class="capability-title" id="curate-title">Decide what your scene looks like</h2>
+      <p class="capability-intro">What you curate is what people see when they open the app in your city: the venues on the map, the performers worth knowing and the nights worth going out for.</p>
+    </div>
+    <div class="capability-grid curators-grid-4">
+      {curate.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="moderate" aria-labelledby="moderate-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Moderate</p>
+      <h2 class="capability-title" id="moderate-title">Keep every room worth being in</h2>
+      <p class="capability-intro">Members can report messages and block people in Hot Mess. Those reports come to you, and you act on them from Focus on iPhone and iPad, or from the web console. Read more about how AudienceKit handles <a href={'/safety/'}>safety</a>.</p>
+    </div>
+    <div class="capability-grid steps">
+      {moderate.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="grow" aria-labelledby="grow-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Grow</p>
+      <h2 class="capability-title" id="grow-title">Bring the scene in with you</h2>
+      <p class="capability-intro">Curators open the door for venues and performers. Hand them their own pages and they keep them current themselves.</p>
+    </div>
+    <div class="capability-grid steps">
+      {grow.map(([i, h, p]) => (<article class="capability-card"><div class="feature__icon" set:html={svg(i)} /><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="app" aria-labelledby="app-title">
+  <div class="wrap scene">
+    <div><p class="eyebrow">The Focus app · Where it stands</p><h2 id="app-title">On the App Store<br>and Google Play.</h2></div>
+    <div class="scene-copy">
+      <ul class="curators-list">
+        <li><strong>iPhone, iPad and Android.</strong> Curate people, venues and events, and cancel or restore a night.</li>
+        <li><strong>iPhone and iPad.</strong> The overview, every chat room, the report queue and report alerts, invites by QR code and approving who owns a page.</li>
+        <li><strong>On the web.</strong> Adding cities, editing recurring series, audience settings, payments and platform work, in the AudienceKit console.</li>
+      </ul>
+      <div class="curators-store"><StoreButtons app={focus} /><a class="text-link" href={'/apps/focus/'}>audiencekit.com/apps/focus</a></div>
+      <p>Want to see it step by step? Read <a href={focus.record_url}>curating a scene with Focus (PDF)</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="family" aria-labelledby="family-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Your scene’s apps</p>
+      <h2 class="capability-title" id="family-title">You curate. Everyone else has an app too.</h2>
+      <p class="capability-intro">On iPhone and iPad, Focus shares one sign-in with the other AudienceKit staff apps, and the people you bring in land in the app made for their job.</p>
+    </div>
+    <div class="capability-grid curators-grid-4">
+      {family.map(([slug, h, name, href]) => (<a class="capability-card curators-family" href={href}><img src={`/assets/brand/${slug}.png`} width="56" height="56" alt="" loading="lazy"><h3>{name}</h3><p>{h}</p></a>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Get started</p>
+      <h2 class="capability-title" id="start-title">Curate your city</h2>
+      <p class="capability-intro">An audience’s owner gives curators access, so Focus has no public sign-up.</p>
+    </div>
+    <div class="capability-grid steps">
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Tell us about your scene</h3><p><a href={mail('Curating my scene on AudienceKit')}>Email us</a> the city or brand you curate and what you run today.</p></div>
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Get access</h3><p>Join an existing audience as a curator, or set up your own. Sign in to Focus with Facebook or Apple.</p></div>
+      <div class="capability-card step"><div class="step__num" aria-hidden="true"></div><h3>Bring people in</h3><p>Add your venues and performers, then invite them to Velvet and Backstage to run their own pages.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="curators-closing-title"><p class="eyebrow">You know your scene.</p><h2 id="curators-closing-title">Let everyone<br><em>else see it.</em></h2><p>Tell us about your city or your brand.<br>We’ll help you put it on the map.</p><a class="button primary" href={mail('Curating my scene on AudienceKit')}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
+
+<style>
+  .curators-hero { align-items: center; }
+  .curators-hero h1 { font-size: clamp(48px, 6.5vw, 84px); line-height: .98; margin-top: 8px; }
+  .curators-art img { width: 100%; max-width: 440px; height: auto; border-radius: 28px; display: block; }
+  .scene-copy p + p { margin-top: 18px; }
+  .scene-copy a:not(.button):not(.text-link), .capability-intro a, .capability-card.step a { text-decoration: underline; text-underline-offset: 4px; }
+  .curators-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 28px !important; }
+  .curators-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .curators-list { margin: 18px 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 12px; }
+  .curators-list strong { color: var(--paper); }
+  .curators-store { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin: 24px 0; }
+  .curators-family img { border-radius: 14px; display: block; margin-bottom: 14px; }
+  .curators-family:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 1000px) { .curators-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .curators-grid-4 { grid-template-columns: 1fr; } .curators-art img { max-width: 280px; } }
+</style>
