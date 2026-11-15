@@ -1,0 +1,96 @@
+---
+import Layout from '../../../layouts/Default.astro';
+import LiveStats from '../../../components/LiveStats.astro';
+import site from '../../../data/config.json';
+import apps from '../../../data/staff_apps.json';
+// The venue story of /pitch/: the same live board, the venue deck, and the walkthroughs a venue and its acts use.
+const guides = apps.filter((app) => app.record_url && (app.slug === 'velvet' || app.slug === 'backstage'));
+const mail = `mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`;
+const pillars = [
+  ['Get found', 'Hot Mess', 'Your venue page, tonight’s events and who is on stage, in the app your crowd opens to decide where to go. No outside brand ads and no ad tracking around it.'],
+  ['Run the night', 'Velvet', 'The door, the lineup, the bar TV, venue chat and safety alerts, from a phone or iPad behind the rope. Change a set time once and it changes everywhere.'],
+  ['Keep it yours', 'AudienceKit', 'Cover is paid to your own Square or Stripe account. Your guests are never sold, and nothing about them is used to target ads.'],
+];
+---
+<Layout title="AudienceKit for Venues: The Pitch" description="The venue pitch for AudienceKit: get found on Hot Mess, run the door, lineup, screens and chat from Velvet, and keep your guests and your money your own. Live numbers and a downloadable deck.">
+
+<section class="section wrap scene sov-hero" aria-labelledby="pitch-title">
+  <div>
+    <p class="eyebrow">AudienceKit · The venue pitch</p>
+    <h1 id="pitch-title">Fill the room.<br><em>Run the night.</em></h1>
+  </div>
+  <div class="scene-copy">
+    <p class="large-copy">One platform, from the listing to last call.</p>
+    <p>Most venues run the night on six tools that don’t talk: posts that land too late, a ticket site that keeps the guest list, a clipboard at the door, a staff group chat and a TV looping an old flyer. None of it shows up when someone is picking where to go tonight.</p>
+    <p>AudienceKit puts your venue where the scene already looks, runs the night from one app behind the rope, and keeps your guests and your money your own.</p>
+  </div>
+</section>
+
+<LiveStats eyebrow="Live from Hot Mess" intro="Counted from the platform as you read this, not typed into a slide. Hot Mess is in the App Store and Google Play in the US; its listings reach further." />
+
+<section class="section capabilities" id="model" aria-labelledby="model-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">One platform</p>
+      <h2 class="capability-title" id="model-title">Three jobs, one place</h2>
+      <p class="capability-intro">See every feature on the <a href={'/venues/'}>venues page</a>.</p>
+    </div>
+    <div class="capability-grid pitch-grid-3">
+      {pillars.map(([k, h, p]) => (<article class="capability-card"><p class="eyebrow">{k}</p><h3>{h}</h3><p>{p}</p></article>))}
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="downloads" aria-labelledby="downloads-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Download</p>
+      <h2 class="capability-title" id="downloads-title">Take it to your team</h2>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>Venue pitch deck</h3>
+        <p>Thirteen slides: the six-tool problem, getting found on Hot Mess, the live numbers, the door, the lineup and the bar TV, one-tap safety alerts, device codes for your staff, fair and labelled promotion, how your guests and your money stay yours, what it costs and how to start.</p>
+        <p><a class="text-link" href="/pitch/audiencekit-for-venues-deck.pdf">Download the deck (PDF, 0.6 MB) <span aria-hidden="true">↓</span></a></p>
+      </article>
+      <article class="capability-card">
+        <h3>What it costs</h3>
+        <p>A venue the Hot Mess team lists is free to list and free to run in Velvet. Cover paid in the app carries a 50¢ platform fee, and the guest pays the fees by default. Cover taken at the door has none. Promotion is optional and priced flat per city and night.</p>
+        <p><a class="text-link" href={mail}>Ask about your venue <span aria-hidden="true">↗</span></a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="walkthroughs" aria-labelledby="walkthroughs-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The apps, step by step</p>
+      <h2 class="capability-title" id="walkthroughs-title">Walk through the night</h2>
+      <p class="capability-intro">Screen-by-screen guides to the apps your door, your managers and your acts use.</p>
+    </div>
+    <div class="capability-grid">
+      {guides.map((app) => (
+        <article class="capability-card">
+          <p class="eyebrow">{app.role}</p>
+          <h3>{app.name}</h3>
+          <p>{app.summary}</p>
+          <p><a class="text-link" href={app.record_url}>{app.record_label} <span aria-hidden="true">↓</span></a></p>
+          <p><a class="text-link" href={`/apps/${app.slug}/`}>Get {app.name} <span aria-hidden="true">↗</span></a></p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section wrap closing" aria-labelledby="pitch-closing-title"><p class="eyebrow">You bring the crowd.</p><h2 id="pitch-closing-title">Let’s fill<br><em>your room.</em></h2><p>Tell us about your venue and your nights.<br>We’ll get you listed and running.</p><a class="button primary" href={mail}>Start a conversation <span aria-hidden="true">↗</span></a></section>
+
+</Layout>
+
+<style>
+  .sov-hero h1 { font-size: clamp(52px, 7vw, 88px); line-height: .98; }
+  .scene-copy p + p { margin-top: 18px; }
+  .capability-intro a { text-decoration: underline; text-underline-offset: 4px; }
+  .pitch-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .pitch-grid-3 { grid-template-columns: 1fr; } }
+</style>
