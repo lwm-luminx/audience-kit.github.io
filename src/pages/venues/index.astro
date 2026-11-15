@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Default.astro';
+import LiveStats from '../../components/LiveStats.astro';
 import site from '../../data/config.json';
 import apps from '../../data/staff_apps.json';
 const velvet = apps.find((app) => app.slug === 'velvet');
@@ -82,16 +83,7 @@ const svg = (name) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
   </div>
 </section>
 
-<section class="section capabilities" id="live" aria-labelledby="live-title" hidden data-stats-url="https://api.audiencekit.com/v1/public/audiences/hotmess/stats">
-  <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Hot Mess today</p>
-      <h2 class="capability-title" id="live-title"><span data-stat="venues"></span> venues in <span data-stat="places"></span> places</h2>
-      <p class="capability-intro">Counted from the platform as you read this. <span data-stat="as_of"></span></p>
-    </div>
-    <div class="capability-grid" data-stat="countries"></div>
-  </div>
-</section>
+<LiveStats eyebrow="Hot Mess today" intro="Counted from the platform as you read this." />
 
 <section class="section capabilities" id="door" aria-labelledby="door-title">
   <div class="wrap">
@@ -185,39 +177,6 @@ const svg = (name) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 </section>
 
 <section class="section wrap closing" aria-labelledby="venues-closing-title"><p class="eyebrow">You bring the crowd.</p><h2 id="venues-closing-title">Let’s fill<br><em>your room.</em></h2><p>Tell us about your venue and your nights.<br>We’ll get you listed and running.</p><a class="button primary" href={`mailto:${site.contact_email}?subject=AudienceKit%20for%20my%20venue`}>Start a conversation <span aria-hidden="true">↗</span></a></section>
-
-<script is:inline>
-(() => {
-  const section = document.getElementById('live');
-  if (!section) return;
-  const fmt = new Intl.NumberFormat('en-US');
-  fetch(section.dataset.statsUrl, { headers: { Accept: 'application/json' } })
-    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-    .then((stats) => {
-      if (!stats || !stats.venues || !Array.isArray(stats.countries)) return;
-      const set = (key, text) => section.querySelectorAll(`[data-stat="${key}"]`).forEach((el) => { el.textContent = text; });
-      set('venues', fmt.format(stats.venues));
-      set('places', fmt.format(stats.places));
-      if (stats.as_of) {
-        const when = new Date(stats.as_of);
-        if (!Number.isNaN(when.getTime())) set('as_of', `Updated ${when.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}.`);
-      }
-      const grid = section.querySelector('[data-stat="countries"]');
-      stats.countries.slice().sort((a, b) => b.venues - a.venues).forEach((c) => {
-        const card = document.createElement('article');
-        card.className = 'capability-card';
-        const h = document.createElement('h3');
-        h.textContent = c.name || c.code;
-        const p = document.createElement('p');
-        p.textContent = `${fmt.format(c.venues)} venues in ${fmt.format(c.places)} ${c.places === 1 ? 'place' : 'places'}`;
-        card.append(h, p);
-        grid.append(card);
-      });
-      section.hidden = false;
-    })
-    .catch(() => {});
-})();
-</script>
 
 </Layout>
 
