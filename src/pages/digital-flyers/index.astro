@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Default.astro';
+---
+<Layout title="What’s a Digital Flyer?" description="A digital flyer is a card about something happening in your city, like a food pantry, free testing or a show. It’s chosen from your city and the time, nothing else. What you hide stays on your phone.">
+
+<section class="section wrap scene sov-hero" aria-labelledby="flyer-title">
+  <div>
+    <p class="eyebrow">Digital flyers</p>
+    <h1 id="flyer-title">Your city.<br><em>The time.</em><br>Nothing else.</h1>
+  </div>
+  <div class="scene-copy">
+    <p class="large-copy">A digital flyer is like a flyer pinned up on a community board, except it’s in the app.</p>
+    <p>It might be a mobile food pantry stopping nearby this afternoon, free STI testing tonight, a support group, or a show. The flyer doesn’t know who you are. Everyone in the same city at the same moment is offered the same flyers.</p>
+    <p>That’s why every flyer says <strong>“Based on your city and the time, nothing else.”</strong> This page explains what that means.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="what-it-uses" aria-labelledby="uses-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How a flyer is chosen</p>
+      <h2 class="capability-title" id="uses-title">Two things decide which flyers you’re offered</h2>
+      <p class="capability-intro">Our server picks the flyers using only the city the app is showing you and the current time. Nothing else goes into the choice.</p>
+    </div>
+    <div class="sov-compare">
+      <article class="capability-card">
+        <p class="feature-number">WHAT CHOOSES A FLYER</p>
+        <ul>
+          <li>The city the app is showing you</li>
+          <li>The time, by our server’s clock</li>
+        </ul>
+      </article>
+      <article class="capability-card sov-never">
+        <p class="feature-number">WHAT NEVER CHOOSES A FLYER</p>
+        <ul>
+          <li>Who you are, your profile or your friends</li>
+          <li>Where you are exactly, or where you’ve been</li>
+          <li>What you’ve tapped, read, hidden or searched for</li>
+          <li>Your messages, your tribes or your history in any app</li>
+        </ul>
+      </article>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>Same city, same moment, same flyers</h3>
+        <p>Flyers change every few hours, the same way for everyone. We test for this every time we change the code: two people in the same city at the same moment must be offered exactly the same set.</p>
+      </article>
+      <article class="capability-card">
+        <h3>The flyer decides its tone, not you</h3>
+        <p>A flyer about food, housing, health coverage, a crisis line or safety reads gently. A flyer about a party can be playful. That comes from what the flyer is about, never from anything about the person reading it.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Placed by local people</h3>
+        <p>Flyers are added by the community’s organizers and the local groups they work with. A flyer is for a city, or for the whole community, never for a person.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="your-controls" aria-labelledby="controls-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Your controls</p>
+      <h2 class="capability-title" id="controls-title">What you hide stays on your phone</h2>
+      <p class="capability-intro">You can hide any flyer, or a whole kind of flyer. Those choices are saved on your phone only. They aren’t sent to us or to any analytics service.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>Hide one flyer</h3>
+        <p>Not for you? Hide it and it won’t show on your phone again.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Hide a kind of flyer</h3>
+        <p>Hide everything about food, health, safety or events, for example. Your phone remembers that. We don’t, so hiding a kind of flyer never tells anyone what you might need.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Start over any time</h3>
+        <p>Show everything again from the app’s settings. Deleting the app also clears these choices, because they were only ever kept on your phone.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section capabilities" id="resources" aria-labelledby="resources-title">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Finding help</p>
+      <h2 class="capability-title" id="resources-title">“I need…” without anyone knowing what you picked</h2>
+      <p class="capability-intro">Many flyers point to a local resource: a food pantry, a shelter, a clinic, a support line. You can also browse them yourself.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card">
+        <h3>The whole list, filtered on your phone</h3>
+        <p>The app downloads your city’s whole list of resources. When you choose “I need food” or “somewhere safe”, the list is filtered on your phone, so that choice isn’t sent to us and isn’t kept in our records or analytics.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Discreet for safety resources</h3>
+        <p>Domestic violence and stalking resources have plain, neutral titles, a quick “Leave now” button, and aren’t kept in recent history or favorites. So a glance at your phone doesn’t show what you looked at.</p>
+      </article>
+      <article class="capability-card">
+        <h3>Who it’s for, at a glance</h3>
+        <p>Resources say whether they’re LGBTQ+ affirming, youth-safe, need no ID, and whether they’re faith-based or secular, so you can tell before you go.</p>
+      </article>
+    </div>
+    <p class="flyer-urgent">If you’re in danger right now, call your local emergency number. In the US you can call or text 988 at any time to talk to someone.</p>
+  </div>
+</section>
+
+<section class="section capabilities" id="why" aria-labelledby="why-title">
+  <div class="wrap scene">
+    <div><p class="eyebrow">Why we built it this way</p><h2 id="why-title">Help should show up<br>before you need it.</h2></div>
+    <div class="scene-copy">
+      <p class="large-copy">The best time to hear about a food pantry or free testing is before it’s a crisis.</p>
+      <p>Most apps would work out who needs help by watching what people do, then target them. We think that’s exactly backwards. Someone who is struggling shouldn’t have to trade their privacy for help, and nobody should be able to tell from an app what someone else might need.</p>
+      <p>So flyers are offered to everyone in a city alike, and anything personal stays on your phone. Read more about <a href="/sovereignty/" class="flyer-link">how AudienceKit handles data</a>, or read the <a href="/privacy/" class="flyer-link">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  .sov-hero h1 { font-size: clamp(52px, 7vw, 88px); line-height: .98; }
+  .sov-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; margin-bottom: 24px; }
+  .sov-compare ul { margin: 16px 0 0; padding-left: 1.2em; color: var(--muted); display: grid; gap: 10px; }
+  .sov-compare li { font-size: 17px; color: var(--paper); }
+  .sov-never { background: #efc78108; }
+  .scene-copy strong { color: var(--paper); }
+  .scene-copy p + p { margin-top: 18px; }
+  .flyer-urgent { margin-top: 32px; color: var(--muted); font-size: 17px; max-width: 70ch; }
+  .flyer-link { text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 760px) { .sov-compare { grid-template-columns: 1fr; } }
+</style>
