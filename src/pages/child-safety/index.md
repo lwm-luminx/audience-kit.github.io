@@ -25,12 +25,18 @@ AudienceKit hosts event photos, talent and profile photos, and posters.
 
 ## Hash-matching of uploaded images
 
-We are integrating hash-matching technology, such as Microsoft PhotoDNA, into AudienceKit. Once it is live, every image uploaded to AudienceKit or Hot Mess, including event photos, talent and profile photos, posters and images shared in chat, is checked against lists of hashes of known CSAM as soon as it is uploaded. A match is hidden from everyone at once and goes to our child safety reviewers. We don't use any system that guesses what a picture shows; matching uses only lists of known material.
+Every image uploaded to AudienceKit or an app built on it, including event photos, talent and profile photos, posters and images shared in chat, is checked against lists of hashes (digital fingerprints) of known CSAM as soon as it is uploaded.
+
+- **Arachnid Shield.** We check images with Arachnid Shield, from the Canadian Centre for Child Protection (C3P), the charity that runs [Project Arachnid](https://projectarachnid.ca/). It compares each image with the material Project Arachnid's analysts have verified, both exactly and by PhotoDNA near-matching, and tells us only whether it matches.
+- **Microsoft PhotoDNA.** We have applied for Microsoft's PhotoDNA Cloud Service and will add it as a further check once Microsoft approves us.
+
+A match is hidden from everyone at once and goes to our child safety reviewers. We don't use any system that guesses what a picture shows; matching uses only lists of known material. Videos shared in chat aren't checked automatically yet; reports and moderation cover them.
 
 ## What we do when we find CSAM
 
 - We remove the content and hide it from everyone at once.
 - We permanently ban the accounts involved.
+- If C3P's Project Arachnid, or another child protection hotline, sends us a notice about material on our service, we remove it at once and treat it as a case like any other.
 - A trained reviewer looks at every case, and we report apparent CSAM to the National Center for Missing & Exploited Children (NCMEC) CyberTipline, as US law requires (18 U.S.C. § 2258A).
 - We preserve the material and the related account information in restricted storage for as long as the law requires, and longer when law enforcement asks us to. Only our designated child safety reviewers can open it.
 
@@ -39,7 +45,7 @@ We are integrating hash-matching technology, such as Microsoft PhotoDNA, into Au
 - **In the app:** use **Report** on the message, photo or person.
 - **By email:** write to [rick@lovewins.media](mailto:rick@lovewins.media?subject=Child%20safety%20report) with the subject "Child safety report". This mailbox is monitored.
 
-We treat child safety reports as our top priority and review every report within 24 hours. If a child is in immediate danger, contact local emergency services first. In the US you can also report directly to the [NCMEC CyberTipline](https://report.cybertip.org/).
+We treat child safety reports as our top priority and review every report within 24 hours. If a child is in immediate danger, contact local emergency services first. In the US you can also report directly to the [NCMEC CyberTipline](https://report.cybertip.org/), and in Canada to [Cybertip.ca](https://www.cybertip.ca/).
 
 ## Law enforcement
 
