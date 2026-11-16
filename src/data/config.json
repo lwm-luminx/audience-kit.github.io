@@ -12,5 +12,7 @@
   "legal_updated": "2026-11-14",
   "parent_name": "Love Wins Media",
   "parent_url": "https://lovewins.media",
-  "legal_address": "9407 NE Vancouver Mall Dr, Ste 104 #5436, Vancouver, WA 98662"
+  "legal_address": "9407 NE Vancouver Mall Dr, Ste 104 #5436, Vancouver, WA 98662",
+  "contact_api": "https://api.audiencekit.com/v1/public/contact",
+  "turnstile_site_key": ""
 }
