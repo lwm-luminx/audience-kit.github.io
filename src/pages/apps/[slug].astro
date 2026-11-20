@@ -25,6 +25,7 @@ const { app } = Astro.props;
     <p class="large-copy">{app.summary}</p>
     <p>{app.blurb}</p>
     <StoreButtons app={app} />
+    {app.mac_download_note && <p class="store-note">{app.mac_download_note}</p>}
     {app.more_url && <p><a class="text-link" href={app.more_url}>{app.more_label} <span aria-hidden="true">→</span></a></p>}
     {app.record_url && <p><a class="text-link" href={app.record_url}>{app.record_label} <span aria-hidden="true">↗</span></a></p>}
     <div class="app-share">

@@ -14,4 +14,10 @@ const { app } = Astro.props;
     <span><small>{app.android_beta ? "Android beta on" : "Get it on"}</small>Google Play</span>
   </a>
   ) : app.android_note && <p class="store-note">{app.android_note}</p>}
+  {app.mac_download_url && (
+  <a class="store-button" href={app.mac_download_url} data-platform="mac" download>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg>
+    <span><small>Download for Mac</small>{app.mac_download_name}</span>
+  </a>
+  )}
 </div>
