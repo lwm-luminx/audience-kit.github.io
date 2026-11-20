@@ -4,6 +4,9 @@
 /b/* /invite/backstage/?code=:splat 302
 # /v?code=… and /b?code=…: the App Store Connect experience URLs; the query string carries over.
 /v /invite/velvet/ 302
+
+# A TV's pairing QR code (Velvet on Apple TV shows it). Velvet opens these on an iPhone; anywhere else the page says how.
+/pair/* /tv/connect/?code=:splat 302
 /b /invite/backstage/ 302
 
 # The Mac download was renamed Velvet.zip (2026-11-20); old links still work.
