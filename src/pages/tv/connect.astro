@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Default.astro';
+import StoreButtons from '../../components/StoreButtons.astro';
+import apps from '../../data/staff_apps.json';
+// Where a TV's pairing QR code (audiencekit.com/pair/<code>, see public/_redirects) lands when Velvet didn't open it:
+// Velvet isn't installed, or it was scanned with something other than an iPhone.
+const app = apps.find(item => item.slug === 'velvet');
+if (!app) throw new Error('No staff app velvet');
+---
+<Layout title="Connect a TV to Velvet" description="Approve a TV showing Velvet’s pairing code from your phone." image={app.image} noindex>
+<section class="app-page wrap" aria-labelledby="pair-title">
+  <div class="app-page-art"><img src={app.image} alt={app.alt} width="1254" height="1254" fetchpriority="high"></div>
+  <div class="app-page-copy">
+    <p class="eyebrow">Velvet on Apple TV</p>
+    <h1 id="pair-title">Connect this TV</h1>
+    <p class="large-copy">A TV running Velvet is asking to show a venue’s night. A venue manager approves it in Velvet on their iPhone or iPad.</p>
+    <p id="pair-code" hidden>The TV’s code is <strong data-code></strong>.</p>
+    <ol class="pair-steps">
+      <li>Install Velvet and sign in as a manager of the venue.</li>
+      <li>Scan the code on the TV with the iPhone’s Camera, or in Velvet open the venue’s Settings › Devices & codes › Scan the screen’s code.</li>
+      <li>Choose what the TV may show, then tap Connect this screen.</li>
+    </ol>
+    <StoreButtons app={app} />
+    <p class="app-note">Codes change every ten minutes. If this one has ended, the TV is already showing a new one.</p>
+  </div>
+</section>
+<script is:inline>
+  (function () {
+    var code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^0-9A-Z]/g, '');
+    if (code.length !== 8) return;
+    document.querySelector('[data-code]').textContent = code.slice(0, 4) + '-' + code.slice(4);
+    document.getElementById('pair-code').hidden = false;
+  })();
+</script>
+</Layout>
+
+<style>
+  .pair-steps { margin: 1rem 0 1.5rem; padding-left: 1.25rem; display: grid; gap: .5rem; }
+</style>
