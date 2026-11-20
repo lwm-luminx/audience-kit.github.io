@@ -24,7 +24,7 @@ if (!app) throw new Error('No staff app velvet');
     <p class="app-note">Codes change every ten minutes. If this one has ended, the TV is already showing a new one.</p>
   </div>
 </section>
-<script>
+<script is:inline>
   (function () {
     var code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^0-9A-Z]/g, '');
     if (code.length !== 8) return;
