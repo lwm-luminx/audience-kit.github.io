@@ -5,3 +5,6 @@
 # /v?code=… and /b?code=…: the App Store Connect experience URLs; the query string carries over.
 /v /invite/velvet/ 302
 /b /invite/backstage/ 302
+
+# The Mac download was renamed Velvet.zip (2026-11-20); old links still work.
+/downloads/VelvetDisplay.zip /downloads/Velvet.zip 301
