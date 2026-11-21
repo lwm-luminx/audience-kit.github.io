@@ -1,0 +1,49 @@
+{
+  "slides": [
+    {
+      "id": "ak-join-the-chat",
+      "image": "/marquee/ak-join-the-chat.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-request-a-song",
+      "image": "/marquee/ak-request-a-song.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-tag-us",
+      "image": "/marquee/ak-tag-us.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-be-kind",
+      "image": "/marquee/ak-be-kind.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-ask-first",
+      "image": "/marquee/ak-ask-first.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-drink-water",
+      "image": "/marquee/ak-drink-water.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-find-staff",
+      "image": "/marquee/ak-find-staff.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-get-home-safe",
+      "image": "/marquee/ak-get-home-safe.jpg",
+      "adult": false
+    },
+    {
+      "id": "ak-your-night",
+      "image": "/marquee/ak-your-night.jpg",
+      "adult": false
+    }
+  ]
+}
