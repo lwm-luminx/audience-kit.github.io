@@ -15,6 +15,7 @@ if (!app) throw new Error('No staff app velvet');
     <h1 id="pair-title">Connect this TV</h1>
     <p class="large-copy">A TV running Velvet is asking to show a venue’s night. A venue manager approves it in Velvet on their iPhone or iPad.</p>
     <p id="pair-code" hidden>The TV’s code is <strong data-code></strong>.</p>
+    <p id="pair-open" hidden><a class="button primary" data-open href="audiencekit-velvet://pair">Open in Velvet</a></p>
     <ol class="pair-steps">
       <li>Install Velvet and sign in as a manager of the venue.</li>
       <li>Scan the code on the TV with the iPhone’s Camera, or in Velvet open the venue’s Settings › Devices & codes › Scan the screen’s code.</li>
@@ -30,6 +31,9 @@ if (!app) throw new Error('No staff app velvet');
     if (code.length !== 8) return;
     document.querySelector('[data-code]').textContent = code.slice(0, 4) + '-' + code.slice(4);
     document.getElementById('pair-code').hidden = false;
+    // Velvet installed but the Camera opened this page: hand the code to Velvet by its own scheme.
+    document.querySelector('[data-open]').href = 'audiencekit-velvet://pair?code=' + code;
+    document.getElementById('pair-open').hidden = false;
   })();
 </script>
 </Layout>
