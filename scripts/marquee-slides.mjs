@@ -34,7 +34,7 @@ const figtree = (await readFile(join(root, 'public/assets/fonts/Figtree-Variable
 
 const html = ([, kicker, headline, sub, look]) => {
   const l = looks[look];
-  const h = headline.replace(/\*(.+?)\*/g, '<em>$1</em>').replace('|', '<br>');
+  const h = headline.replace(/\*(.+?)\*/g, '<em>$1</em>').replaceAll('|', '<br>');
   return `<!doctype html><meta charset="utf-8"><style>
 @font-face { font-family: Figtree; src: url('data:font/woff2;base64,${figtree}'); font-weight: 300 900; }
 * { box-sizing: border-box; }
