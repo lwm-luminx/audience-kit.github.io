@@ -3,7 +3,7 @@ import Layout from '../../layouts/Default.astro';
 import StoreButtons from '../../components/StoreButtons.astro';
 import apps from '../../data/staff_apps.json';
 // Where a TV's pairing QR code (audiencekit.com/pair/<code>, see public/_redirects) lands when Velvet didn't open it:
-// Velvet isn't installed, or it was scanned with something other than an iPhone.
+// Velvet isn't installed, or the phone hasn't verified the link yet (iPhone universal links, Android App Links).
 const app = apps.find(item => item.slug === 'velvet');
 if (!app) throw new Error('No staff app velvet');
 ---
@@ -13,12 +13,12 @@ if (!app) throw new Error('No staff app velvet');
   <div class="app-page-copy">
     <p class="eyebrow">Velvet on Apple TV</p>
     <h1 id="pair-title">Connect this TV</h1>
-    <p class="large-copy">A TV running Velvet is asking to show a venue’s night. A venue manager approves it in Velvet on their iPhone or iPad.</p>
+    <p class="large-copy">A TV running Velvet is asking to show a venue’s night. A venue manager approves it in Velvet on their iPhone, iPad or Android phone.</p>
     <p id="pair-code" hidden>The TV’s code is <strong data-code></strong>.</p>
     <p id="pair-open" hidden><a class="button primary" data-open href="audiencekit-velvet://pair">Open in Velvet</a></p>
     <ol class="pair-steps">
       <li>Install Velvet and sign in as a manager of the venue.</li>
-      <li>Scan the code on the TV with the iPhone’s Camera, or in Velvet open the venue’s Settings › Devices & codes › Scan the screen’s code.</li>
+      <li>Scan the code on the TV with the phone’s camera, or in Velvet open the venue’s Settings › Devices & codes › Scan the screen’s code.</li>
       <li>Choose what the TV may show, then tap Connect this screen.</li>
     </ol>
     <StoreButtons app={app} />
