@@ -1,0 +1,24 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.audiencekit.Velvet",
+      "sha256_cert_fingerprints": [
+        "05:41:07:58:B2:99:6C:25:C9:E7:4A:43:04:FD:EE:E8:93:BF:24:C8:CA:33:70:24:86:B3:1B:05:8E:3A:A3:8F",
+        "0F:C6:22:13:33:8D:37:CE:35:E7:35:2C:97:0B:0F:99:A4:6D:2E:4A:52:0A:F6:D1:F3:C3:0A:69:3B:22:18:83",
+        "6F:83:75:19:F2:C2:B8:8F:00:9C:CE:4C:1A:CF:3A:75:24:5F:09:4A:DC:A4:FD:60:B1:72:4C:9F:82:4C:CB:C0"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.audiencekit.Velvet.next",
+      "sha256_cert_fingerprints": [
+        "84:56:89:80:4D:BE:C5:94:12:99:FF:C1:20:E1:84:55:88:CA:3A:C8:21:F8:15:1A:4E:7D:58:C0:D2:33:F5:A5"
+      ]
+    }
+  }
+]

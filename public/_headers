@@ -1,3 +1,7 @@
 # Apple fetches this through its CDN: JSON, no redirects.
 /.well-known/apple-app-site-association
   Content-Type: application/json
+
+# Android's App Links verifier fetches this: JSON, no redirects.
+/.well-known/assetlinks.json
+  Content-Type: application/json
