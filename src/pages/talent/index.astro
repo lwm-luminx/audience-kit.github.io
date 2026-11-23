@@ -26,11 +26,11 @@ const icon = {
 const svg = (name: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon[name as keyof typeof icon]}</svg>`;
 const found = [
   ['user', 'Your own page', 'Your name, photo, Instagram and TikTok on a performer page in Hot Mess, linked from every night you play.'],
-  ['pin', 'On the lineup, where people look', 'Your appearances show on the venue’s page, the event and the city’s Tonight view, so fans find you on the night.'],
+  ['pin', 'On the lineup, where people look', 'Your appearances show on the venue’s page, the event and the city’s Tonight view. KJs, DJs and VJs show by role, and when you’re the only one on a night, you’re its host.'],
   ['image', 'Posters with your approved photo', 'When you headline, the venue can make story, feed and print posters from the photo you approved.'],
 ];
 const app = [
-  ['heart', 'Tips go straight to you', 'Keep your Cash App and Venmo links current. Fans tip you in those apps. AudienceKit takes no part in the payment and no cut.'],
+  ['heart', 'Tips go straight to you', 'Keep your Cash App and Venmo links current. Fans tip you in those apps. AudienceKit takes no part in the payment and charges no commission on it.'],
   ['calendar', 'See where you’re on', 'Every upcoming appearance on your listing, with the venue, the time and the event details.'],
   ['bell', 'A nudge before you’re on', 'Turn on reminders for a night and your phone alerts you a day, three hours and fifteen minutes before.'],
   ['repeat', 'Set up your residencies', 'A weekly show or a first-Friday night, with time, length, description and ticket link. One-off changes and skipped dates are kept.'],
@@ -43,14 +43,14 @@ const together = [
   ['flag', 'Report and block', 'Long-press anyone’s message to report it or block them. Reports go to the people who run that city, who act on them.'],
 ];
 ---
-<Layout title="AudienceKit for Talent" description="Backstage is the AudienceKit app for performers, hosts, DJs and collectives: keep your page and tip links current, set up your residencies, get reminded before you’re on, and talk to your crowd." image="/assets/brand/backstage.png">
+<Layout title="AudienceKit for Talent" description="Backstage is the AudienceKit app for performers, hosts, KJs, DJs, VJs and collectives: keep your page and tip links current, set up your residencies, get reminded before you’re on, and talk to your crowd." image="/assets/brand/backstage.png">
 
 <section class="section wrap scene talent-hero" aria-labelledby="talent-title">
   <div class="talent-art"><img src="/assets/brand/backstage.png" width="768" height="768" alt={backstage.alt} fetchpriority="high"></div>
   <div class="scene-copy">
     <p class="eyebrow">Backstage · AudienceKit for talent</p>
     <h1 id="talent-title">You make<br><em>the scene.</em></h1>
-    <p class="large-copy">For performers, hosts, DJs and collectives.</p>
+    <p class="large-copy">For performers, hosts, KJs, DJs, VJs and collectives.</p>
     <p>Drag artists, DJs, hosts and the troupes behind every night out are why people go. Backstage keeps your page, your nights and your tip links current across <a href="https://hotmess.social">Hot Mess</a> and the other apps built on AudienceKit, so the people who love your work can find you, show up and tip you.</p>
     <p>Your page is yours, your fans are yours, and your tips are all yours.</p>
     <p class="talent-cta"><a class="button primary" href={'/apps/backstage/'}>Get Backstage</a><a class="text-link" href="#start">How to get on <span aria-hidden="true">→</span></a></p>
