@@ -5,8 +5,11 @@
 # /v?code=… and /b?code=…: the App Store Connect experience URLs; the query string carries over.
 /v /invite/velvet/ 302
 
-# A TV's pairing QR code (Velvet on Apple TV shows it). Velvet opens these on an iPhone; anywhere else the page says how.
-/pair/* /tv/connect/?code=:splat 302
+# A TV's pairing QR code and the address it shows for typing its code (Velvet on Apple TV, Google TV and Samsung TV).
+# Both open AudienceKit's console in the browser, where a venue manager signs in and approves the TV: no app to install
+# (App Store guideline 3.1.1 and 2.1(a), 2026-11-25). Velvet on a phone approves codes too, from Scan the screen's code.
+/pair/* https://admin.audiencekit.com/pair/:splat 302
+/pair https://admin.audiencekit.com/pair 302
 /b /invite/backstage/ 302
 
 # The Mac download was renamed Velvet.zip (2026-11-20); old links still work.

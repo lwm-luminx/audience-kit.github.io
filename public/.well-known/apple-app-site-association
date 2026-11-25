@@ -5,8 +5,7 @@
         "appIDs": ["DWVXMLB45Y.com.audiencekit.Velvet", "DWVXMLB45Y.com.audiencekit.Velvet.next"],
         "components": [
           { "/": "/v/*", "comment": "Velvet onboarding invites" },
-          { "/": "/v", "?": { "code": "?*" }, "comment": "Velvet onboarding invites, code as a query item" },
-          { "/": "/pair/*", "comment": "A TV's pairing QR code, approved in Velvet" }
+          { "/": "/v", "?": { "code": "?*" }, "comment": "Velvet onboarding invites, code as a query item" }
         ]
       },
       {
