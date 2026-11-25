@@ -27,6 +27,10 @@ if (!app) throw new Error('No staff app velvet');
 </section>
 <script is:inline>
   (function () {
+    // Approving now happens in the browser, in AudienceKit's console (audiencekit.com/pair goes there directly); an old
+    // link to this page goes on too, keeping its code.
+    var raw = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^0-9A-Z]/g, '');
+    location.replace('https://admin.audiencekit.com/pair' + (raw.length === 8 ? '/' + raw.slice(0, 4) + '-' + raw.slice(4) : ''));
     var code = (new URLSearchParams(location.search).get('code') || '').toUpperCase().replace(/[^0-9A-Z]/g, '');
     if (code.length !== 8) return;
     document.querySelector('[data-code]').textContent = code.slice(0, 4) + '-' + code.slice(4);
