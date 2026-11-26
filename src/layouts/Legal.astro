@@ -2,24 +2,40 @@
 import Layout from './Default.astro';
 import site from '../data/config.json';
 const { frontmatter } = Astro.props;
-const updated = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(site.legal_updated));
+// Optional frontmatter: `lang` (default "en") and `translations`, a list of
+// { lang, label, href } for the same document in other languages.
+const lang = frontmatter.lang ?? 'en';
+const translations: { lang: string; label: string; href: string }[] = frontmatter.translations ?? [];
+const self = new URL(Astro.url.pathname, site.url).pathname;
+const alternates = translations.length ? [{ lang, href: self }, ...translations.map((t) => ({ lang: t.lang, href: t.href }))] : [];
+const labels = {
+  en: { legal: 'Legal', updated: 'Last updated', nav: 'Legal', privacy: 'Privacy policy', terms: 'Terms of service', childSafety: 'Child safety', imageRemoval: 'Remove an intimate image', deletion: 'Delete your data', accessibility: 'Accessibility', contact: 'Contact' },
+  ko: { legal: '법적 고지', updated: '최종 업데이트', nav: '법적 고지', privacy: '개인정보 처리방침', terms: '서비스 약관 (영문)', childSafety: '아동 안전 (영문)', imageRemoval: '친밀한 이미지 삭제 요청 (영문)', deletion: '데이터 삭제 (영문)', accessibility: '접근성 (영문)', contact: '문의 (영문)' },
+}[lang === 'ko' ? 'ko' : 'en'];
+const privacyHref = lang === 'ko' ? '/ko/privacy/' : '/privacy/';
+const updated = new Intl.DateTimeFormat(lang === 'ko' ? 'ko-KR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(site.legal_updated));
 ---
-<Layout title={frontmatter.title} description={frontmatter.description}>
-  <article class="wrap legal">
+<Layout title={frontmatter.title} description={frontmatter.description} lang={lang} alternates={alternates}>
+  <article class="wrap legal" lang={lang}>
     <header class="legal__head">
-      <p class="caption">Legal</p>
+      <p class="caption">{labels.legal}</p>
       <h1 class="title">{frontmatter.title}</h1>
-      <p class="body-sm muted">Last updated {updated}</p>
+      <p class="body-sm muted">{labels.updated} {updated}</p>
+      {translations.length > 0 && (
+        <p class="body-sm muted">
+          {translations.map((t, i) => <>{i > 0 && ' · '}<a href={t.href} hreflang={t.lang} lang={t.lang}>{t.label}</a></>)}
+        </p>
+      )}
     </header>
     <div class="card prose"><slot /></div>
-    <nav class="legal__nav body-sm" aria-label="Legal">
-      <a href="/privacy/">Privacy policy</a>
-      <a href="/terms/">Terms of service</a>
-      <a href="/child-safety/">Child safety</a>
-      <a href="/image-removal/">Remove an intimate image</a>
-      <a href="/data-deletion/">Delete your data</a>
-      <a href="/accessibility/">Accessibility</a>
-      <a href="/contact/">Contact</a>
+    <nav class="legal__nav body-sm" aria-label={labels.nav}>
+      <a href={privacyHref}>{labels.privacy}</a>
+      <a href="/terms/">{labels.terms}</a>
+      <a href="/child-safety/">{labels.childSafety}</a>
+      <a href="/image-removal/">{labels.imageRemoval}</a>
+      <a href="/data-deletion/">{labels.deletion}</a>
+      <a href="/accessibility/">{labels.accessibility}</a>
+      <a href="/contact/">{labels.contact}</a>
     </nav>
   </article>
 </Layout>

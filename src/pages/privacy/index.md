@@ -2,6 +2,10 @@
 layout: ../../layouts/Legal.astro
 title: Privacy policy
 description: How AudienceKit and the apps built on it, including Hot Mess and Hack Different, collect, use and delete your information.
+translations:
+  - lang: ko
+    label: 한국어
+    href: /ko/privacy/
 ---
 
 This policy explains what information Love Wins Media, Inc. ("we", "us") collects when you use AudienceKit and the community apps built on it, and what we do with it. It covers our websites, the AudienceKit admin console, and every audience app we run on the platform, including **Hot Mess** (hotmess.social) on iPhone, Android, the web and Alexa, and **Hack Different** (hackdiffe.rent), the community app for hackerspaces, security meetups and hacker conferences, on iPhone and Android. In this policy, "the apps" means all of these.
