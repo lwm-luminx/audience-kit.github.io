@@ -26,6 +26,12 @@ const { app } = Astro.props;
     <p>{app.blurb}</p>
     <StoreButtons app={app} />
     {app.mac_download_note && <p class="store-note">{app.mac_download_note}</p>}
+    {app.companion_url && (
+    <div id={app.companion_name.toLowerCase()}>
+      <p><a class="store-button" href={app.companion_url} data-platform="mac" download><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg><span><small>Download for Mac</small>{app.companion_name}</span></a></p>
+      <p class="store-note">{app.companion_note}</p>
+    </div>
+    )}
     {app.more_url && <p><a class="text-link" href={app.more_url}>{app.more_label} <span aria-hidden="true">→</span></a></p>}
     {app.record_url && <p><a class="text-link" href={app.record_url}>{app.record_label} <span aria-hidden="true">↗</span></a></p>}
     <div class="app-share">
